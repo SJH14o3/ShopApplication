@@ -11,8 +11,12 @@ public class Main extends Application{
         launch(args);
     }
     @Override
-    public void start (Stage stage) throws IOException {
-        new Menu(stage);
+    public void start (Stage stage) {
+        try {
+            new Menu(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         stage.setTitle("Shop Application");
         stage.setResizable(false);
         stage.getIcons().add(new Image("icon.png"));

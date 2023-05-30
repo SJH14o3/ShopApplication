@@ -1,7 +1,5 @@
 package source.application;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,9 +25,9 @@ public class ControllerMenu implements Initializable {
     @FXML
     private CheckBox allBrands, b1, b2, b3, b4, b5, b6; //rahe sade bara arraye kardan peyda nakardam vegarna kheyli behtar bood.
 
-    private String[] categories = {"All", "Dairy", "Proteins", "Drinks", "Snacks"};
+    private final String[] categories = {"All", "Dairy", "Proteins", "Drinks", "Snacks"};
 
-    public void sortBy(ActionEvent event){
+    public void sortBy(){
         if (r1.isSelected()) {
             System.out.println("Sort by: Most Expensive");
         }
@@ -41,7 +39,7 @@ public class ControllerMenu implements Initializable {
         }
     }
     private String brandsToString() {
-        StringBuffer str;
+        StringBuilder str;
         if (allBrands.isSelected()) {
             return "all";
         }
@@ -65,7 +63,7 @@ public class ControllerMenu implements Initializable {
             if (b6.isSelected()) {
                 count++;
             }
-            str = new StringBuffer();
+            str = new StringBuilder();
 
             if (b1.isSelected()) {
                 str.append("Brand A");
@@ -109,14 +107,14 @@ public class ControllerMenu implements Initializable {
         return str.toString();
     }
 
-    public void applyFilter(ActionEvent event){
+    public void applyFilter(){
         System.out.println("Applied Filter:\n"
         + "Minimum price: " + minNum + "\n"
         + "Maximum price: " + maxNum + "\n"
-        + "brands: " + brandsToString() + "\n"
+        + "Selected brands: " + brandsToString() + "\n"
         );
     }
-    public void uncheckBrands(ActionEvent event){
+    public void uncheckBrands(){
         if (!allBrands.isSelected()) {
             allBrands.setSelected(false);
         }
@@ -142,7 +140,7 @@ public class ControllerMenu implements Initializable {
             }
         }
     }
-    public void checkBrands(ActionEvent event){
+    public void checkBrands(){
         if (allBrands.isSelected()) {
             allBrands.setSelected(false);
         }
@@ -155,19 +153,13 @@ public class ControllerMenu implements Initializable {
         minText.setText(Integer.toString(minNum));
         maxText.setText(Integer.toString(maxNum));
 
-        min.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                minNum = (int) min.getValue();
-                minText.setText(Integer.toString(minNum));
-            }
+        min.valueProperty().addListener((observableValue, number, t1) -> {
+            minNum = (int) min.getValue();
+            minText.setText(Integer.toString(minNum));
         });
-        max.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                maxNum = (int) max.getValue();
-                maxText.setText(Integer.toString(maxNum));
-            }
+        max.valueProperty().addListener((observableValue, number, t1) -> {
+            maxNum = (int) max.getValue();
+            maxText.setText(Integer.toString(maxNum));
         });
         category.getItems().addAll(categories);
         category.setValue(categories[0]);
