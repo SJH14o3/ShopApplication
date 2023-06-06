@@ -17,9 +17,12 @@ public class Main extends Application{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        stage.setHeight(960);
+        stage.setWidth(1280);
         stage.setTitle("Shop Application");
         stage.setResizable(false);
         stage.getIcons().add(new Image("icon.png"));
         stage.show();
+
     }
 }
