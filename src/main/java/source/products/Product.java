@@ -61,15 +61,36 @@ public class Product {
         score = (totalScore / voteCount);
         //TODO: implement the code to update the score in database
     }
-     public Product(int id, String name, String brand, int price, int quantity, String imageAddress,int type,String description) {
+    //it might not be useful, just in case we needed it
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Product temp) {
+            return temp.id == this.id;
+        }
+        return false;
+    }
+    //only for testing purposes
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Product ID: ").append(id).append("\nName: ").append(name).append("\nBrand: ").append(brand).append("\nPrice: ").append(price);
+        stringBuilder.append("\nQuantity: ").append(quantity).append("\nImage Address: ").append(imageAddress).append("\nScore: ").append(score);
+        stringBuilder.append("\nVote Count: ").append(voteCount).append("\nType: ").append(type).append("\nDescription: ").append(description);
+        //TODO stringBuilder says what type of product we have in its name not in its ID.
+        return stringBuilder.toString();
+    }
+
+    public Product(int id, String name, String brand, int price, int quantity, String imageAddress, double score, int voteCount, int type, String description) {
         this.id = id;
         this.name = name;
         this.brand = brand;
         this.price = price;
         this.quantity = quantity;
         this.imageAddress = imageAddress;
+        this.score = score;
         this.type = type;
         this.description = description;
+        this.voteCount = voteCount;
     }
     public Product(String name, String brand, int price, int quantity, String imageAddress,int type, String description) {
         this.name = name;
