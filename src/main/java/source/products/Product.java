@@ -3,13 +3,13 @@ package source.products;
 public class Product {
 
     private int id;
-    private String name;
-    private String brand;
-    private int quantity;
-    private int price;
-    private int type;
-    private String imageAddress;
-    private String description;
+    private final String name;
+    private final String brand;
+    private final int quantity;
+    private final double price;
+    private final int type;
+    private final String imageAddress;
+    private final String description;
     private double score;
     private int voteCount;
 
@@ -21,7 +21,7 @@ public class Product {
         return quantity;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -58,7 +58,7 @@ public class Product {
         int totalScore = (int) (score * voteCount);
         totalScore += newScore;
         voteCount++;
-        score = (totalScore / voteCount);
+        score = (double) totalScore / voteCount;
         //TODO: implement the code to update the score in database
     }
     //it might not be useful, just in case we needed it
@@ -69,18 +69,52 @@ public class Product {
         }
         return false;
     }
+    public String typeToString() {
+        switch (type){
+            case 1 -> {
+                return "Vegetables";
+            }
+            case 2 -> {
+                return "Fruits";
+            }
+            case 3 -> {
+                return "Dried Fruits";
+            }
+            case 4 -> {
+                return "Proteins";
+            }
+            case 5 -> {
+                return "Sweets";
+            }
+            case 6 -> {
+                return "Groceries";
+            }
+            case 7 -> {
+                return "Dairy";
+            }
+            case 8 -> {
+                return "Beverages";
+            }
+            case 9 -> {
+                return "Snacks";
+            }
+            case 10 -> {
+                return "Breakfast";
+            }
+            default -> {
+            }
+        }
+        return "";
+    }
     //only for testing purposes
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Product ID: ").append(id).append("\nName: ").append(name).append("\nBrand: ").append(brand).append("\nPrice: ").append(price);
-        stringBuilder.append("\nQuantity: ").append(quantity).append("\nImage Address: ").append(imageAddress).append("\nScore: ").append(score);
-        stringBuilder.append("\nVote Count: ").append(voteCount).append("\nType: ").append(type).append("\nDescription: ").append(description);
-        //TODO stringBuilder says what type of product we have in its name not in its ID.
-        return stringBuilder.toString();
+        return "Product ID: " + id + "\nName: " + name + "\nBrand: " + brand + "\nPrice: " + price +
+                "\nQuantity: " + quantity + "\nImage Address: " + imageAddress + "\nScore: " + score +
+                "\nVote Count: " + voteCount + "\nType: " + typeToString() + "\nDescription: " + description;
     }
 
-    public Product(int id, String name, String brand, int price, int quantity, String imageAddress, double score, int voteCount, int type, String description) {
+    public Product(int id, String name, String brand, double price, int quantity, String imageAddress, double score, int voteCount, int type, String description) {
         this.id = id;
         this.name = name;
         this.brand = brand;
@@ -92,7 +126,7 @@ public class Product {
         this.description = description;
         this.voteCount = voteCount;
     }
-    public Product(String name, String brand, int price, int quantity, String imageAddress,int type, String description) {
+    public Product(String name, String brand, double price, int quantity, String imageAddress,int type, String description) {
         this.name = name;
         this.brand = brand;
         this.price = price;
