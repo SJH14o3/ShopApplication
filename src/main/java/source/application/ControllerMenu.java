@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import source.products.Product;
-import static source.products.productDataBase.*;
+import static source.products.ProductDataBase.*;
 import static source.Global.*;
 
 import java.net.URL;
@@ -39,7 +39,7 @@ public class ControllerMenu implements Initializable {
     ChoiceBox<String> sortBox;
     @FXML
     AnchorPane mainAnchorPane, productScroll;
-    private final String[] sortOptions = {"Oldest", "Newest", "Cheapest", "Most Expensive", "Rating"};
+    private final String[] sortOptions = {"Newest", "Oldest", "Cheapest", "Most Expensive", "Rating"};
     private void hideAnchors(int in) {
         int i = 50;
         anchor49.setVisible(false);
@@ -1025,7 +1025,7 @@ public class ControllerMenu implements Initializable {
         productScroll.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 1.0), null, Insets.EMPTY)));
 
         sortBox.getItems().addAll(sortOptions);
-        sortBox.setValue("Oldest");
+        sortBox.setValue("Newest");
         sortBox.setOnAction(this::sort);
         //TODO implement the part when there are more than 50 products
         //this commented codes are used to

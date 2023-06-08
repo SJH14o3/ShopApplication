@@ -2,7 +2,7 @@ package source.products;
 
 import java.sql.*;
 
-public class productDataBase {
+public class ProductDataBase {
     //TODO make sure connection between all contributors works properly which won't right now
     private static Connection connect() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "6X0db8y3L&&J");
