@@ -106,6 +106,43 @@ public class Product {
         }
         return "";
     }
+    public static int stringToType(String in) {
+        switch (in) {
+            case "Vegetables" -> {
+                return 1;
+            }
+            case "Fruits" -> {
+                return 2;
+            }
+            case "Dried Fruits"-> {
+                return 3;
+            }
+            case "Proteins"-> {
+                return 4;
+            }
+            case "Sweets" -> {
+                return 5;
+            }
+            case "Pantry" -> {
+                return 6;
+            }
+            case "Dairy" -> {
+                return 7;
+            }
+            case "Beverages" -> {
+                return 8;
+            }
+            case "Snacks" -> {
+                return 9;
+            }
+            case "Breakfast" -> {
+                return 10;
+            }
+            default -> {
+            }
+        }
+        return 0;
+    }
     //only for testing purposes
     @Override
     public String toString() {
