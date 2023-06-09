@@ -2,9 +2,10 @@ package source.application;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import source.products.Product;
 import source.products.ProductDataBase;
 
 import java.net.URL;
@@ -26,30 +27,20 @@ public class ProductPageController implements Initializable {
 
     @FXML
     private Label displayProductPrice;
-
-    @FXML
-    private Button addToBasketButton;
-
-    @FXML
-    private Button seeReviewsButton;
-
-    @FXML
-    private Button writeAReviewButton;
-
     @FXML
     private Label displayProductDescription;
+    @FXML
+    private ImageView displayProductPicture;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        displayProductName.setText(ProductDataBase.getProduct(ProductPage.PRODUCT_ID).getName());
-        displayProductBrand.setText(ProductDataBase.getProduct(ProductPage.PRODUCT_ID).getBrand());
-        displayProductPrice.setText(String.valueOf(ProductDataBase.getProduct(ProductPage.PRODUCT_ID).getPrice()));
-        displayProductQuantity.setText(String.valueOf(ProductDataBase.getProduct(ProductPage.PRODUCT_ID).getQuantity()));
-        displayProductScore.setText(String.valueOf(ProductDataBase.getProduct(ProductPage.PRODUCT_ID).getScore()));
-        displayProductDescription.setText(ProductDataBase.getProduct(ProductPage.PRODUCT_ID).getDescription());
-
+        Product product = ProductDataBase.getProduct(ProductPage.PRODUCT_ID);
+        displayProductName.setText(product.getName());
+        displayProductBrand.setText(product.getBrand());
+        displayProductPrice.setText(String.valueOf(product.getPrice()));
+        displayProductQuantity.setText(String.valueOf(product.getQuantity()));
+        displayProductScore.setText(String.valueOf(product.getScore()));
+        displayProductDescription.setText(product.getDescription());
+        displayProductPicture.setImage(new Image(product.getImageAddress() + ".jpg"));
     }
-
-
-
 }

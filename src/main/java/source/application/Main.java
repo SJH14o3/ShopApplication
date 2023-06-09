@@ -3,6 +3,7 @@ package source.application;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import source.Global;
 
 import java.io.IOException;
 
@@ -12,6 +13,7 @@ public class Main extends Application{
     }
     @Override
     public void start (Stage stage) {
+        Global.setStage(stage, 1234);
         try {
             new Menu(stage);
         } catch (IOException e) {
