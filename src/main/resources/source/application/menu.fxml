@@ -1505,7 +1505,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button fx:id="applyFilter" layoutX="100.0" layoutY="10.0" mnemonicParsing="false" onAction="#filter" text="Apply Filter" />
+                        <Button layoutX="100.0" layoutY="10.0" mnemonicParsing="false" onAction="#filter" text="Apply Filter" />
                         <Slider fx:id="maxSlider" blockIncrement="1.0" layoutX="15.0" layoutY="168.0" majorTickUnit="20.0" minorTickCount="1" prefHeight="14.0" prefWidth="247.0" showTickLabels="true" showTickMarks="true" value="100.0" />
                         <Label fx:id="maxPrice" alignment="CENTER" layoutX="78.0" layoutY="147.0" prefHeight="21.0" prefWidth="127.0" text="100.00$">
                            <font>

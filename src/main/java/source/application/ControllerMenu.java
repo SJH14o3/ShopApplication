@@ -28,39 +28,39 @@ public class ControllerMenu implements Initializable {
 
     private String brandsStr = "", price = "", categoryStr = "";
     @FXML
-    Label name0, name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, name11, name12, name13, name14, name15, name16, name17, name18, name19, name20, name21, name22, name23, name24, name25, name26, name27, name28, name29, name30, name31, name32, name33, name34, name35, name36, name37, name38, name39, name40, name41, name42, name43, name44, name45, name46, name47, name48, name49;
+    private Label name0, name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, name11, name12, name13, name14, name15, name16, name17, name18, name19, name20, name21, name22, name23, name24, name25, name26, name27, name28, name29, name30, name31, name32, name33, name34, name35, name36, name37, name38, name39, name40, name41, name42, name43, name44, name45, name46, name47, name48, name49;
     private final Label[] names = new Label[50];
     @FXML
-    Label score0, score1, score2, score3, score4, score5, score6, score7, score8, score9, score10, score11, score12, score13, score14, score15, score16, score17, score18, score19, score20, score21, score22, score23, score24, score25, score26, score27, score28, score29, score30, score31, score32, score33, score34, score35, score36, score37, score38, score39, score40, score41, score42, score43, score44, score45, score46, score47, score48, score49;
+    private Label score0, score1, score2, score3, score4, score5, score6, score7, score8, score9, score10, score11, score12, score13, score14, score15, score16, score17, score18, score19, score20, score21, score22, score23, score24, score25, score26, score27, score28, score29, score30, score31, score32, score33, score34, score35, score36, score37, score38, score39, score40, score41, score42, score43, score44, score45, score46, score47, score48, score49;
     private final Label[] scores = new Label[50];
     @FXML
-    Label price0, price1, price2, price3, price4, price5, price6, price7, price8, price9, price10, price11, price12, price13, price14, price15, price16, price17, price18, price19, price20, price21, price22, price23, price24, price25, price26, price27, price28, price29, price30, price31, price32, price33, price34, price35, price36, price37, price38, price39, price40, price41, price42, price43, price44, price45, price46, price47, price48, price49;
+    private Label price0, price1, price2, price3, price4, price5, price6, price7, price8, price9, price10, price11, price12, price13, price14, price15, price16, price17, price18, price19, price20, price21, price22, price23, price24, price25, price26, price27, price28, price29, price30, price31, price32, price33, price34, price35, price36, price37, price38, price39, price40, price41, price42, price43, price44, price45, price46, price47, price48, price49;
     private final Label[] prices = new Label[50];
     @FXML
-    ImageView img0, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31, img32, img33, img34, img35, img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48, img49;
+    private ImageView img0, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31, img32, img33, img34, img35, img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48, img49;
     private final ImageView[] imageViews = new ImageView[50];
     @FXML
-    AnchorPane anchor0, anchor1, anchor2, anchor3, anchor4, anchor5, anchor6, anchor7, anchor8, anchor9, anchor10, anchor11, anchor12, anchor13, anchor14, anchor15, anchor16, anchor17, anchor18, anchor19, anchor20, anchor21, anchor22, anchor23, anchor24, anchor25, anchor26, anchor27, anchor28, anchor29, anchor30, anchor31, anchor32, anchor33, anchor34, anchor35, anchor36, anchor37, anchor38, anchor39, anchor40, anchor41, anchor42, anchor43, anchor44, anchor45, anchor46, anchor47, anchor48, anchor49;
+    private AnchorPane anchor0, anchor1, anchor2, anchor3, anchor4, anchor5, anchor6, anchor7, anchor8, anchor9, anchor10, anchor11, anchor12, anchor13, anchor14, anchor15, anchor16, anchor17, anchor18, anchor19, anchor20, anchor21, anchor22, anchor23, anchor24, anchor25, anchor26, anchor27, anchor28, anchor29, anchor30, anchor31, anchor32, anchor33, anchor34, anchor35, anchor36, anchor37, anchor38, anchor39, anchor40, anchor41, anchor42, anchor43, anchor44, anchor45, anchor46, anchor47, anchor48, anchor49;
     private final AnchorPane[] anchorPanes = new AnchorPane[50];
     @FXML
     CheckBox brand0, brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8, brand9, brand10, brand11, brand12, brand13, brand14, brand15, brand16, brand17, brand18, brand19, brand20, brand21, brand22, brand23, brand24, brand25, brand26, brand27, brand28, brand29, brand30, brand31, brand32, brand33, brand34, brand35, brand36, brand37, brand38, brand39, brand40, brand41, brand42, brand43, brand44, brand45, brand46, brand47, brand48, brand49;
     private final CheckBox[] brands = new CheckBox[50];
     @FXML
-    ChoiceBox<String> sortBox, categoryBox;
+    private ChoiceBox<String> sortBox, categoryBox;
     @FXML
-    CheckBox all;
+    private CheckBox all;
     @FXML
-    AnchorPane mainAnchorPane, productScroll, filterScrollPane;
+    private AnchorPane mainAnchorPane, productScroll, filterScrollPane;
     @FXML
-    ScrollPane scrollPane;
+    private ScrollPane scrollPane;
     @FXML
-    Label pageCounter, minPrice, maxPrice, brandLabel, brandLabel1;
+    private Label pageCounter, minPrice, maxPrice, brandLabel, brandLabel1;
     @FXML
-    Button nextButton, previousButton, applyFilter;
+    private Button nextButton, previousButton;
     @FXML
-    Slider minSlider, maxSlider;
+    private Slider minSlider, maxSlider;
     @FXML
-    ImageView noProduct;
+    private ImageView noProduct;
 
     private final String[] sortOptions = {"Newest", "Oldest", "Cheapest", "Most Expensive", "Rating"};
     private final String[] categories = {"All", "Vegetables", "Fruits", "Dried Fruits", "Proteins", "Sweets", "Pantry", "Dairy", "Beverages", "Snacks", "Breakfast"};
@@ -128,17 +128,23 @@ public class ControllerMenu implements Initializable {
                 alert.showAndWait();
                 return;
             }
-            price = "(price BETWEEN " + String.format("%.2f", minSlider.getValue()) + " AND " + String.format("%.2f", maxSlider.getValue()) + ")";
+            price = "(price BETWEEN " + String.format("%.2f", minSlider.getValue()) + " AND " + String.format("%.2f", maxSlider.getValue()) + ") ";
         }
         else if (!price.isEmpty()) {
             price = "";
         }
         if (!all.isSelected()) {
+            boolean multiple = false;
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("brand = \"stupidBrandThatDoesNotExist\"");
             for (int i = 0; i < 50; i++) {
                 if (brands[i].isSelected()) {
-                    stringBuilder.append(" OR brand = \"").append(brands[i].getText()).append("\"");
+                    if (multiple) {
+                        stringBuilder.append(" OR brand = \"").append(brands[i].getText()).append("\"");
+                    }
+                    else {
+                        stringBuilder.append("brand = \"").append(brands[i].getText()).append("\"");
+                        multiple = true;
+                    }
                 }
             }
             brandsStr = stringBuilder.toString();
@@ -212,7 +218,7 @@ public class ControllerMenu implements Initializable {
             if (!price.isEmpty()) {
                 extra.append(price);
                 if (!categoryStr.isEmpty()) {
-                    extra.append(" AND ");
+                    extra.append("AND ");
                 }
             }
             if (!categoryStr.isEmpty()) {
@@ -1007,154 +1013,204 @@ public class ControllerMenu implements Initializable {
         brands[49] = brand49;
         brand49 = null;
     }
-    public void select0() throws IOException {
+    @FXML
+    private void select0() throws IOException {
         productSelected(products[first].getId());
     }
-    public void select1() throws IOException {
+    @FXML
+    private void select1() throws IOException {
         productSelected(products[first + 1].getId());
     }
-    public void select2() throws IOException {
+    @FXML
+    private void select2() throws IOException {
         productSelected(products[first + 2].getId());
     }
-    public void select3() throws IOException {
+    @FXML
+    private void select3() throws IOException {
         productSelected(products[first + 3].getId());
     }
-    public void select4() throws IOException {
+    @FXML
+    private void select4() throws IOException {
         productSelected(products[first + 4].getId());
     }
-    public void select5() throws IOException {
+    @FXML
+    private void select5() throws IOException {
         productSelected(products[first + 5].getId());
     }
-    public void select6() throws IOException {
+    @FXML
+    private void select6() throws IOException {
         productSelected(products[first + 6].getId());
     }
-    public void select7() throws IOException {
+    @FXML
+    private void select7() throws IOException {
         productSelected(products[first + 7].getId());
     }
-    public void select8() throws IOException {
+    @FXML
+    private void select8() throws IOException {
         productSelected(products[first + 8].getId());
     }
-    public void select9() throws IOException {
+    @FXML
+    private void select9() throws IOException {
         productSelected(products[first + 9].getId());
     }
-    public void select10() throws IOException {
+    @FXML
+    private void select10() throws IOException {
         productSelected(products[first + 10].getId());
     }
-    public void select11() throws IOException {
+    @FXML
+    private void select11() throws IOException {
         productSelected(products[first + 11].getId());
     }
-    public void select12() throws IOException {
+    @FXML
+    private void select12() throws IOException {
         productSelected(products[first + 12].getId());
     }
-    public void select13() throws IOException {
+    @FXML
+    private void select13() throws IOException {
         productSelected(products[first + 13].getId());
     }
-    public void select14() throws IOException {
+    @FXML
+    private void select14() throws IOException {
         productSelected(products[first + 14].getId());
     }
-    public void select15() throws IOException {
+    @FXML
+    private void select15() throws IOException {
         productSelected(products[first + 15].getId());
     }
-    public void select16() throws IOException {
+    @FXML
+    private void select16() throws IOException {
         productSelected(products[first + 16].getId());
     }
-    public void select17() throws IOException {
+    @FXML
+    private void select17() throws IOException {
         productSelected(products[first + 17].getId());
     }
-    public void select18() throws IOException {
+    @FXML
+    private void select18() throws IOException {
         productSelected(products[first + 18].getId());
     }
-    public void select19() throws IOException {
+    @FXML
+    private void select19() throws IOException {
         productSelected(products[first + 19].getId());
     }
-    public void select20() throws IOException {
+    @FXML
+    private void select20() throws IOException {
         productSelected(products[first + 20].getId());
     }
-    public void select21() throws IOException {
+    @FXML
+    private void select21() throws IOException {
         productSelected(products[first + 21].getId());
     }
-    public void select22() throws IOException {
+    @FXML
+    private void select22() throws IOException {
         productSelected(products[first + 22].getId());
     }
-    public void select23() throws IOException {
+    @FXML
+    private void select23() throws IOException {
         productSelected(products[first + 23].getId());
     }
-    public void select24() throws IOException {
+    @FXML
+    private void select24() throws IOException {
         productSelected(products[first + 24].getId());
     }
-    public void select25() throws IOException {
+    @FXML
+    private void select25() throws IOException {
         productSelected(products[first + 25].getId());
     }
-    public void select26() throws IOException {
+    @FXML
+    private void select26() throws IOException {
         productSelected(products[first + 26].getId());
     }
-    public void select27() throws IOException {
+    @FXML
+    private void select27() throws IOException {
         productSelected(products[first + 27].getId());
     }
-    public void select28() throws IOException {
+    @FXML
+    private void select28() throws IOException {
         productSelected(products[first + 28].getId());
     }
-    public void select29() throws IOException {
+    @FXML
+    private void select29() throws IOException {
         productSelected(products[first + 29].getId());
     }
-    public void select30() throws IOException {
+    @FXML
+    private void select30() throws IOException {
         productSelected(products[first + 30].getId());
     }
-    public void select31() throws IOException {
+    @FXML
+    private void select31() throws IOException {
         productSelected(products[first + 31].getId());
     }
-    public void select32() throws IOException {
+    @FXML
+    private void select32() throws IOException {
         productSelected(products[first + 32].getId());
     }
-    public void select33() throws IOException {
+    @FXML
+    private void select33() throws IOException {
         productSelected(products[first + 33].getId());
     }
-    public void select34() throws IOException {
+    @FXML
+    private void select34() throws IOException {
         productSelected(products[first + 34].getId());
     }
-    public void select35() throws IOException {
+    @FXML
+    private void select35() throws IOException {
         productSelected(products[first + 35].getId());
     }
-    public void select36() throws IOException {
+    @FXML
+    private void select36() throws IOException {
         productSelected(products[first + 36].getId());
     }
-    public void select37() throws IOException {
+    @FXML
+    private void select37() throws IOException {
         productSelected(products[first + 37].getId());
     }
-    public void select38() throws IOException {
+    @FXML
+    private void select38() throws IOException {
         productSelected(products[first + 38].getId());
     }
-    public void select39() throws IOException {
+    @FXML
+    private void select39() throws IOException {
         productSelected(products[first + 39].getId());
     }
-    public void select40() throws IOException {
+    @FXML
+    private void select40() throws IOException {
         productSelected(products[first + 40].getId());
     }
-    public void select41() throws IOException {
+    @FXML
+    private void select41() throws IOException {
         productSelected(products[first + 41].getId());
     }
-    public void select42() throws IOException {
+    @FXML
+    private void select42() throws IOException {
         productSelected(products[first + 42].getId());
     }
-    public void select43() throws IOException {
+    @FXML
+    private void select43() throws IOException {
         productSelected(products[first + 43].getId());
     }
-    public void select44() throws IOException {
+    @FXML
+    private void select44() throws IOException {
         productSelected(products[first + 44].getId());
     }
-    public void select45() throws IOException {
+    @FXML
+    private void select45() throws IOException {
         productSelected(products[first + 45].getId());
     }
-    public void select46() throws IOException {
+    @FXML
+    private void select46() throws IOException {
         productSelected(products[first + 46].getId());
     }
-    public void select47() throws IOException {
+    @FXML
+    private void select47() throws IOException {
         productSelected(products[first + 47].getId());
     }
-    public void select48() throws IOException {
+    @FXML
+    private void select48() throws IOException {
         productSelected(products[first + 48].getId());
     }
-    public void select49() throws IOException {
+    @FXML
+    private void select49() throws IOException {
         productSelected(products[first + 49].getId());
     }
 }
