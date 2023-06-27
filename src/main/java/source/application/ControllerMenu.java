@@ -56,7 +56,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private Label pageCounter, minPrice, maxPrice, brandLabel, brandLabel1;
     @FXML
-    private Button nextButton, previousButton;
+    private Button nextButton, previousButton, auctionButton;
     @FXML
     private Slider minSlider, maxSlider;
     @FXML
@@ -347,12 +347,20 @@ public class ControllerMenu implements Initializable {
         categoryBox.setValue("All");
         categoryBox.setOnAction(this::category);
 
+        ImageView auctionIcon = new ImageView(new Image("auctions.png"));
+        auctionButton.setGraphic(auctionIcon);
+
         minSlider.valueProperty().addListener((observableValue, number, t1) -> minPrice.setText(String.format(("%.2f"), minSlider.getValue()) + "$"));
         maxSlider.valueProperty().addListener((observableValue, number, t1) -> maxPrice.setText(String.format(("%.2f"), maxSlider.getValue()) + "$"));
         initiateArrays();
         checkBoxesSetup();
         sort(null);
         //getUniqueBrands("");
+    }
+    @FXML
+    private void switchToAuctions() throws IOException {
+        Stage stage = getStage();
+        new AuctionsMenu(stage);
     }
     private void productSelected(int in) throws IOException {
         Stage stage = getStage();
