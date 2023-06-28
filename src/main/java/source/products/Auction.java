@@ -63,19 +63,38 @@ public class Auction {
             throw new PassedDeadLineException("Passed Dead line:\nNow: " + now + "\nDead Line: " + deadline);
         }
         if (year != 0) {
-            stringBuilder.append(year).append(" y ");
+            stringBuilder.append(year).append(" year");
+            if (year != 1) {
+                stringBuilder.append("s");
+            }
+            stringBuilder.append(" ");
         }
         if (month != 0) {
-            stringBuilder.append(month).append(" m ");
+            stringBuilder.append(month).append(" month");
+            if (month != 1) {
+                stringBuilder.append("s");
+            }
+            stringBuilder.append(" ");
         }
         if (day != 0) {
-            stringBuilder.append(day).append(" day ");
+            stringBuilder.append(day).append(" day");
+            if (day != 1) {
+                stringBuilder.append("s");
+            }
+            stringBuilder.append(" ");
         }
         if (hour != 0) {
-            stringBuilder.append(hour).append(" h ");
+            stringBuilder.append(hour).append(" hour");
+            if (hour != 1) {
+                stringBuilder.append("s");
+            }
+            stringBuilder.append(" ");
         }
         if (minute != 0) {
-            stringBuilder.append(minute).append(" minutes");
+            stringBuilder.append(minute).append(" minute");
+            if (minute != 1) {
+                stringBuilder.append("s");
+            }
         }
         return stringBuilder.toString();
     }

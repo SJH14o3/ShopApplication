@@ -9,11 +9,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class Menu {
-    public Menu(Stage stage) throws IOException {
-        stage.setWidth(1280);
-        stage.setHeight(720);
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menu.fxml")));
+public class AuctionPage {
+    public static int AUCTION_ID;
+    public AuctionPage(Stage stage, int in) throws IOException {
+        AUCTION_ID = in;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("auction.fxml")));
         Scene scene = new Scene(root, Color.WHITE);
         stage.setScene(scene);
     }

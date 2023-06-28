@@ -7,7 +7,7 @@ import java.sql.*;
 public class ProductDataBase {
     //TODO make sure connection between all contributors works properly which won't right now
     private static Connection connect() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root","12345678");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root",Global.PASSWORD);
     }
 
     public static void insertProduct(Product product) {
@@ -39,7 +39,7 @@ public class ProductDataBase {
     }
 
     public static Product getProduct(int id) {
-        System.out.println(id);
+        //System.out.println(id);
         String SQL = "SELECT * FROM products WHERE product_id = " + id;
         Product result = null;
         try (Connection connection = connect(); Statement statement = connection.createStatement()) {
@@ -57,7 +57,7 @@ public class ProductDataBase {
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-        System.out.println(result);
+        //System.out.println(result);
         return result;
     }
 
@@ -97,14 +97,14 @@ public class ProductDataBase {
 
     public static String[] getUniqueBrands(String extra) {
         String SQL = "SELECT count(DISTINCT brand) FROM products " + extra;
-        //System.out.println(SQL);
+        System.out.println(SQL);
         String[] result;
         try (Connection connection = connect(); Statement statement = connection.createStatement()) {
             ResultSet resultSet;
             resultSet = statement.executeQuery(SQL);
             if (resultSet.next()) {
                 int count = resultSet.getInt(1);
-                //System.out.println(count);
+                System.out.println(count);
                 result = new String[count];
                 SQL = "SELECT DISTINCT brand FROM products " + extra + " ORDER BY brand";
                 //System.out.println(SQL);

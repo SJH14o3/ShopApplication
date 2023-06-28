@@ -8,9 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import source.Global;
 import source.exceptions.PassedDeadLineException;
 import source.products.Auction;
 import source.products.AuctionDataBase;
+import static source.application.AuctionsMenu.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,46 +20,47 @@ import java.util.ResourceBundle;
 
 import static source.Global.getStage;
 
-public class AuctionsController implements Initializable {
+public class AuctionsMenuController implements Initializable {
     @FXML
     private Button nextButton, previousButton, productsButton;
     @FXML
     private Label pageCounter;
     @FXML
     private ImageView image0, image1, image2, image3, image4, image5, image6, image7, image8;
-    private ImageView[] images = new ImageView[9];
+    private final ImageView[] images = new ImageView[9];
     @FXML
     private AnchorPane panel0, panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8;
-    private AnchorPane[] panels = new AnchorPane[9];
+    private final AnchorPane[] panels = new AnchorPane[9];
     @FXML
     private Label title0, title1, title2, title3, title4, title5, title6, title7, title8;
-    private Label[] titles = new Label[9];
+    private final Label[] titles = new Label[9];
     @FXML
     private Label topBid0, topBid1, topBid2, topBid3, topBid4, topBid5, topBid6, topBid7, topBid8;
-    private Label[] topBids = new Label[9];
+    private final Label[] topBids = new Label[9];
     @FXML
     private Label timeLeft0, timeLeft1, timeLeft2, timeLeft3, timeLeft4, timeLeft5, timeLeft6, timeLeft7, timeLeft8;
-    private Label[] timeLeft = new Label[9];
+    private final Label[] timeLeft = new Label[9];
 
     private Auction[] auctions;
 
-    private int count, first, last, page;
+    private int first;
+    private int last;
     @FXML
     private void switchToProducts() throws IOException {
         Stage stage = getStage();
         new Menu(stage);
     }
     private void updatePageCounter() {
-        pageCounter.setText(String.valueOf(page));
+        pageCounter.setText(String.valueOf(getPage()));
     }
     @FXML
     private void next() {
-        page++;
+        incrementPage();
         updatePageCounter();
         if (previousButton.isDisable()) {
             previousButton.setDisable(false);
         }
-        if (auctions.length <= page * 9) {
+        if (auctions.length <= getPage() * 9) {
             nextButton.setDisable(true);
         }
         try {
@@ -68,9 +71,9 @@ public class AuctionsController implements Initializable {
     }
     @FXML
     private void previous() {
-        page--;
+        decrementPage();
         updatePageCounter();
-        if (page == 1) {
+        if (getPage() == 1) {
             previousButton.setDisable(true);
         }
         if (nextButton.isDisable()) {
@@ -96,7 +99,7 @@ public class AuctionsController implements Initializable {
         }
     }
     private void show() throws PassedDeadLineException {
-        first = (page - 1) * 9;
+        first = (getPage() - 1) * 9;
         last = first + 9;
         if (last > auctions.length) {
             last = auctions.length;
@@ -107,17 +110,23 @@ public class AuctionsController implements Initializable {
             images[i].setImage(new Image(auctions[first + i].getImageAddress() + ".jpg"));
             titles[i].setText(auctions[first + i].getTitle());
             topBids[i].setText("Highest Bid: " + auctions[first + i].getHighestBid() + "$");
-            timeLeft[i].setText("Time Left:" + auctions[first + i].calculateDeadLine());
+            timeLeft[i].setText("Time Left: " + auctions[first + i].calculateDeadLine());
         }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initiateArrays();
-        auctions = AuctionDataBase.getAuctions();
-        count = auctions.length;
-        first = page = 1;
-        pageCounter.setText(String.valueOf(page));
+        auctions = AuctionDataBase.getAllAuctions();
+        assert auctions != null;
+        int count = auctions.length;
+        first = (getPage() - 1) * 9;
+        pageCounter.setText(String.valueOf(getPage()));
         productsButton.setGraphic(new ImageView(new Image("productsButton.png")));
+        if (getPage() == 1) {
+            if (!previousButton.isDisable()) {
+                previousButton.setDisable(true);
+            }
+        }
         if (count < 9) {
             last = count;
             nextButton.setDisable(true);
@@ -129,6 +138,14 @@ public class AuctionsController implements Initializable {
             show();
         } catch (PassedDeadLineException e) {
             e.printStackTrace();
+        }
+    }
+    private void auctionSelected(int in) {
+        Stage stage = Global.getStage();
+        try {
+            new AuctionPage(stage, in);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
     private void initiateArrays() {
@@ -230,5 +247,41 @@ public class AuctionsController implements Initializable {
         topBid8 = null;
         timeLeft[8] = timeLeft8;
         timeLeft8 = null;
+    }
+    @FXML
+    private void auction0Selected() {
+        auctionSelected(auctions[first].getId());
+    }
+    @FXML
+    private void auction1Selected() {
+        auctionSelected(auctions[first + 1].getId());
+    }
+    @FXML
+    private void auction2Selected() {
+        auctionSelected(auctions[first + 2].getId());
+    }
+    @FXML
+    private void auction3Selected() {
+        auctionSelected(auctions[first + 3].getId());
+    }
+    @FXML
+    private void auction4Selected() {
+        auctionSelected(auctions[first + 4].getId());
+    }
+    @FXML
+    private void auction5Selected() {
+        auctionSelected(auctions[first + 5].getId());
+    }
+    @FXML
+    private void auction6Selected() {
+        auctionSelected(auctions[first + 6].getId());
+    }
+    @FXML
+    private void auction7Selected() {
+        auctionSelected(auctions[first + 7].getId());
+    }
+    @FXML
+    private void auction8Selected() {
+        auctionSelected(auctions[first + 8].getId());
     }
 }
