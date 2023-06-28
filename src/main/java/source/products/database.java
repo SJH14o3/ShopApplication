@@ -1,12 +1,12 @@
 package source.products;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import source.Global;
+import source.application.Menu;
 
 import java.io.IOException;
 import java.sql.*;
@@ -14,11 +14,15 @@ import java.sql.*;
 public class database {
 
 
-    public static void changeScene(ActionEvent event , String fxmlFile , String title , String username , String usertype){
-
+    public static void changeScene(ActionEvent event, String fxmlFile, String title, String username, String usertype){
         Parent root = null;
-
-        if(username != null && usertype !=null){
+        try {
+            root = FXMLLoader.load(database.class.getResource("menu.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stage = Global.getStage();
+        /*if(username != null && usertype !=null){
             try {
                 FXMLLoader loader = new FXMLLoader(database.class.getResource(fxmlFile));
                 root = loader.load();
@@ -33,21 +37,19 @@ public class database {
             }catch(IOException e){
                 e.printStackTrace();
             }
-        }
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        }*/
         stage.setTitle(title);
 
         stage.setScene(new Scene(root , 776 , 448));
         stage.show();
     }
-    public static void SignUpUser(ActionEvent event, String username , String Email , String password , String usertype ){
+    public static void SignUpUser(ActionEvent event, String username, String Email, String password, String usertype){
         Connection connection = null ;
         PreparedStatement PsInsert = null ;
         PreparedStatement PsCheckUserExists = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , "12345678");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , Global.PASSWORD);
             PsCheckUserExists = connection.prepareStatement("SELECT * FROM users  WHERE username = ?");
             PsCheckUserExists.setString(1,username);
             resultSet = PsCheckUserExists.executeQuery();
@@ -63,8 +65,27 @@ public class database {
                 PsInsert.setString(3,password);
                 PsInsert.setString(4,usertype);
                 PsInsert.executeUpdate();
+                Statement statement = connection.createStatement();
+                ResultSet resultSet1 = statement.executeQuery("SELECT user_id, UserType FROM users WHERE Username = \"" + username +"\"");
+                if (resultSet1.next()) {
+                    Global.setUser_id(resultSet1.getInt(1));
+                    String userType = resultSet1.getString(2).trim();
+                    if (userType.equals("Consumer")) {
+                        Global.setUser_type(1);
+                    }
+                    else {
+                        Global.setUser_type(2);
+                    }
+                    System.out.println("USER ID: " + Global.getUser_id());
+                    System.out.println("Type: " + Global.getUser_type());
+                }
 
-                changeScene(event , "Wellcome.fxml" , "Wellcome" , username , usertype);
+                Stage stage = Global.getStage();
+                try {
+                    new Menu(stage);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -104,13 +125,13 @@ public class database {
         }
 
     }
-    public static void LoginUser(ActionEvent event, String Username , String Password ){
+    public static void LoginUser(ActionEvent event, String Username, String Password){
         Connection connection = null;
         PreparedStatement preparedStatement =null ;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , "12345678");
-            preparedStatement = connection.prepareStatement("SELECT Password , UserType FROM users WHERE Username = ?");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , Global.PASSWORD);
+            preparedStatement = connection.prepareStatement("SELECT Password , UserType, User_id FROM users WHERE Username = ?");
             preparedStatement.setString(1 , Username);
             resultSet = preparedStatement.executeQuery();
             if(!resultSet.isBeforeFirst()){
@@ -123,7 +144,19 @@ public class database {
                     String retrivedPassword = resultSet.getString("Password");
                     String retrivedUserType = resultSet.getString("UserType");
                     if(retrivedPassword.equals(Password)){
-                        changeScene(event , "menu.fxml" , "Wellcome!" , Username , retrivedUserType);
+                        Stage stage = Global.getStage();
+                        if (retrivedUserType.equals("Consumer")) {
+                            Global.setUser_type(1);
+                        }
+                        else {
+                            Global.setUser_type(2);
+                        }
+                        Global.setUser_id(resultSet.getInt(3));
+                        try {
+                            new Menu(stage);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setContentText("Password is incorect");

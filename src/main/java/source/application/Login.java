@@ -1,22 +1,21 @@
 package source.application;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import source.Global;
 import source.products.database;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.Objects;
 
-public class Login implements Initializable {
+public class Login {
     public Login(){
 
     }
@@ -48,22 +47,20 @@ public class Login implements Initializable {
 //    public void validateLogin(){
 //
 //    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        LoginButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                database.LoginUser(event , UsernameTextField.getText() , PasswordField.getText() );
-            }
-        });
-        SignupButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //  System.out.println("56");
-                database.changeScene(event , "Signup.fxml" , "Sign up!" , null , null );
-            }
-        });
+    @FXML
+    private void signUp() {
+        Stage stage = Global.getStage();
+        Parent root;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Signup.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setScene(new Scene(root , 776 , 448));
+    }
+    @FXML
+    private void logIn() {
+        database.LoginUser(null , UsernameTextField.getText() , PasswordField.getText() );
     }
 }
 

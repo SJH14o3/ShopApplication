@@ -3,15 +3,21 @@ package source.application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+import source.Global;
 import source.products.database;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SignUp implements Initializable {
-
     @FXML
     private Button su_SignupButton;
     @FXML
@@ -55,7 +61,15 @@ public class SignUp implements Initializable {
         su_LoginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                database.changeScene(event , "login.fxml" , "Log in!" , null , null);
+                Stage stage = Global.getStage();
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
             }
         });
     }

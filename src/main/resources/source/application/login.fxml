@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.Login">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.Login">
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
@@ -32,7 +32,7 @@
                 </ImageView>
                 <ImageView fitHeight="73.0" fitWidth="91.0" layoutX="128.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url = "@../../shield.png" />
+                        <Image url="@../../shield.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="34.0" layoutY="169.0" text="Username" textFill="#140101">
@@ -47,12 +47,12 @@
                 </Label>
                 <TextField fx:id="UsernameTextField" layoutX="146.0" layoutY="168.0" prefWidth="150.0" promptText="Username" style="-fx-background-radius: 50; -fx-background-color: FFFF33;" />
                 <PasswordField fx:id="PasswordField" layoutX="146.0" layoutY="225.0" prefWidth="150.0" promptText="Password" style="-fx-background-radius: 50; -fx-background-color: FFFF33;" />
-                <Button fx:id="LoginButton" layoutX="60.0" layoutY="305.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="Login">
+                <Button fx:id="LoginButton" layoutX="60.0" layoutY="305.0" mnemonicParsing="false" onAction="#logIn" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="Login">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="SignupButton" layoutX="174.0" layoutY="305.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="SignUp">
+                <Button fx:id="SignupButton" layoutX="174.0" layoutY="305.0" mnemonicParsing="false" onAction="#signUp" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="SignUp">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>

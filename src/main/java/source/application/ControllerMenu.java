@@ -43,8 +43,8 @@ public class ControllerMenu implements Initializable {
     private AnchorPane anchor0, anchor1, anchor2, anchor3, anchor4, anchor5, anchor6, anchor7, anchor8, anchor9, anchor10, anchor11, anchor12, anchor13, anchor14, anchor15, anchor16, anchor17, anchor18, anchor19, anchor20, anchor21, anchor22, anchor23, anchor24, anchor25, anchor26, anchor27, anchor28, anchor29, anchor30, anchor31, anchor32, anchor33, anchor34, anchor35, anchor36, anchor37, anchor38, anchor39, anchor40, anchor41, anchor42, anchor43, anchor44, anchor45, anchor46, anchor47, anchor48, anchor49;
     private final AnchorPane[] anchorPanes = new AnchorPane[50];
     @FXML
-    CheckBox brand0, brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8, brand9, brand10, brand11, brand12, brand13, brand14, brand15, brand16, brand17, brand18, brand19, brand20, brand21, brand22, brand23, brand24, brand25, brand26, brand27, brand28, brand29, brand30, brand31, brand32, brand33, brand34, brand35, brand36, brand37, brand38, brand39, brand40, brand41, brand42, brand43, brand44, brand45, brand46, brand47, brand48, brand49;
-    private final CheckBox[] brands = new CheckBox[50];
+    CheckBox brand0, brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8, brand9, brand10, brand11, brand12, brand13, brand14, brand15, brand16, brand17, brand18, brand19, brand20, brand21, brand22, brand23, brand24, brand25, brand26, brand27, brand28, brand29, brand30, brand31, brand32, brand33, brand34, brand35, brand36, brand37, brand38, brand39, brand40, brand41, brand42, brand43, brand44, brand45, brand46, brand47, brand48, brand49, brand50, brand51, brand52, brand53, brand54, brand55, brand56, brand57, brand58, brand59, brand60, brand61, brand62, brand63, brand64, brand65, brand66, brand67, brand68, brand69, brand70, brand71, brand72, brand73, brand74, brand75, brand76, brand77, brand78, brand79, brand80, brand81, brand82, brand83, brand84, brand85, brand86, brand87, brand88, brand89, brand90, brand91, brand92, brand93, brand94, brand95, brand96, brand97, brand98, brand99;
+    private final CheckBox[] brands = new CheckBox[100];
     @FXML
     private ChoiceBox<String> sortBox, categoryBox;
     @FXML
@@ -54,7 +54,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    private Label pageCounter, minPrice, maxPrice, brandLabel, brandLabel1;
+    private Label pageCounter, minPrice, maxPrice;
     @FXML
     private Button nextButton, previousButton, auctionButton;
     @FXML
@@ -66,7 +66,7 @@ public class ControllerMenu implements Initializable {
     private final String[] categories = {"All", "Vegetables", "Fruits", "Dried Fruits", "Proteins", "Sweets", "Pantry", "Dairy", "Beverages", "Snacks", "Breakfast"};
 
     private void hideAnchors(int in) {
-        for (int j = 50; j > in; j--) {
+        for (int j = anchorPanes.length; j > in; j--) {
             if (anchorPanes[j-1].isVisible()) {
                 anchorPanes[j-1].setVisible(false);
             }
@@ -93,14 +93,11 @@ public class ControllerMenu implements Initializable {
         }
     }
     public void allSelected() {
-        System.out.println("all");
+        boolean isAllSelected = all.isSelected();
         for (CheckBox brand : brands) {
-            if (brand.isSelected()) {
-                brand.setSelected(false);
+            if (brand.isSelected() == all.isSelected()) {
+                brand.setSelected(!isAllSelected);
             }
-        }
-        if (!all.isSelected()) {
-            all.setSelected(true);
         }
     }
     public void brandSelected(){
@@ -136,19 +133,18 @@ public class ControllerMenu implements Initializable {
         if (!all.isSelected()) {
             boolean multiple = false;
             StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < 50; i++) {
-                if (brands[i].isSelected()) {
+            for (CheckBox brand : brands) {
+                if (brand.isSelected()) {
                     if (multiple) {
-                        stringBuilder.append(" OR brand = \"").append(brands[i].getText()).append("\"");
-                    }
-                    else {
-                        stringBuilder.append("brand = \"").append(brands[i].getText()).append("\"");
+                        stringBuilder.append(" OR brand = \"").append(brand.getText()).append("\"");
+                    } else {
+                        stringBuilder.append("brand = \"").append(brand.getText()).append("\"");
                         multiple = true;
                     }
                 }
             }
             brandsStr = stringBuilder.toString();
-            System.out.println(brandsStr);
+            //System.out.println(brandsStr);
         }
         else brandsStr = "";
         sort(null);
@@ -236,7 +232,7 @@ public class ControllerMenu implements Initializable {
         //System.out.println(extra);
         products = getSelectedProductsMainInfo(extra.toString());
         assert products != null;
-        System.out.println(products.length);
+        //System.out.println(products.length);
         if (products.length == 0) {
             if (!noProduct.isVisible()) {
                 noProduct.setVisible(true);
@@ -252,58 +248,41 @@ public class ControllerMenu implements Initializable {
         setupPage();
     }
     private void setFilterScrollHeight(int count) {
-        System.out.println(count);
+        //System.out.println(count);
         if (count < 31) {
             filterScrollPane.setPrefHeight(568);
         }
         else {
-            filterScrollPane.setPrefHeight(((count / 2) + 1) * 24 + 138);
+            filterScrollPane.setPrefHeight((((count+1) / 2)) * 20 + 255);
         }
     }
     private void checkBoxesSetup() {
+        if (!all.isVisible()) {
+            all.setVisible(true);
+        }
+        String[] brandNames;
         if (categoryStr.isEmpty()) {
-            setFilterScrollHeight(0);
-            brandLabel.setVisible(false);
-            brandLabel1.setVisible(true);
-            if (all.isVisible()) {
-                all.setVisible(false);
-            }
-            for (CheckBox brand : brands) {
-                if (brand.isVisible()) {
-                    brand.setVisible(false);
-                }
-            }
+            brandNames = getUniqueBrands("");
         }
         else {
-            brandLabel.setVisible(true);
-            brandLabel1.setVisible(false);
-            if (!all.isVisible()) {
-                all.setVisible(true);
-            }
-            String[] brandNames = getUniqueBrands("WHERE product_type = " + categoryStr);
-            assert brandNames != null;
-            if (brandNames.length > 50) {
-                System.out.println("brands are more than 50!");
-            }
-            else {
-                int i = 0;
-                for (; i < brandNames.length; i++) {
-                    if (!brands[i].isVisible()) {
-                        brands[i].setVisible(true);
-                    }
-                    brands[i].setText(brandNames[i]);
-                }
-                for (; i < brands.length; i++) {
-                    brands[i].setText("");
-                    if (brands[i].isVisible()) {
-                        brands[i].setVisible(false);
-                    }
-                }
-            }
-            setFilterScrollHeight(brandNames.length);
-            all.setSelected(true);
-            allSelected();
+            brandNames = getUniqueBrands("WHERE product_type = " + categoryStr);
         }
+        int i = 0;
+        for (; i < brandNames.length; i++) {
+            if (!brands[i].isVisible()) {
+                brands[i].setVisible(true);
+            }
+            brands[i].setText(brandNames[i]);
+        }
+        for (; i < brands.length; i++) {
+            brands[i].setText("");
+            if (brands[i].isVisible()) {
+                brands[i].setVisible(false);
+            }
+        }
+        setFilterScrollHeight(brandNames.length);
+        all.setSelected(true);
+        allSelected();
     }
     private void setupPage() {
         updatePageCounter();
@@ -336,7 +315,7 @@ public class ControllerMenu implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         mainAnchorPane.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 0.75), null, Insets.EMPTY)));
         productScroll.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 1.0), null, Insets.EMPTY)));
-
+        //String[] a = getUniqueBrands("");
         all.setSelected(true);
 
         sortBox.getItems().addAll(sortOptions);
@@ -360,7 +339,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private void switchToAuctions() throws IOException {
         Stage stage = getStage();
-        new AuctionsMenu(stage);
+        new AuctionsMenu(stage, false);
     }
     private void productSelected(int in) throws IOException {
         Stage stage = getStage();
@@ -1020,6 +999,106 @@ public class ControllerMenu implements Initializable {
         brand48 = null;
         brands[49] = brand49;
         brand49 = null;
+        brands[50] = brand50;
+        brand50 = null;
+        brands[51] = brand51;
+        brand51 = null;
+        brands[52] = brand52;
+        brand52 = null;
+        brands[53] = brand53;
+        brand53 = null;
+        brands[54] = brand54;
+        brand54 = null;
+        brands[55] = brand55;
+        brand55 = null;
+        brands[56] = brand56;
+        brand56 = null;
+        brands[57] = brand57;
+        brand57 = null;
+        brands[58] = brand58;
+        brand58 = null;
+        brands[59] = brand59;
+        brand59 = null;
+        brands[60] = brand60;
+        brand60 = null;
+        brands[61] = brand61;
+        brand61 = null;
+        brands[62] = brand62;
+        brand62 = null;
+        brands[63] = brand63;
+        brand63 = null;
+        brands[64] = brand64;
+        brand64 = null;
+        brands[65] = brand65;
+        brand65 = null;
+        brands[66] = brand66;
+        brand66 = null;
+        brands[67] = brand67;
+        brand67 = null;
+        brands[68] = brand68;
+        brand68 = null;
+        brands[69] = brand69;
+        brand69 = null;
+        brands[70] = brand70;
+        brand70 = null;
+        brands[71] = brand71;
+        brand71 = null;
+        brands[72] = brand72;
+        brand72 = null;
+        brands[73] = brand73;
+        brand73 = null;
+        brands[74] = brand74;
+        brand74 = null;
+        brands[75] = brand75;
+        brand75 = null;
+        brands[76] = brand76;
+        brand76 = null;
+        brands[77] = brand77;
+        brand77 = null;
+        brands[78] = brand78;
+        brand78 = null;
+        brands[79] = brand79;
+        brand79 = null;
+        brands[80] = brand80;
+        brand80 = null;
+        brands[81] = brand81;
+        brand81 = null;
+        brands[82] = brand82;
+        brand82 = null;
+        brands[83] = brand83;
+        brand83 = null;
+        brands[84] = brand84;
+        brand84 = null;
+        brands[85] = brand85;
+        brand85 = null;
+        brands[86] = brand86;
+        brand86 = null;
+        brands[87] = brand87;
+        brand87 = null;
+        brands[88] = brand88;
+        brand88 = null;
+        brands[89] = brand89;
+        brand89 = null;
+        brands[90] = brand90;
+        brand90 = null;
+        brands[91] = brand91;
+        brand91 = null;
+        brands[92] = brand92;
+        brand92 = null;
+        brands[93] = brand93;
+        brand93 = null;
+        brands[94] = brand94;
+        brand94 = null;
+        brands[95] = brand95;
+        brand95 = null;
+        brands[96] = brand96;
+        brand96 = null;
+        brands[97] = brand97;
+        brand97 = null;
+        brands[98] = brand98;
+        brand98 = null;
+        brands[99] = brand99;
+        brand99 = null;
     }
     @FXML
     private void select0() throws IOException {

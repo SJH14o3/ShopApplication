@@ -10,7 +10,24 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class AuctionsMenu {
-    public AuctionsMenu(Stage stage) throws IOException {
+    private static int page = 1;
+
+    public static void setPage(int page) {
+        AuctionsMenu.page = page;
+    }
+    public static void incrementPage() {
+        page++;
+    }
+    public static void decrementPage() {
+        page--;
+    }
+    public static int getPage() {
+        return page;
+    }
+    public AuctionsMenu(Stage stage, boolean rememberPage) throws IOException {
+        if (!rememberPage) {
+            setPage(1);
+        }
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("auctionPage.fxml")));
         Scene scene = new Scene(root, Color.WHITE);
         stage.setScene(scene);

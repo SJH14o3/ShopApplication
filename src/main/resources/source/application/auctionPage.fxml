@@ -7,9 +7,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.AuctionsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.AuctionsMenuController">
     <children>
-        <Button fx:id="previousButton" disable="true" layoutX="20.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#previous" text="Previous" />
+        <Button fx:id="previousButton" layoutX="20.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#previous" text="Previous" />
         <Button fx:id="nextButton" layoutX="119.0" layoutY="50.0" mnemonicParsing="false" onAction="#next" prefHeight="25.0" prefWidth="61.0" text="Next" />
         <Label fx:id="pageCounter" alignment="CENTER" layoutX="86.0" layoutY="45.0" prefHeight="25.0" prefWidth="28.0" text="1">
             <font>
@@ -19,7 +19,7 @@
         <Button fx:id="productsButton" layoutX="1135.0" layoutY="49.0" mnemonicParsing="false" onAction="#switchToProducts" prefHeight="25.0" prefWidth="117.0" />
       <AnchorPane layoutX="19.0" layoutY="86.0" prefHeight="590.0" prefWidth="1234.0" style="-fx-background-color: E9E9E9;">
          <children>
-            <AnchorPane fx:id="panel0" layoutX="7.0" layoutY="11.0" prefHeight="185.0" prefWidth="401.0">
+            <AnchorPane fx:id="panel0" layoutX="7.0" layoutY="11.0" onMouseClicked="#auction0Selected" prefHeight="185.0" prefWidth="401.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="186.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
                   <AnchorPane layoutX="-1.0" prefHeight="180.0" prefWidth="398.0" style="-fx-background-color: FFFFFF;">
@@ -45,7 +45,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="panel1" layoutX="416.0" layoutY="11.0" prefHeight="185.0" prefWidth="401.0">
+            <AnchorPane fx:id="panel1" layoutX="416.0" layoutY="11.0" onMouseClicked="#auction1Selected" prefHeight="185.0" prefWidth="401.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="186.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
                   <AnchorPane layoutX="-1.0" prefHeight="180.0" prefWidth="398.0" style="-fx-background-color: FFFFFF;">
@@ -71,7 +71,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="panel2" layoutX="825.0" layoutY="11.0" prefHeight="185.0" prefWidth="401.0">
+            <AnchorPane fx:id="panel2" layoutX="825.0" layoutY="11.0" onMouseClicked="#auction2Selected" onMouseDragged="#auction2Selected" prefHeight="185.0" prefWidth="401.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="186.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
                   <AnchorPane layoutX="-1.0" prefHeight="180.0" prefWidth="398.0" style="-fx-background-color: FFFFFF;">
@@ -97,7 +97,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="panel3" layoutX="7.0" layoutY="202.0" prefHeight="185.0" prefWidth="401.0">
+            <AnchorPane fx:id="panel3" layoutX="7.0" layoutY="202.0" onMouseClicked="#auction3Selected" prefHeight="185.0" prefWidth="401.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="186.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
                   <AnchorPane layoutX="-1.0" prefHeight="180.0" prefWidth="398.0" style="-fx-background-color: FFFFFF;">
@@ -123,7 +123,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="panel4" layoutX="416.0" layoutY="202.0" prefHeight="185.0" prefWidth="401.0">
+            <AnchorPane fx:id="panel4" layoutX="416.0" layoutY="202.0" onMouseClicked="#auction4Selected" prefHeight="185.0" prefWidth="401.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="186.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
                   <AnchorPane layoutX="-1.0" prefHeight="180.0" prefWidth="398.0" style="-fx-background-color: FFFFFF;">
@@ -149,7 +149,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="panel5" layoutX="825.0" layoutY="202.0" prefHeight="185.0" prefWidth="401.0">
+            <AnchorPane fx:id="panel5" layoutX="825.0" layoutY="202.0" onMouseClicked="#auction5Selected" prefHeight="185.0" prefWidth="401.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="186.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
                   <AnchorPane layoutX="-1.0" prefHeight="180.0" prefWidth="398.0" style="-fx-background-color: FFFFFF;">
@@ -175,7 +175,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="panel6" layoutX="7.0" layoutY="394.0" prefHeight="185.0" prefWidth="401.0">
+            <AnchorPane fx:id="panel6" layoutX="7.0" layoutY="394.0" onMouseClicked="#auction6Selected" prefHeight="185.0" prefWidth="401.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="186.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
                   <AnchorPane layoutX="-1.0" prefHeight="180.0" prefWidth="398.0" style="-fx-background-color: FFFFFF;">
@@ -201,7 +201,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="panel7" layoutX="416.0" layoutY="394.0" prefHeight="185.0" prefWidth="401.0">
+            <AnchorPane fx:id="panel7" layoutX="416.0" layoutY="394.0" onMouseClicked="#auction7Selected" prefHeight="185.0" prefWidth="401.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="186.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
                   <AnchorPane layoutX="-1.0" prefHeight="180.0" prefWidth="398.0" style="-fx-background-color: FFFFFF;">
@@ -227,7 +227,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="panel8" layoutX="825.0" layoutY="394.0" prefHeight="185.0" prefWidth="401.0">
+            <AnchorPane fx:id="panel8" layoutX="825.0" layoutY="394.0" onMouseClicked="#auction8Selected" prefHeight="185.0" prefWidth="401.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="186.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
                   <AnchorPane layoutX="-1.0" prefHeight="180.0" prefWidth="398.0" style="-fx-background-color: FFFFFF;">

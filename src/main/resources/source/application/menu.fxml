@@ -1490,7 +1490,7 @@
       </ScrollPane>
       <ScrollPane layoutX="4.0" layoutY="110.0" prefHeight="570.0" prefWidth="298.0">
         <content>
-          <AnchorPane fx:id="filterScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="760.0" prefWidth="276.0">
+          <AnchorPane fx:id="filterScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="1260.0" prefWidth="276.0">
                <children>
                   <AnchorPane prefHeight="220.0" prefWidth="276.0">
                      <children>
@@ -1522,7 +1522,7 @@
                   <AnchorPane layoutX="-1.0" layoutY="205.0" prefHeight="364.0" prefWidth="277.0">
                      <children>
                         <CheckBox fx:id="all" layoutX="118.0" layoutY="27.0" mnemonicParsing="false" onAction="#allSelected" text="ALL" />
-                        <Label fx:id="brandLabel" alignment="TOP_CENTER" layoutX="3.0" layoutY="5.0" prefHeight="102.0" prefWidth="270.0" text="Brands" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="TOP_CENTER" layoutX="3.0" layoutY="3.0" prefHeight="14.0" prefWidth="270.0" text="Brands" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -1777,13 +1777,258 @@
                               <Font size="10.0" />
                            </font>
                         </CheckBox>
-                        <Label fx:id="brandLabel1" alignment="TOP_CENTER" layoutX="21.0" layoutY="26.0" prefHeight="102.0" prefWidth="256.0" text="Filtering by brands is only available when all for category is not selected" textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
                      </children>
                   </AnchorPane>
+                  <CheckBox fx:id="brand50" layoutX="12.0" layoutY="759.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand51" layoutX="144.0" layoutY="759.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand52" layoutX="12.0" layoutY="779.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand53" layoutX="144.0" layoutY="779.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand54" layoutX="12.0" layoutY="799.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand55" layoutX="144.0" layoutY="799.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand56" layoutX="12.0" layoutY="819.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand57" layoutX="144.0" layoutY="819.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand58" layoutX="12.0" layoutY="838.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand59" layoutX="144.0" layoutY="838.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand60" layoutX="12.0" layoutY="858.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand61" layoutX="144.0" layoutY="858.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand62" layoutX="12.0" layoutY="878.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand63" layoutX="144.0" layoutY="878.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand64" layoutX="12.0" layoutY="898.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand65" layoutX="144.0" layoutY="898.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand66" layoutX="12.0" layoutY="918.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand67" layoutX="144.0" layoutY="918.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand68" layoutX="12.0" layoutY="938.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand69" layoutX="144.0" layoutY="938.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand70" layoutX="12.0" layoutY="958.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand71" layoutX="144.0" layoutY="958.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand72" layoutX="12.0" layoutY="978.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand73" layoutX="144.0" layoutY="978.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand74" layoutX="12.0" layoutY="997.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand75" layoutX="144.0" layoutY="997.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand76" layoutX="12.0" layoutY="1017.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand77" layoutX="144.0" layoutY="1017.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand78" layoutX="12.0" layoutY="1037.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand79" layoutX="144.0" layoutY="1037.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand80" layoutX="12.0" layoutY="1057.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand81" layoutX="144.0" layoutY="1057.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand82" layoutX="12.0" layoutY="1077.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand83" layoutX="144.0" layoutY="1077.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand84" layoutX="12.0" layoutY="1097.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand85" layoutX="144.0" layoutY="1097.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand86" layoutX="12.0" layoutY="1117.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand87" layoutX="144.0" layoutY="1117.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand88" layoutX="12.0" layoutY="1137.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand89" layoutX="144.0" layoutY="1137.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand90" layoutX="12.0" layoutY="1157.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand91" layoutX="144.0" layoutY="1157.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand92" layoutX="12.0" layoutY="1177.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand93" layoutX="144.0" layoutY="1177.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand94" layoutX="12.0" layoutY="1196.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand95" layoutX="144.0" layoutY="1196.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand96" layoutX="12.0" layoutY="1216.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand97" layoutX="144.0" layoutY="1216.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand98" layoutX="12.0" layoutY="1236.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="brand99" layoutX="144.0" layoutY="1236.0" mnemonicParsing="false" onAction="#brandSelected" prefHeight="17.0" prefWidth="130.0" text="brand">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
                </children>
             </AnchorPane>
         </content>
