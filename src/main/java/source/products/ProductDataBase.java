@@ -7,7 +7,7 @@ import java.sql.*;
 public class ProductDataBase {
     //TODO make sure connection between all contributors works properly which won't right now
     private static Connection connect() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", Global.PASSWORD);
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root","12345678");
     }
 
     public static void insertProduct(Product product) {

@@ -4,11 +4,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Global {
-    public static final String PASSWORD = "6X0db8y3L&&J";
+    public static final String PASSWORD = "12345678";
     private static Stage stage;
 
     public static void setStage(Stage s, int password) {
-        if (password == 1234) {
+        if (password == 12345678) {
             stage = s;
         }
     }
