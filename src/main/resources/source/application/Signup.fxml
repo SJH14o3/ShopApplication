@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="450.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.SignUp">
+    <children>
+        <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="776.0">
+            <left>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="448.0" fitWidth="454.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../popup.jpg" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </left>
+            <right>
+                <AnchorPane prefHeight="448.0" prefWidth="356.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="422.0" fitWidth="404.0" layoutX="16.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../loginback.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="35.0" layoutY="62.0" text="Username" textFill="#140101">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="37.0" layoutY="165.0" text="Password" textFill="#140101">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="su_UsernameField" layoutX="146.0" layoutY="61.0" prefWidth="150.0" promptText="Username" style="-fx-background-radius: 50; -fx-background-color: FFFF33;" />
+                        <PasswordField fx:id="su_PasswordField" layoutX="147.0" layoutY="164.0" prefWidth="150.0" promptText="Password" style="-fx-background-radius: 50; -fx-background-color: FFFF33;" />
+                        <Button fx:id="su_LoginButton" layoutX="62.0" layoutY="352.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="Login">
+                            <font>
+                                <Font name="System Bold Italic" size="14.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="su_SignupButton" layoutX="175.0" layoutY="352.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="SignUp">
+                            <font>
+                                <Font name="System Bold Italic" size="14.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="WrongLogin" layoutX="110.0" layoutY="133.0" textFill="#f20000" />
+                        <TextField fx:id="su_EmailField" layoutX="147.0" layoutY="113.0" prefWidth="150.0" promptText="Email" style="-fx-background-radius: 50; -fx-background-color: FFFF33;" />
+                        <Label layoutX="57.0" layoutY="114.0" text="Email" textFill="#140101">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="44.0" layoutY="216.0" text="Confirm" textFill="#140101">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <PasswordField fx:id="su_ConfirmField" layoutX="146.0" layoutY="216.0" prefWidth="150.0" promptText="ConfirmPass" style="-fx-background-radius: 50; -fx-background-color: FFFF33;" />
+                        <Label layoutX="32.0" layoutY="264.0" text="Signup as a Consumer or Vendor?  " textFill="#160942">
+                            <font>
+                                <Font name="Arial Bold Italic" size="16.0" />
+                            </font>
+                        </Label>
+                        <RadioButton fx:id="su_ConsumerButton" layoutX="55.0" layoutY="304.0" mnemonicParsing="false" text="Consumer" />
+                        <RadioButton fx:id="su_VendorButton" layoutX="185.0" layoutY="304.0" mnemonicParsing="false" text="Vendor" />
+                    </children>
+                </AnchorPane>
+            </right>
+        </BorderPane>
+    </children>
+</AnchorPane>

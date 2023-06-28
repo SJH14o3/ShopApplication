@@ -1,6 +1,9 @@
 package source.application;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import source.Global;
@@ -12,19 +15,26 @@ public class Main extends Application{
         launch(args);
     }
     @Override
-    public void start (Stage stage) {
-        Global.setStage(stage, 1234);
-        try {
-            new Menu(stage);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage.setHeight(720);
-        stage.setWidth(1280);
-        stage.setTitle("Shop Application");
-        stage.setResizable(false);
-        stage.getIcons().add(new Image("icon.png"));
+    public void start (Stage stage) throws IOException {
+//        Global.setStage(stage, 12345678);
+//        try {
+//            new Menu(stage);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        stage.setHeight(720);
+//        stage.setWidth(1280);
+//        stage.setTitle("Shop Application");
+//        stage.setResizable(false);
+//        stage.getIcons().add(new Image("icon.png"));
+//        stage.show();
+
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        stage.setTitle("Login");
+        stage.setScene(new Scene(root ,776 , 448 ));
         stage.show();
+
+
 
     }
 }
