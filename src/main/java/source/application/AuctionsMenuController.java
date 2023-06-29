@@ -22,7 +22,7 @@ import static source.Global.getStage;
 
 public class AuctionsMenuController implements Initializable {
     @FXML
-    private Button nextButton, previousButton, productsButton;
+    private Button nextButton, previousButton, productsButton, vendor;
     @FXML
     private Label pageCounter;
     @FXML
@@ -115,9 +115,12 @@ public class AuctionsMenuController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (Global.getUser_type() != 2) {
+            vendor.setDisable(true);
+            vendor.setVisible(false);
+        }
         initiateArrays();
         auctions = AuctionDataBase.getAllAuctions();
-        assert auctions != null;
         int count = auctions.length;
         first = (getPage() - 1) * 9;
         pageCounter.setText(String.valueOf(getPage()));
@@ -127,18 +130,19 @@ public class AuctionsMenuController implements Initializable {
                 previousButton.setDisable(true);
             }
         }
-        if (count < 9) {
-            last = count;
+        if (getPage() * 9 >= auctions.length && !nextButton.isDisable())  {
             nextButton.setDisable(true);
         }
-        else {
-            last = 9;
-        }
+        last = Math.min(count, 9);
         try {
             show();
         } catch (PassedDeadLineException e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    private void switchToInsertAuction() {
+        new InsertAuction(Global.getStage());
     }
     private void auctionSelected(int in) {
         Stage stage = Global.getStage();
