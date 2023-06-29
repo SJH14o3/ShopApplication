@@ -11,6 +11,7 @@ import java.util.Objects;
 
 public class AuctionPage {
     public static int AUCTION_ID;
+    public static double highestBid;
     public AuctionPage(Stage stage, int in) throws IOException {
         AUCTION_ID = in;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("auction.fxml")));

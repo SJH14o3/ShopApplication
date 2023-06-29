@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import source.Global;
 
@@ -27,7 +28,7 @@ public class Main extends Application{
 //        stage.setResizable(false);
 //        stage.getIcons().add(new Image("icon.png"));
 //        stage.show();
-
+        stage.getIcons().add(new Image("icon.png"));
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         stage.setTitle("Login");
         stage.setScene(new Scene(root ,776 , 448 ));

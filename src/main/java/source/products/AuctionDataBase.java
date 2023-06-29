@@ -33,9 +33,6 @@ public class AuctionDataBase {
                 connection.close();
                 return result;
             }
-            else {
-                //TODO: no product exist.
-            }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -78,7 +75,7 @@ public class AuctionDataBase {
         //System.out.println(result);
         return result;
     }
-    public static void placeBid(int auction_id, double value, int user_id) {
+    public static synchronized void placeBid(int auction_id, double value, int user_id) {
         String SQL = "INSERT INTO bids (auction_id, value, user_id) VALUES (" + auction_id + ", " + value + ", " + user_id + ");";
         System.out.println(SQL);
         try (Connection connection = connect(); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
@@ -94,5 +91,6 @@ public class AuctionDataBase {
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
+        database.changeBalance(value * - 1, user_id);
     }
 }
