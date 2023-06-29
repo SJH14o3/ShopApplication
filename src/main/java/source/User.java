@@ -25,6 +25,5 @@ public class User {
     }
     public static void changeBalance(double change) {
         User.balance += change;
-
     }
 }

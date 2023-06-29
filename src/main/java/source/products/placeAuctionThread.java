@@ -12,5 +12,6 @@ public class placeAuctionThread extends Thread{
     public placeAuctionThread(int auctionID, double value) {
         this.auctionID = auctionID;
         this.value = value;
+        //System.out.println("Value in Thread: " + this.value);
     }
 }

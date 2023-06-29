@@ -29,6 +29,7 @@ public class Main extends Application{
 //        stage.getIcons().add(new Image("icon.png"));
 //        stage.show();
         stage.getIcons().add(new Image("icon.png"));
+        stage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         stage.setTitle("Login");
         stage.setScene(new Scene(root ,776 , 448 ));

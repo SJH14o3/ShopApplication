@@ -51,7 +51,7 @@ public class PlaceBidController implements Initializable {
             try {
                 double bid = Double.parseDouble(enterBid.getText());
                 bid = Double.parseDouble(String.format("%.2f", bid));
-                System.out.println(bid);
+                //System.out.println("formatted bid: " + bid);
                 if (bid > Global.getBalance()) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Insufficient Fund");
@@ -59,7 +59,7 @@ public class PlaceBidController implements Initializable {
                     alert.setContentText("Make sure input is less than your balance");
                     alert.showAndWait();
                 }
-                else if (bid < AuctionPage.highestBid) {
+                else if (bid <= AuctionPage.highestBid) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Wrong price input");
                     alert.setHeaderText("Your input most be more than current bid");
@@ -76,6 +76,7 @@ public class PlaceBidController implements Initializable {
                     alert.getButtonTypes().setAll(confirm, cancel);
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.get() == confirm) {
+                        //System.out.println("After Confirm: " + bid);
                         Thread placeBid = new placeAuctionThread(AuctionPage.AUCTION_ID , bid);
                         placeBid.start();
                         Alert done = new Alert(Alert.AlertType.INFORMATION);
@@ -83,6 +84,8 @@ public class PlaceBidController implements Initializable {
                         done.setHeaderText("");
                         done.setContentText("Your Bid has been placed successfully!");
                         done.showAndWait();
+                        //System.out.println("GLOBAL: " + Global.getBalance());
+                        back();
                     }
                 }
             }
@@ -92,7 +95,6 @@ public class PlaceBidController implements Initializable {
                 alert.setHeaderText("Input is not a double");
                 alert.setContentText("Please Enter only digits and maximum one dot");
                 alert.showAndWait();
-                return;
             }
     }
     @Override
