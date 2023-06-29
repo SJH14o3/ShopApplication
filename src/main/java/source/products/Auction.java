@@ -6,13 +6,16 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
 public class Auction {
-    private final int id;
+    private int id;
     private final String title;
     private final double startingBid;
     private double highestBid;
     private final String deadline; //example: 202309121650: 12th September 2023 16:50
     private final String imageAddress;
 
+    public void setId(int id) {
+        this.id = id;
+    }
     public int getId() {
         return id;
     }

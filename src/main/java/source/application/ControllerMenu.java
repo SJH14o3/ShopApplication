@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.stage.Stage;
+import source.Global;
 import source.products.Product;
 
 import static source.products.ProductDataBase.*;
@@ -56,7 +57,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private Label pageCounter, minPrice, maxPrice;
     @FXML
-    private Button nextButton, previousButton, auctionButton;
+    private Button nextButton, previousButton, auctionButton, vendor;
     @FXML
     private Slider minSlider, maxSlider;
     @FXML
@@ -113,6 +114,16 @@ public class ControllerMenu implements Initializable {
         else if (!atLeastOneSelected) {
             all.setSelected(true);
         }
+    }
+    @FXML
+    private void resetFilter() {
+        minSlider.setValue(0.00);
+        maxSlider.setValue(100.00);
+        all.setSelected(true);
+        allSelected();
+        price = "";
+        brandsStr = "";
+        sort(null);
     }
 
     public void filter(){
@@ -268,7 +279,7 @@ public class ControllerMenu implements Initializable {
             brandNames = getUniqueBrands("WHERE product_type = " + categoryStr);
         }
         int i = 0;
-        for (; i < brandNames.length; i++) {
+        for (; i < Objects.requireNonNull(brandNames).length; i++) {
             if (!brands[i].isVisible()) {
                 brands[i].setVisible(true);
             }
@@ -313,6 +324,10 @@ public class ControllerMenu implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (Global.getUser_type() != 2) {
+            vendor.setDisable(true);
+            vendor.setVisible(false);
+        }
         mainAnchorPane.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 0.75), null, Insets.EMPTY)));
         productScroll.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 1.0), null, Insets.EMPTY)));
         //String[] a = getUniqueBrands("");
@@ -340,6 +355,11 @@ public class ControllerMenu implements Initializable {
     private void switchToAuctions() throws IOException {
         Stage stage = getStage();
         new AuctionsMenu(stage, false);
+    }
+    @FXML
+    private void switchToInsert() {
+        Stage stage = getStage();
+        new InsertProduct(stage);
     }
     private void productSelected(int in) throws IOException {
         Stage stage = getStage();
