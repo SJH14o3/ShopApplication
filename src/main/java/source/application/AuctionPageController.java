@@ -53,7 +53,7 @@ public class AuctionPageController implements Initializable {
     @FXML
     private void placeBid() {
         Stage stage = Global.getStage();
-
+        new PlaceBid(stage);
         //AuctionDataBase.placeBid(auction.getId(), 99.99, Global.getUser_id());
     }
     private void setDeadlineText() {
@@ -82,6 +82,7 @@ public class AuctionPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         auction = AuctionDataBase.getAuction(AuctionPage.AUCTION_ID);
+        AuctionPage.highestBid = auction.getHighestBid();
         backButton.setGraphic(new ImageView(new Image("back_arrow.png")));
         image.setImage(new Image(auction.getImageAddress() + ".jpg"));
         title.setText(auction.getTitle());

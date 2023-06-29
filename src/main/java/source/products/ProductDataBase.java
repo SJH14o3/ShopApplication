@@ -5,7 +5,6 @@ import source.Global;
 import java.sql.*;
 
 public class ProductDataBase {
-    //TODO make sure connection between all contributors works properly which won't right now
     private static Connection connect() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root",Global.PASSWORD);
     }
@@ -50,10 +49,7 @@ public class ProductDataBase {
                 resultSet.close();
                 statement.close();
                 connection.close();
-            } else {
-                //TODO: product with this id doesn't exist
             }
-
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -86,9 +82,6 @@ public class ProductDataBase {
                 connection.close();
                 return result;
             }
-            else {
-                //TODO: no product exist.
-            }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -118,9 +111,6 @@ public class ProductDataBase {
                 statement.close();
                 connection.close();
                 return result;
-            }
-            else {
-                //TODO: no product exist.
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);

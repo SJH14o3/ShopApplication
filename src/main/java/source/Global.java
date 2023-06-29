@@ -3,18 +3,10 @@ package source;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class Global {
+public class Global extends User{
     public static final String PASSWORD = "12345678";
     private static Stage stage;
-    private static int user_id;
-    private static int user_type; //1: consumer, 2:vendor.
 
-    public static void setUser_type(int user_type) {
-        Global.user_type = user_type;
-    }
-    public static int getUser_type() {
-        return user_type;
-    }
     public static void setStage(Stage s, int password) {
         if (password == 12345678) {
             stage = s;
@@ -22,13 +14,6 @@ public class Global {
     }
     public static Stage getStage() {
         return stage;
-    }
-
-    public static void setUser_id(int user_id) {
-        Global.user_id = user_id;
-    }
-    public static int getUser_id() {
-        return user_id;
     }
     public static final Integer COLOR1 = 0xE0E0E0;
     public static final Integer COLOR2 = 0xFFFF33;

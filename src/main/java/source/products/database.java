@@ -59,17 +59,19 @@ public class database {
                 alert.setContentText("This Username Is Already Exist!");
                 alert.show();
             }else {
-                PsInsert = connection.prepareStatement("INSERT INTO users (Username , Email , Password , UserType) VALUES (?,?,?,?)");
+                PsInsert = connection.prepareStatement("INSERT INTO users (Username , Email , Password , UserType, balance) VALUES (?,?,?,?, 0.00)");
                 PsInsert.setString(1,username);
                 PsInsert.setString(2,Email);
                 PsInsert.setString(3,password);
                 PsInsert.setString(4,usertype);
                 PsInsert.executeUpdate();
                 Statement statement = connection.createStatement();
-                ResultSet resultSet1 = statement.executeQuery("SELECT user_id, UserType FROM users WHERE Username = \"" + username +"\"");
+                ResultSet resultSet1 = statement.executeQuery("SELECT user_id, UserType, balance FROM users WHERE Username = \"" + username +"\"");
                 if (resultSet1.next()) {
                     Global.setUser_id(resultSet1.getInt(1));
                     String userType = resultSet1.getString(2).trim();
+                    Global.setBalance(resultSet1.getDouble(3));
+                    System.out.println(Global.getBalance());
                     if (userType.equals("Consumer")) {
                         Global.setUser_type(1);
                     }
@@ -131,7 +133,7 @@ public class database {
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , Global.PASSWORD);
-            preparedStatement = connection.prepareStatement("SELECT Password , UserType, User_id FROM users WHERE Username = ?");
+            preparedStatement = connection.prepareStatement("SELECT Password , UserType, User_id, balance FROM users WHERE Username = ?");
             preparedStatement.setString(1 , Username);
             resultSet = preparedStatement.executeQuery();
             if(!resultSet.isBeforeFirst()){
@@ -152,6 +154,8 @@ public class database {
                             Global.setUser_type(2);
                         }
                         Global.setUser_id(resultSet.getInt(3));
+                        Global.setBalance(resultSet.getDouble(4));
+                        System.out.println(Global.getBalance());
                         try {
                             new Menu(stage);
                         } catch (IOException e) {
@@ -189,8 +193,27 @@ public class database {
                 }
             }
         }
-
-
     }
-
+    public static synchronized void changeBalance(double change, int user_id) {
+        Global.setBalance(Global.getBalance() + change);
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String SQL = "UPDATE `users` SET `Balance` = " + Global.getBalance() + " WHERE (`User_id` = " + user_id + ");";
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , Global.PASSWORD);
+            preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            int affectedRows = preparedStatement.executeUpdate();
+            System.out.println("Balance changed: " + affectedRows);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        finally {
+            try {
+                preparedStatement.close();
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }
