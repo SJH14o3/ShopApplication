@@ -71,15 +71,15 @@ public class database {
                     Global.setUser_id(resultSet1.getInt(1));
                     String userType = resultSet1.getString(2).trim();
                     Global.setBalance(resultSet1.getDouble(3));
-                    System.out.println(Global.getBalance());
+                    //System.out.println("initial Balance: " + Global.getBalance());
                     if (userType.equals("Consumer")) {
                         Global.setUser_type(1);
                     }
                     else {
                         Global.setUser_type(2);
                     }
-                    System.out.println("USER ID: " + Global.getUser_id());
-                    System.out.println("Type: " + Global.getUser_type());
+                    //System.out.println("USER ID: " + Global.getUser_id());
+                    //System.out.println("Type: " + Global.getUser_type());
                 }
 
                 Stage stage = Global.getStage();
@@ -195,7 +195,14 @@ public class database {
         }
     }
     public static synchronized void changeBalance(double change, int user_id) {
-        Global.setBalance(Global.getBalance() + change);
+        double finalBalance = Global.getBalance() + change;
+        finalBalance = Double.parseDouble(String.format("%.2f", finalBalance));
+/*
+        System.out.println("G: " + Global.getBalance());
+        System.out.println("C: " + change);
+        System.out.println("F: " + finalBalance);
+*/
+        Global.setBalance(finalBalance);
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         String SQL = "UPDATE `users` SET `Balance` = " + Global.getBalance() + " WHERE (`User_id` = " + user_id + ");";

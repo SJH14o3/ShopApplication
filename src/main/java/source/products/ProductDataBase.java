@@ -70,7 +70,7 @@ public class ProductDataBase {
                 result = new Product[count];
                 //System.out.println(count);
                 SQL = "SELECT product_id ,name, price, score, image_address FROM products" + " " + extra;
-                System.out.println(SQL);
+                //System.out.println(SQL);
                 resultSet = statement.executeQuery(SQL);
                 for (int i = 0; i < count; i++) {
                     resultSet.next();
@@ -90,14 +90,14 @@ public class ProductDataBase {
 
     public static String[] getUniqueBrands(String extra) {
         String SQL = "SELECT count(DISTINCT brand) FROM products " + extra;
-        System.out.println(SQL);
+        //System.out.println(SQL);
         String[] result;
         try (Connection connection = connect(); Statement statement = connection.createStatement()) {
             ResultSet resultSet;
             resultSet = statement.executeQuery(SQL);
             if (resultSet.next()) {
                 int count = resultSet.getInt(1);
-                System.out.println(count);
+                //System.out.println(count);
                 result = new String[count];
                 SQL = "SELECT DISTINCT brand FROM products " + extra + " ORDER BY brand";
                 //System.out.println(SQL);
