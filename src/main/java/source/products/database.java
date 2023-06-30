@@ -194,6 +194,23 @@ public class database {
             }
         }
     }
+    public static String getUsername(int user_id) {
+        String SQL = "SELECT username FROM users WHERE user_id = " + user_id + " LIMIT 1";
+        String result = null;
+        try (Connection connection = DatabaseConnection.establishConnection("login_db2"); Statement statement = connection.createStatement()) {
+            ResultSet resultSet;
+            resultSet = statement.executeQuery(SQL);
+            if (resultSet.next()) {
+                result = resultSet.getString(1).trim();
+                resultSet.close();
+                statement.close();
+                connection.close();
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return result;
+    }
     public static synchronized void changeBalance(double change, int user_id) {
         double finalBalance = Global.getBalance() + change;
         finalBalance = Double.parseDouble(String.format("%.2f", finalBalance));
@@ -219,7 +236,9 @@ public class database {
                 preparedStatement.close();
                 connection.close();
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
+            } catch (NullPointerException e) {
+                System.out.println(e.getMessage());
             }
         }
     }

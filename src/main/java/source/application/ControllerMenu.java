@@ -22,6 +22,8 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 public class ControllerMenu implements Initializable {
+    public static Product[] preLoad;
+    private static boolean firstLoad = true;
     Product[] products;
     private int first;
     private int last;
@@ -241,7 +243,18 @@ public class ControllerMenu implements Initializable {
             }
         }
         //System.out.println(extra);
-        products = getSelectedProductsMainInfo(extra.toString());
+        if (firstLoad) {
+            firstLoad = false;
+            products = new Product[preLoad.length];
+            System.arraycopy(preLoad, 0, products, 0, preLoad.length);
+            preLoad = new Product[0];
+            System.out.println("pre load");
+        }
+        else {
+            products = getSelectedProductsMainInfo(extra.toString());
+            System.out.println("already loaded");
+        }
+
         assert products != null;
         //System.out.println(products.length);
         if (products.length == 0) {

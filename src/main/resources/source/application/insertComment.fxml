@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: AAAAAA;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.InsertCommentController">
+   <children>
+      <AnchorPane fx:id="pane0" layoutX="250.0" layoutY="134.0" prefHeight="384.0" prefWidth="781.0" style="-fx-background-color: D0D0D0;">
+         <children>
+            <AnchorPane prefHeight="70.0" prefWidth="781.0" style="-fx-background-color: FAFAFA;">
+               <children>
+                  <Label fx:id="username" layoutX="4.0" layoutY="17.0" prefHeight="35.0" prefWidth="697.0" text="Username">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="buyer" alignment="CENTER" contentDisplay="CENTER" layoutX="697.0" layoutY="16.0" prefHeight="38.0" prefWidth="82.0" text="Buyer" textFill="#48c41b">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <TextArea fx:id="text" layoutX="5.0" layoutY="76.0" prefHeight="301.0" prefWidth="771.0" promptText="300 characters max" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextArea>
+         </children>
+      </AnchorPane>
+      <Button fx:id="submitButton" layoutX="649.0" layoutY="529.0" mnemonicParsing="false" onAction="#submit" onMouseEntered="#highlightSubmit" onMouseExited="#deHighlightSubmit" prefHeight="80.0" prefWidth="160.0" style="-fx-background-color: FFFF33; -fx-border-color: A0A000; -fx-border-width: 2;" text="Submit">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutX="473.0" layoutY="529.0" mnemonicParsing="false" onAction="#back" onMouseEntered="#highlightBack" onMouseExited="#deHighlightBack" prefHeight="80.0" prefWidth="160.0" style="-fx-background-color: FFFF33; -fx-border-width: 2; -fx-border-color: A0A000;" text="Back">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -4,6 +4,7 @@ public class User {
     private static int user_id;
     private static int user_type; //1: consumer, 2:vendor.
     private static double balance;
+    private static String username;
     public static void setUser_type(int user_type) {
         User.user_type = user_type;
     }
@@ -15,6 +16,13 @@ public class User {
     }
     public static int getUser_id() {
         return user_id;
+    }
+    public static void setUsername(String username) {
+        User.username = username;
+    }
+
+    public static String getUsername() {
+        return username;
     }
     public static double getBalance() {
         return balance;
