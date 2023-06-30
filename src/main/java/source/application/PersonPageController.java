@@ -31,12 +31,12 @@ public class PersonPageController {
 
     public PersonPageController() {
 
-        P_PocketMoney.setText(String.valueOf(User.getBalance()));
-        if (User.getUser_type() == 1) {
-            P_UserType.setText("Vendor");
-        } else {
-            P_UserType.setText("Consumer");
-        }
+//        P_PocketMoney.setText(String.valueOf(User.getBalance()));
+//        if (User.getUser_type() == 1) {
+//            P_UserType.setText("Vendor");
+//        } else {
+//            P_UserType.setText("Consumer");
+//        }
     }
 
 }

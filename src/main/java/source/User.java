@@ -2,6 +2,11 @@ package source;
 
 public class User {
     private static int user_id;
+
+    private static int User_Email;
+
+    private static int User_Password;
+
     private static int user_type; //1: consumer, 2:vendor.
     private static double balance;
     public static void setUser_type(int user_type) {
