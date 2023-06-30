@@ -7,16 +7,19 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import source.Global;
+import source.products.ProductPreLoadThread;
 
 import java.io.IOException;
 
 public class Main extends Application{
+    public static Thread preLoadProducts = new ProductPreLoadThread();
     public static void main(String[] args) {
         launch(args);
     }
     @Override
     public void start (Stage stage) throws IOException {
         Global.setStage(stage, 12345678);
+        preLoadProducts.start();
 //        try {
 //            new Menu(stage);
 //        } catch (IOException e) {
@@ -34,8 +37,5 @@ public class Main extends Application{
         stage.setTitle("Login");
         stage.setScene(new Scene(root ,776 , 448 ));
         stage.show();
-
-
-
     }
 }

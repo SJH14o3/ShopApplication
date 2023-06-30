@@ -51,6 +51,6 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="minuteTextField" alignment="CENTER" layoutX="499.0" layoutY="556.0" prefHeight="25.0" prefWidth="189.0" promptText="enter an integer between 0 to 60" />
+      <TextField fx:id="minuteTextField" alignment="CENTER" layoutX="499.0" layoutY="556.0" prefHeight="25.0" prefWidth="189.0" promptText="enter an integer between 0 to 59" />
    </children>
 </AnchorPane>

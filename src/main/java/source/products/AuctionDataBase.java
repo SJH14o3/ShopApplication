@@ -1,6 +1,5 @@
 package source.products;
 
-import source.Global;
 import source.application.InsertAuctionController;
 import source.exceptions.NoBidException;
 
@@ -8,14 +7,11 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class AuctionDataBase {
-    private static Connection connect() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", Global.PASSWORD);
-    }
+public class AuctionDataBase extends DatabaseConnection{
     public static Auction[] getAllAuctions() {
         String SQL = "SELECT dead_line, starting_bid, current_bid FROM auctions";
         Auction[] result;
-        try (Connection connection = connect(); Statement statement = connection.createStatement()) {
+        try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
             ResultSet resultSet;
             resultSet = statement.executeQuery(SQL);
             int count = 0;
@@ -60,7 +56,7 @@ public class AuctionDataBase {
         String SQL = "SELECT value from bids WHERE user_id = " + user_id + " AND auction_id = " + auction_id + " ORDER BY value DESC LIMIT 1";
         //System.out.println(SQL);
         double result;
-        try (Connection connection = connect(); Statement statement = connection.createStatement()) {
+        try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
             ResultSet resultSet;
             resultSet = statement.executeQuery(SQL);
             if (resultSet.next()) {
@@ -80,7 +76,7 @@ public class AuctionDataBase {
         String SQL = "SELECT title, starting_bid, current_bid, dead_line, image_address FROM auctions WHERE id = " + id;
         //System.out.println(SQL);
         Auction result;
-        try (Connection connection = connect(); Statement statement = connection.createStatement()) {
+        try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
             ResultSet resultSet;
             resultSet = statement.executeQuery(SQL);
             resultSet.next();
@@ -97,7 +93,7 @@ public class AuctionDataBase {
         //System.out.println("here value: " + value);
         String SQL = "INSERT INTO bids (auction_id, value, user_id) VALUES (" + auction_id + ", " + value + ", " + user_id + ");";
         //System.out.println(SQL);
-        try (Connection connection = connect(); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.executeUpdate();
             //int affectedRows = preparedStatement.executeUpdate();
             //System.out.println(affectedRows);
@@ -105,7 +101,7 @@ public class AuctionDataBase {
             throw new RuntimeException(ex);
         }
         SQL = "UPDATE `auctions` SET `current_bid` = " + value + " WHERE (`id` = " + auction_id + ");";
-        try (Connection connection = connect(); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.executeUpdate();
             //int affectedRows = preparedStatement.executeUpdate();
             //System.out.println(affectedRows);
@@ -121,7 +117,7 @@ public class AuctionDataBase {
                 auction.getStartingBid() + ", " + auction.getHighestBid() + ", " + auction.getDeadline() + ", " + "" + address + ");";
         System.out.println(SQL);
         int id;
-        try (Connection connection = connect(); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
             int affectedRows = preparedStatement.executeUpdate();
             if (affectedRows > 0) {
                 try (ResultSet rs = preparedStatement.getGeneratedKeys()) {

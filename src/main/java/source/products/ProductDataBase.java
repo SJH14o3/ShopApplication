@@ -1,18 +1,13 @@
 package source.products;
 
-import source.Global;
-
 import java.sql.*;
 
-public class ProductDataBase {
-    private static Connection connect() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root",Global.PASSWORD);
-    }
+public class ProductDataBase extends DatabaseConnection{
 
     public static void insertProduct(Product product) {
         String SQL = "INSERT INTO shop.products (name, brand, price, quantity, image_address, product_type, description) values (?, ?, ?, ?, ?, ?, ?);";
         int id;
-        try (Connection connection = connect();
+        try (Connection connection = establishConnection("shop");
              PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, product.getName());
             preparedStatement.setString(2, product.getBrand());
@@ -41,7 +36,7 @@ public class ProductDataBase {
         //System.out.println(id);
         String SQL = "SELECT * FROM products WHERE product_id = " + id;
         Product result = null;
-        try (Connection connection = connect(); Statement statement = connection.createStatement()) {
+        try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
             ResultSet resultSet;
             resultSet = statement.executeQuery(SQL);
             if (resultSet.next()) {
@@ -61,7 +56,7 @@ public class ProductDataBase {
         String SQL = "SELECT count(product_id) FROM products" + " " + extra;
         //System.out.println(SQL);
         Product[] result;
-        try (Connection connection = connect(); Statement statement = connection.createStatement()) {
+        try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
             ResultSet resultSet;
             resultSet = statement.executeQuery(SQL);
             if (resultSet.next()) {
@@ -92,7 +87,7 @@ public class ProductDataBase {
         String SQL = "SELECT count(DISTINCT brand) FROM products " + extra;
         //System.out.println(SQL);
         String[] result;
-        try (Connection connection = connect(); Statement statement = connection.createStatement()) {
+        try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
             ResultSet resultSet;
             resultSet = statement.executeQuery(SQL);
             if (resultSet.next()) {
