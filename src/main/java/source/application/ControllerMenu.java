@@ -341,6 +341,11 @@ public class ControllerMenu implements Initializable {
         Stage stage = getStage();
         new AuctionsMenu(stage, false);
     }
+    @FXML
+    private void switchToPersonPage() throws IOException {
+        Stage stage = getStage();
+        new PersonMenu(stage, false);
+    }
     private void productSelected(int in) throws IOException {
         Stage stage = getStage();
         new ProductPage(stage, in);
