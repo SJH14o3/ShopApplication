@@ -255,5 +255,6 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Button fx:id="vendor" layoutX="1135.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToInsertAuction" prefHeight="25.0" prefWidth="117.0" text="Insert Auction" />
     </children>
 </AnchorPane>

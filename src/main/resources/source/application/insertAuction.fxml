@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.InsertAuctionController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="202.0" layoutX="492.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="202.0" />
+      <ImageView fx:id="image" fitHeight="200.0" fitWidth="200.0" layoutX="493.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="579.0" layoutY="20.0" text="Title:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titleTextField" alignment="CENTER" layoutX="224.0" layoutY="45.0" prefHeight="25.0" prefWidth="745.0" promptText="Max: 65 Characters" />
+      <Label layoutX="550.0" layoutY="72.0" text="Starting Bid:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="bidTextField" alignment="CENTER" layoutX="224.0" layoutY="98.0" prefHeight="25.0" prefWidth="745.0" promptText="Min:  0.01$ ,Max 100.00$, Using more than two decimal digits will round the number into two deciaml digit." />
+      <Label layoutX="536.0" layoutY="121.0" text="Image Address:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="imageAddress" alignment="CENTER" layoutX="224.0" layoutY="146.0" prefHeight="25.0" prefWidth="745.0" promptText="Pick a product picture in project file, use test button to check if image show up. only .jpg is accepted. you don't need to type .jpg though." />
+      <Button layoutX="563.0" layoutY="174.0" mnemonicParsing="false" onAction="#testImage" prefHeight="25.0" prefWidth="54.0" text="Test" />
+      <Button layoutX="617.0" layoutY="606.0" mnemonicParsing="false" onAction="#parseInformation" prefHeight="49.0" prefWidth="109.0" text="Submit" />
+      <Button layoutX="458.0" layoutY="606.0" mnemonicParsing="false" onAction="#back" prefHeight="49.0" prefWidth="109.0" text="Back" />
+      <DatePicker fx:id="datePicker" layoutX="507.0" layoutY="441.0" promptText="insert date" />
+      <Label layoutX="507.0" layoutY="411.0" text="Auction's Deadline Date:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="541.0" layoutY="475.0" text="Deadline Hour:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="hourTextField" alignment="CENTER" layoutX="499.0" layoutY="500.0" prefHeight="25.0" prefWidth="189.0" promptText="enter an integer between 0 to 23" />
+      <Label layoutX="534.0" layoutY="531.0" text="Deadline Minute:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="minuteTextField" alignment="CENTER" layoutX="499.0" layoutY="556.0" prefHeight="25.0" prefWidth="189.0" promptText="enter an integer between 0 to 59" />
+   </children>
+</AnchorPane>

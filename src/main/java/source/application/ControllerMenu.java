@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.stage.Stage;
+import source.Global;
 import source.products.Product;
 
 import static source.products.ProductDataBase.*;
@@ -21,6 +22,8 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 public class ControllerMenu implements Initializable {
+    public static Product[] preLoad;
+    private static boolean firstLoad = true;
     Product[] products;
     private int first;
     private int last;
@@ -56,7 +59,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private Label pageCounter, minPrice, maxPrice;
     @FXML
-    private Button nextButton, previousButton, auctionButton;
+    private Button nextButton, previousButton, auctionButton, vendor;
     @FXML
     private Slider minSlider, maxSlider;
     @FXML
@@ -113,6 +116,16 @@ public class ControllerMenu implements Initializable {
         else if (!atLeastOneSelected) {
             all.setSelected(true);
         }
+    }
+    @FXML
+    private void resetFilter() {
+        minSlider.setValue(0.00);
+        maxSlider.setValue(100.00);
+        all.setSelected(true);
+        allSelected();
+        price = "";
+        brandsStr = "";
+        sort(null);
     }
 
     public void filter(){
@@ -230,7 +243,18 @@ public class ControllerMenu implements Initializable {
             }
         }
         //System.out.println(extra);
-        products = getSelectedProductsMainInfo(extra.toString());
+        if (firstLoad) {
+            firstLoad = false;
+            products = new Product[preLoad.length];
+            System.arraycopy(preLoad, 0, products, 0, preLoad.length);
+            preLoad = new Product[0];
+            System.out.println("pre load");
+        }
+        else {
+            products = getSelectedProductsMainInfo(extra.toString());
+            System.out.println("already loaded");
+        }
+
         assert products != null;
         //System.out.println(products.length);
         if (products.length == 0) {
@@ -268,7 +292,7 @@ public class ControllerMenu implements Initializable {
             brandNames = getUniqueBrands("WHERE product_type = " + categoryStr);
         }
         int i = 0;
-        for (; i < brandNames.length; i++) {
+        for (; i < Objects.requireNonNull(brandNames).length; i++) {
             if (!brands[i].isVisible()) {
                 brands[i].setVisible(true);
             }
@@ -313,6 +337,10 @@ public class ControllerMenu implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (Global.getUser_type() != 2) {
+            vendor.setDisable(true);
+            vendor.setVisible(false);
+        }
         mainAnchorPane.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 0.75), null, Insets.EMPTY)));
         productScroll.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 1.0), null, Insets.EMPTY)));
         //String[] a = getUniqueBrands("");
@@ -345,6 +373,10 @@ public class ControllerMenu implements Initializable {
     private void switchToPersonPage() throws IOException {
         Stage stage = getStage();
         new PersonMenu(stage, false);
+    }
+    private void switchToInsert() {
+        Stage stage = getStage();
+        new InsertProduct(stage);
     }
     private void productSelected(int in) throws IOException {
         Stage stage = getStage();
