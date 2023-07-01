@@ -1,11 +1,44 @@
 package source.products;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javafx.scene.control.Alert;
+
+import java.sql.*;
 
 public class CartDataBase extends DatabaseConnection{
+    public static void increaseQuantity(int id, int currentCount, int productQuantity) {
+        currentCount++;
+        if (currentCount > productQuantity) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("The amount of requested item has passed the available item's quantity in stock");
+            alert.setContentText("Your request cannot be done");
+            alert.showAndWait();
+            return;
+        }
+        String SQL = "UPDATE carts SET quantity = " + currentCount + " WHERE cart_id = " + id + ";";
+        try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+    public static void decreaseQuantity(int id, int currentCount) {
+        currentCount--;
+        String SQL = "UPDATE carts SET quantity = " + currentCount + " WHERE cart_id = " + id + ";";
+        try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+    public static void removeCartItem(int id) {
+        String SQL = "DELETE FROM carts WHERE cart_id = " + id + ";";
+        try (Connection connection = establishConnection("shop"); PreparedStatement st = connection.prepareStatement(SQL)) {
+            st.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public static CartItem[] getCartItems(int user_id) {
         String SQL = "SELECT count(cart_id) FROM carts WHERE user_id = " + user_id;
         //System.out.println(SQL);
