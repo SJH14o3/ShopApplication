@@ -33,7 +33,7 @@
       <TextField fx:id="imageAddress" alignment="CENTER" layoutX="224.0" layoutY="146.0" prefHeight="25.0" prefWidth="745.0" promptText="Pick a product picture in project file, use test button to check if image show up. only .jpg is accepted. you don't need to type .jpg though." />
       <Button layoutX="563.0" layoutY="174.0" mnemonicParsing="false" onAction="#testImage" prefHeight="25.0" prefWidth="54.0" text="Test" />
       <Button layoutX="617.0" layoutY="606.0" mnemonicParsing="false" onAction="#parseInformation" prefHeight="49.0" prefWidth="109.0" text="Submit" />
-      <Button layoutX="458.0" layoutY="606.0" mnemonicParsing="false" onAction="#back" prefHeight="49.0" prefWidth="109.0" text="Back" />
+      <Button fx:id="backButton" layoutX="458.0" layoutY="606.0" mnemonicParsing="false" onAction="#back" prefHeight="49.0" prefWidth="109.0" text="Back" />
       <DatePicker fx:id="datePicker" layoutX="507.0" layoutY="441.0" promptText="insert date" />
       <Label layoutX="507.0" layoutY="411.0" text="Auction's Deadline Date:">
          <font>

@@ -1,22 +1,29 @@
 package source.application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import source.Global;
 import source.products.Auction;
 import source.products.AuctionDataBase;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
-public class InsertAuctionController extends Insert{
+public class InsertAuctionController extends Insert implements Initializable {
     @FXML
     private TextField titleTextField, bidTextField, hourTextField, minuteTextField;
     @FXML
     private DatePicker datePicker;
+    @FXML
+    private Button backButton;
     public static String createDeadline(String in, int hour, int minute) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(in);
@@ -161,7 +168,7 @@ public class InsertAuctionController extends Insert{
             return;
         }
         Auction auction = new Auction(0, title, startingBid, startingBid, createDeadline(date, hour, minute), pictureAddress);
-        AuctionDataBase.insertAuction(auction);
+        AuctionDataBase.insertAuction(auction, Global.getUser_id());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");
         alert.setHeaderText("Successfully added auction to the shop!");
@@ -178,6 +185,20 @@ public class InsertAuctionController extends Insert{
             new AuctionsMenu(Global.getStage(), false);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (InsertAuction.extendTime) {
+            InsertAuction.extendTime = false;
+            backButton.setDisable(true);
+            Auction auction = AuctionDataBase.getAuction(AuctionPage.AUCTION_ID);
+            AuctionDataBase.deleteAuction(AuctionPage.AUCTION_ID);
+            titleTextField.setText(auction.getTitle());
+            bidTextField.setText(String.valueOf(auction.getStartingBid()));
+            imageAddress.setText(auction.getImageAddress());
+            image.setImage(new Image(imageAddress.getText() + ".jpg"));
         }
     }
 }

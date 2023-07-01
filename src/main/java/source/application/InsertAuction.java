@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class InsertAuction {
+    public static boolean extendTime = false;
     public InsertAuction(Stage stage) {
         Parent root;
         try {
