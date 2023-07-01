@@ -374,6 +374,7 @@ public class ControllerMenu implements Initializable {
         Stage stage = getStage();
         new PersonMenu(stage, false);
     }
+    @FXML
     private void switchToInsert() {
         Stage stage = getStage();
         new InsertProduct(stage);

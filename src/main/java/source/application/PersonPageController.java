@@ -1,10 +1,14 @@
 package source.application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import source.User;
 
-public class PersonPageController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class PersonPageController implements Initializable {
 
     @FXML
     private Label P_Username ;
@@ -26,17 +30,13 @@ public class PersonPageController {
     @FXML
     private Label  P_PocketMoney ;
 
-
-
-
-    public PersonPageController() {
-
-//        P_PocketMoney.setText(String.valueOf(User.getBalance()));
-//        if (User.getUser_type() == 1) {
-//            P_UserType.setText("Vendor");
-//        } else {
-//            P_UserType.setText("Consumer");
-//        }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        P_PocketMoney.setText(User.getBalance() + "$");
+        if (User.getUser_type() == 1) {
+            P_UserType.setText("Vendor");
+        } else {
+            P_UserType.setText("Consumer");
+        }
     }
-
 }
