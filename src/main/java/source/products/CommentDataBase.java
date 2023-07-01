@@ -5,7 +5,7 @@ import java.sql.*;
 public class CommentDataBase extends DatabaseConnection{
     public static void InsertComment(Comment comment) {
         String SQL = "INSERT INTO comments (user_id, product_id, buyer, comment) VALUES (" + comment.getUserID() + ", " + comment.getProductID() + ", " + comment.isBuyer() + ", " + "\" "+ comment.getText() +" \");";
-        System.out.println(SQL);
+        //System.out.println(SQL);
         try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {

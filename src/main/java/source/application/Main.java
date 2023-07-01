@@ -7,12 +7,14 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import source.Global;
+import source.products.AuctionsPreLoadCheckThread;
 import source.products.ProductPreLoadThread;
 
 import java.io.IOException;
 
 public class Main extends Application{
     public static Thread preLoadProducts = new ProductPreLoadThread();
+    public static Thread preCheckAuctions = new AuctionsPreLoadCheckThread();
     public static void main(String[] args) {
         launch(args);
     }
@@ -20,6 +22,7 @@ public class Main extends Application{
     public void start (Stage stage) throws IOException {
         Global.setStage(stage, 12345678);
         preLoadProducts.start();
+        preCheckAuctions.start();
 //        try {
 //            new Menu(stage);
 //        } catch (IOException e) {

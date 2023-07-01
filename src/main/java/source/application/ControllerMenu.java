@@ -10,8 +10,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import source.Global;
+import source.notifications.AuctionWinnerNotification;
+import source.notifications.NoBidNotification;
+import source.notifications.Notification;
+import source.notifications.NotificationDataBase;
+import source.products.AuctionDataBase;
 import source.products.Product;
 
 import static source.products.ProductDataBase.*;
@@ -19,8 +25,8 @@ import static source.Global.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
+
 public class ControllerMenu implements Initializable {
     public static Product[] preLoad;
     private static boolean firstLoad = true;
@@ -28,8 +34,11 @@ public class ControllerMenu implements Initializable {
     private int first;
     private int last;
     private int page = 1;
+    RedCircleThread fade;
 
     private String brandsStr = "", price = "", categoryStr = "";
+    @FXML
+    private Circle circle;
     @FXML
     private Label name0, name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, name11, name12, name13, name14, name15, name16, name17, name18, name19, name20, name21, name22, name23, name24, name25, name26, name27, name28, name29, name30, name31, name32, name33, name34, name35, name36, name37, name38, name39, name40, name41, name42, name43, name44, name45, name46, name47, name48, name49;
     private final Label[] names = new Label[50];
@@ -59,11 +68,13 @@ public class ControllerMenu implements Initializable {
     @FXML
     private Label pageCounter, minPrice, maxPrice;
     @FXML
-    private Button nextButton, previousButton, auctionButton, vendor;
+    private Button nextButton, previousButton, auctionButton, vendor, bell;
     @FXML
     private Slider minSlider, maxSlider;
     @FXML
     private ImageView noProduct;
+
+    private ArrayList<Notification> notifications;
 
     private final String[] sortOptions = {"Newest", "Oldest", "Cheapest", "Most Expensive", "Rating"};
     private final String[] categories = {"All", "Vegetables", "Fruits", "Dried Fruits", "Proteins", "Sweets", "Pantry", "Dairy", "Beverages", "Snacks", "Breakfast"};
@@ -337,6 +348,19 @@ public class ControllerMenu implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        fade = new RedCircleThread(circle);
+        bell.setGraphic(new ImageView(new Image("bell.png")));
+        Notification[] temp = NotificationDataBase.getAll(Global.getUser_id());
+        if (temp.length > 0) {
+            fade.start();
+        }
+        else {
+            circle.setVisible(false);
+        }
+        System.out.println(temp.length);
+        notifications = new ArrayList<>(temp.length);
+        notifications.addAll(Arrays.asList(temp));
+        System.out.println(notifications.size());
         if (Global.getUser_type() != 2) {
             vendor.setDisable(true);
             vendor.setVisible(false);
@@ -378,6 +402,55 @@ public class ControllerMenu implements Initializable {
     private void switchToInsert() {
         Stage stage = getStage();
         new InsertProduct(stage);
+    }
+    @FXML
+    private void notification() {
+        if (notifications.size() > 0) {
+            Notification notification = notifications.get(0);
+            if (notification instanceof NoBidNotification n) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Notification");
+                alert.setHeaderText(n.getText());
+                alert.setContentText("You can either extend your auction or delete it.\nSelect your action");
+                ButtonType extend = new ButtonType("Extend");
+                ButtonType delete = new ButtonType("Delete");
+                alert.getButtonTypes().setAll(extend, delete);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == extend) {
+                    AuctionPage.AUCTION_ID = n.auction_id;
+                    InsertAuction.extendTime = true;
+                    NotificationDataBase.deleteNoBidNotification(n.id);
+                    new InsertAuction(Global.getStage());
+                }
+                else if (result.get() == delete) {
+                    AuctionDataBase.deleteAuction(n.auction_id);
+                    NotificationDataBase.deleteNoBidNotification(n.id);
+                    Alert done = new Alert(Alert.AlertType.INFORMATION);
+                    done.setTitle("Success!");
+                    done.setHeaderText("Auction was successfully deleted");
+                    done.showAndWait();
+                }
+                else return;
+            }
+            else if (notification instanceof AuctionWinnerNotification n) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Notification");
+                alert.setHeaderText(n.getText());
+                alert.setContentText("Product will be shipped to you soon!");
+                alert.showAndWait();
+                NotificationDataBase.deleteAuctionWinnerNotification(n.id);
+            }
+            notifications.remove(0);
+            if (notifications.size() == 0) {
+                fade.stopFading();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Empty");
+            alert.setHeaderText("You don't have new notification");
+            alert.showAndWait();
+        }
     }
     private void productSelected(int in) throws IOException {
         Stage stage = getStage();
