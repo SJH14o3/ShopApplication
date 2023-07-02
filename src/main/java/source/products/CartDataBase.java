@@ -5,7 +5,7 @@ import javafx.scene.control.Alert;
 import java.sql.*;
 
 public class CartDataBase extends DatabaseConnection{
-    public static void increaseQuantity(int id, int currentCount, int productQuantity) {
+    public static boolean increaseQuantity(int id, int currentCount, int productQuantity) {
         currentCount++;
         if (currentCount > productQuantity) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -13,7 +13,7 @@ public class CartDataBase extends DatabaseConnection{
             alert.setHeaderText("The amount of requested item has passed the available item's quantity in stock");
             alert.setContentText("Your request cannot be done");
             alert.showAndWait();
-            return;
+            return false;
         }
         String SQL = "UPDATE carts SET quantity = " + currentCount + " WHERE cart_id = " + id + ";";
         try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
@@ -21,15 +21,20 @@ public class CartDataBase extends DatabaseConnection{
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
+        return true;
     }
-    public static void decreaseQuantity(int id, int currentCount) {
+    public static boolean decreaseQuantity(int id, int currentCount) {
         currentCount--;
+        if(currentCount==0){
+            return false;
+        }
         String SQL = "UPDATE carts SET quantity = " + currentCount + " WHERE cart_id = " + id + ";";
         try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
+        return true;
     }
     public static void removeCartItem(int id) {
         String SQL = "DELETE FROM carts WHERE cart_id = " + id + ";";

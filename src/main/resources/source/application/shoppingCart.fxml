@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.ShoppingCartController">
+   <children>
+      <AnchorPane fx:id="pane0" layoutX="50.0" layoutY="100.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
+            <Label fx:id="productName0" layoutX="130.0" layoutY="10.0" prefHeight="30.0" prefWidth="424.0" text="product name">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffff33" height="100.0" layoutX="797.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <Button fx:id="increase0" layoutX="803.0" layoutY="14.0" mnemonicParsing="false" onAction="#increaseItem0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: null;" />
+            <Button fx:id="decrease0" layoutX="801.0" layoutY="80.0" mnemonicParsing="false" onAction="#decreaseItem0" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: null;" />
+            <Label fx:id="productQuantity0" alignment="CENTER" contentDisplay="CENTER" layoutX="795.0" layoutY="51.0" prefHeight="26.0" prefWidth="60.0" text="quantity">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Line endX="60.0" layoutX="796.0" layoutY="48.0" startX="1.00006103515625" />
+            <Line endX="30.0" layoutX="827.0" layoutY="79.0" startX="-30.0" />
+            <Button fx:id="removeProduct0" layoutX="130.0" layoutY="80.0" mnemonicParsing="false" onAction="#remove0" prefHeight="26.0" prefWidth="61.0" />
+            <Label fx:id="productBrand0" layoutX="130.0" layoutY="45.0" prefHeight="18.0" prefWidth="315.0" text="brand" />
+            <Label fx:id="finalPrice0" layoutX="589.0" layoutY="17.0" prefHeight="18.0" prefWidth="89.0" text="final price" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="14.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <ImageView fx:id="image0" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane1" layoutX="50.0" layoutY="235.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
+            <Label fx:id="productName1" layoutX="130.0" layoutY="10.0" prefHeight="30.0" prefWidth="424.0" text="product name">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffff33" height="100.0" layoutX="797.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <Button fx:id="increase1" layoutX="803.0" layoutY="14.0" mnemonicParsing="false" onAction="#increaseItem1" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: null;" />
+            <Button fx:id="decrease1" layoutX="801.0" layoutY="80.0" mnemonicParsing="false" onAction="#decreaseItem1" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: null;" />
+            <Label fx:id="productQuantity1" alignment="CENTER" contentDisplay="CENTER" layoutX="796.0" layoutY="49.0" prefHeight="26.0" prefWidth="60.0" text="quantity">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Line endX="60.0" layoutX="796.0" layoutY="48.0" startX="1.00006103515625" />
+            <Line endX="30.0" layoutX="827.0" layoutY="79.0" startX="-30.0" />
+            <Button fx:id="removeProduct1" layoutX="130.0" layoutY="80.0" mnemonicParsing="false" onAction="#remove1" prefHeight="26.0" prefWidth="61.0" />
+            <Label fx:id="productBrand1" layoutX="130.0" layoutY="45.0" prefHeight="18.0" prefWidth="315.0" text="brand" />
+            <Label fx:id="finalPrice1" layoutX="589.0" layoutY="17.0" prefHeight="18.0" prefWidth="89.0" text="final price" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="14.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <ImageView fx:id="image1" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane2" layoutX="50.0" layoutY="370.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
+            <Label fx:id="productName2" layoutX="130.0" layoutY="10.0" prefHeight="30.0" prefWidth="424.0" text="product name">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffff33" height="100.0" layoutX="797.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <Button fx:id="increase2" layoutX="803.0" layoutY="14.0" mnemonicParsing="false" onAction="#increaseItem2" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: null;" />
+            <Button fx:id="decrease2" layoutX="801.0" layoutY="80.0" mnemonicParsing="false" onAction="#decreaseItem2" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: null;" />
+            <Label fx:id="productQuantity2" alignment="CENTER" contentDisplay="CENTER" layoutX="797.0" layoutY="48.0" prefHeight="30.0" prefWidth="60.0" text="quantity">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Line endX="60.0" layoutX="796.0" layoutY="48.0" startX="1.00006103515625" />
+            <Line endX="30.0" layoutX="827.0" layoutY="79.0" startX="-30.0" />
+            <Button fx:id="removeProduct2" layoutX="130.0" layoutY="80.0" mnemonicParsing="false" onAction="#remove2" prefHeight="26.0" prefWidth="61.0" />
+            <Label fx:id="productBrand2" layoutX="130.0" layoutY="45.0" prefHeight="18.0" prefWidth="315.0" text="brand" />
+            <Label fx:id="finalPrice2" layoutX="589.0" layoutY="17.0" prefHeight="18.0" prefWidth="89.0" text="final price" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="14.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <ImageView fx:id="image2" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane3" layoutX="50.0" layoutY="505.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
+            <Label fx:id="productName3" layoutX="130.0" layoutY="10.0" prefHeight="30.0" prefWidth="424.0" text="product name">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffff33" height="100.0" layoutX="797.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <Button fx:id="increase3" layoutX="803.0" layoutY="14.0" mnemonicParsing="false" onAction="#increaseItem3" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: null;" />
+            <Button fx:id="decrease3" layoutX="801.0" layoutY="80.0" mnemonicParsing="false" onAction="#decreaseItem3" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: null;" />
+            <Label fx:id="productQuantity3" alignment="CENTER" contentDisplay="CENTER" layoutX="796.0" layoutY="48.0" prefHeight="30.0" prefWidth="60.0" text="quantity">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Line endX="60.0" layoutX="796.0" layoutY="48.0" startX="1.00006103515625" />
+            <Line endX="30.0" layoutX="827.0" layoutY="79.0" startX="-30.0" />
+            <Button fx:id="removeProduct3" layoutX="130.0" layoutY="80.0" mnemonicParsing="false" onAction="#remove3" prefHeight="26.0" prefWidth="61.0" />
+            <Label fx:id="productBrand3" layoutX="130.0" layoutY="45.0" prefHeight="18.0" prefWidth="315.0" text="brand" />
+            <Label fx:id="finalPrice3" layoutX="589.0" layoutY="17.0" prefHeight="18.0" prefWidth="89.0" text="final price" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="14.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <ImageView fx:id="image3" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="summaryPane" layoutX="957.0" layoutY="100.0" prefHeight="520.0" prefWidth="271.0" style="-fx-background-color: #e0e0e0;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="520.0" stroke="BLACK" strokeType="INSIDE" width="271.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffff33" height="45.0" layoutX="21.0" layoutY="261.0" stroke="BLACK" strokeType="INSIDE" width="229.0" />
+            <Button layoutX="24.0" layoutY="264.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="222.0" style="-fx-background-color: #ffff33;" text="CHECKOUT">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+            <Label layoutX="40.0" layoutY="92.0" prefHeight="20.0" prefWidth="114.0" text="products count :">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Label fx:id="productCount" layoutX="186.0" layoutY="92.0" prefHeight="20.0" prefWidth="62.0" text="0" />
+            <Label layoutX="40.0" layoutY="156.0" prefHeight="20.0" prefWidth="127.0" text="Total shopping cart :">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Label fx:id="totalShoppingCart" layoutX="186.0" layoutY="156.0" prefHeight="20.0" prefWidth="62.0" text="0" />
+            <ImageView fitHeight="90.0" fitWidth="150.0" layoutX="90.0" layoutY="372.0" opacity="0.84" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../cart.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Button fx:id="prevButton" layoutX="50.0" layoutY="650.0" mnemonicParsing="false" onAction="#previous" prefHeight="38.0" prefWidth="50.0" />
+      <Button fx:id="nextButton" layoutX="149.0" layoutY="650.0" mnemonicParsing="false" onAction="#next" prefHeight="38.0" prefWidth="50.0" style="-fx-graphic: &quot;&quot;C:\Users\mjesh\IdeaProjects\ShopApplication-1\src\main\resources\next.png&quot;&quot;;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000004d" height="38.0" layoutX="106.0" layoutY="650.0" opacity="0.13" stroke="#000000cc" strokeType="INSIDE" width="38.0" />
+      <Label fx:id="pageCounter" alignment="CENTER" contentDisplay="CENTER" layoutX="106.0" layoutY="650.0" prefHeight="38.0" prefWidth="38.0" text="1" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="emptyCart" layoutX="214.0" layoutY="265.0" prefHeight="200.0" prefWidth="553.0" visible="false">
+         <children>
+            <Label layoutX="28.0" layoutY="119.0" prefHeight="66.0" prefWidth="497.0" text="Your shopping cart is empty!">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="109.0" fitWidth="165.0" layoutX="179.0" layoutY="14.0" opacity="0.79" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../cart.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -3,40 +3,76 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #E0E0E0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.ProductPageController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFA07A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.ProductPageController">
    <children>
-      <Label fx:id="displayProductName" layoutX="550.0" layoutY="120.0" prefHeight="60.0" prefWidth="680.0" text="name">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="displayProductPicture" fitHeight="450.0" fitWidth="450.0" layoutX="33.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="displayProductScore" layoutX="550.0" layoutY="190.0" prefHeight="30.0" prefWidth="70.0" text="score" />
-      <Label layoutX="550.0" layoutY="240.0" prefHeight="40.0" prefWidth="45.0" text="brand">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="displayProductBrand" layoutX="640.0" layoutY="240.0" prefHeight="40.0" prefWidth="590.0" text="Label" />
-      <Label fx:id="displayProductDescription" layoutX="550.0" layoutY="300.0" prefHeight="120.0" prefWidth="680.0" text="Label" wrapText="true" />
-      <Label layoutX="550.0" layoutY="440.0" prefHeight="40.0" prefWidth="70.0" text="quantity">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="displayProductQuantity" layoutX="640.0" layoutY="440.0" prefHeight="40.0" prefWidth="590.0" text="Label" />
-      <Label fx:id="displayProductPrice" layoutX="550.0" layoutY="500.0" prefHeight="50.0" prefWidth="100.0" text="Label">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Button layoutX="57.0" layoutY="600.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="290.0" style="-fx-background-color: #FFF333;" text="Button" />
-      <Button layoutX="550.0" layoutY="600.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #FFF333;" text="Button" />
-      <Button layoutX="871.0" layoutY="600.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #FFF333;" text="Button" />
-      <Spinner layoutX="358.0" layoutY="600.0" prefHeight="70.0" prefWidth="100.0" />
+      <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="620.0" prefWidth="1180.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="400.0" layoutX="39.0" layoutY="50.0" stroke="#0000004d" strokeType="INSIDE" width="400.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTSALMON" height="66.0" layoutX="36.0" layoutY="470.0" stroke="#33282800" strokeType="INSIDE" width="315.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="488.0" layoutX="460.0" layoutY="50.0" stroke="#0000004d" strokeType="INSIDE" width="675.0" />
+            <ImageView fx:id="displayProductPicture" fitHeight="398.0" fitWidth="398.0" layoutX="40.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="254.0" layoutY="486.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../cart.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="addToCartButton" layoutX="40.0" layoutY="470.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="66.0" prefWidth="307.0" style="-fx-background-color: null;" text="ADD TO CART">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Spinner fx:id="setQuantitySpinner" layoutX="350.0" layoutY="470.0" prefHeight="66.0" prefWidth="90.0" style="-fx-background-color: #B0C4DE;" />
+            <Label fx:id="displayProductName" layoutX="483.0" layoutY="65.0" prefHeight="56.0" prefWidth="620.0" text="name">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="displayScoreImage" fitHeight="30.0" fitWidth="192.0" layoutX="477.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="482.0" layoutY="212.0" text="product details :">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="displayProductDescription" layoutX="483.0" layoutY="248.0" prefHeight="178.0" prefWidth="630.0" text="dtails" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="displayProductBrand" layoutX="481.0" layoutY="180.0" prefHeight="18.0" prefWidth="147.0" text="brand">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="displayProductPrice" layoutX="500.0" layoutY="475.0" prefHeight="36.0" prefWidth="110.0" text="price">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="483.0" layoutY="475.0" text="\$">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="rateToProduct" layoutX="141.0" layoutY="538.0" mnemonicParsing="false" onAction="#rate" style="-fx-background-color: null;" text="rate now!" textFill="#19336e" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="CommentsButton" layoutX="27.0" layoutY="535.0" mnemonicParsing="false" onAction="#goToComments" prefHeight="36.0" prefWidth="90.0" style="-fx-background-color: null;" text="comments" textFill="#19336e" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="154.0" fitWidth="232.0" layoutX="899.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../temp2.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
