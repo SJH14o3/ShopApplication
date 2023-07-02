@@ -67,11 +67,12 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <ImageView fitHeight="154.0" fitWidth="232.0" layoutX="899.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="154.0" fitWidth="232.0" layoutX="901.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../temp2.jpg" />
                </image>
             </ImageView>
+            <Button fx:id="backButton" layoutX="39.0" layoutY="3.0" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: FFA07A; -fx-graphic: back_arrow.png;" />
          </children>
       </AnchorPane>
    </children>

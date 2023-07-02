@@ -6,9 +6,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import source.Global;
 import source.products.Product;
 import source.products.ProductDataBase;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -33,7 +35,7 @@ public class ProductPageController implements Initializable {
     private Label displayProductPrice;
 
     @FXML
-    private Button addToCartButton, goToComments, rateToProduct;
+    private Button addToCartButton, goToComments, rateToProduct, backButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -71,6 +73,7 @@ public class ProductPageController implements Initializable {
         }else{
             displayScoreImage.setImage(new Image("star0.jpg"));
         }
+        backButton.setGraphic(new ImageView(new Image("prev.png")));
     }
 
     @FXML
@@ -80,11 +83,18 @@ public class ProductPageController implements Initializable {
 
     @FXML
     private void goToComments(){
-
-       // new CommentsMenu(ProductPage.PRODUCT_ID);
+        new CommentsMenu(Global.getStage());
     }
     @FXML
     private void rate(){
 
+    }
+    @FXML
+    private void back() {
+        try {
+            new Menu(Global.getStage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

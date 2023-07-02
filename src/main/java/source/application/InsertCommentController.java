@@ -66,7 +66,6 @@ public class InsertCommentController implements Initializable {
         alert.showAndWait();
         back();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //TODO: implement the part where for submitting comment it show if they are buyer or not.
