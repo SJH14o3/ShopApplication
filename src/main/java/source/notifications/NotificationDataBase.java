@@ -1,5 +1,6 @@
 package source.notifications;
 
+import source.products.AuctionDataBase;
 import source.products.DatabaseConnection;
 
 import java.sql.*;
@@ -18,35 +19,41 @@ public class NotificationDataBase extends DatabaseConnection {
                 if (count == 0) return result;
                 SQL = "SELECT type ,sub_id FROM notifications WHERE user_id = " + user_id;
                 //System.out.println(SQL);
-                resultSet = statement.executeQuery(SQL);
+                ResultSet resultSet2 = statement.executeQuery(SQL);
                 System.out.println(count);
+                Statement statement1 = connection.createStatement();
+                ResultSet resultSet1 = null;
                 for (int i = 0; i < count; i++) {
                     System.out.println("i: " + i);
-                    resultSet.next();
-                    int subID = resultSet.getInt(2);
+                    resultSet2.next();
+                    int subID = resultSet2.getInt(2);
                     String SQL2;
-                    switch (resultSet.getInt(1)) {
+                    switch (resultSet2.getInt(1)) {
                         case 1 -> {
                             SQL2 = "SELECT a.title, a.id, n.id FROM auctions a JOIN nobid_notification n ON n.auction_id = a.id WHERE n.id = " + subID;
                             System.out.println(SQL2);
-                            ResultSet resultSet1 = statement.executeQuery(SQL2);
+                            resultSet1 = statement1.executeQuery(SQL2);
                             resultSet1.next();
                             result[i] = new NoBidNotification(resultSet1.getString(1).trim(), resultSet1.getInt(2), resultSet1.getInt(3));
                         }
                         case 2 -> {
                             SQL2 = "SELECT a.title, a.id, n.id FROM auctions a JOIN winner_notification n ON n.auction_id = a.id WHERE n.id = " + subID;
                             System.out.println(SQL2);
-                            ResultSet resultSet1 = statement.executeQuery(SQL2);
+                            resultSet1 = statement1.executeQuery(SQL2);
                             resultSet1.next();
                             result[i] = new AuctionWinnerNotification(resultSet1.getString(1).trim(), resultSet1.getInt(3));
                         }
                     }
                 }
+                resultSet2.close();
+                resultSet1.close();
                 resultSet.close();
+                statement1.close();
                 statement.close();
                 connection.close();
                 return result;
             }
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -85,6 +92,7 @@ public class NotificationDataBase extends DatabaseConnection {
         duplicate(SQL, user_id, 1);
     }
     public static void deleteNotification(String SQL) {
+        System.out.println("3: " + SQL);
         try (Connection connection = establishConnection("shop"); PreparedStatement st = connection.prepareStatement(SQL)) {
             st.execute();
         } catch (SQLException e) {
@@ -101,12 +109,23 @@ public class NotificationDataBase extends DatabaseConnection {
         }
     }
     public static void deleteAuctionWinnerNotification(int id) {
-        String SQL = "DELETE FROM winner_notification WHERE id = " + id + " LIMIT 1;";
+        String SQL = "SELECT auction_id FROM winner_notification WHERE id = "  + id + " LIMIT 1;";
+        int auction_id;
+        try(Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(SQL);
+            resultSet.next();
+            auction_id = resultSet.getInt(1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("2:" + id);
+        SQL = "DELETE FROM winner_notification WHERE id = " + id + " LIMIT 1;";
         try (Connection connection = establishConnection("shop"); PreparedStatement st = connection.prepareStatement(SQL)) {
             st.execute();
-            deleteNotification("DELETE FROM notifications WHERE sub_id = " + id + " AND type = 1");
+            deleteNotification("DELETE FROM notifications WHERE sub_id = " + id + " AND type = 2");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        AuctionDataBase.deleteAuction(auction_id);
     }
 }

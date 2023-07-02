@@ -259,11 +259,9 @@ public class ControllerMenu implements Initializable {
             products = new Product[preLoad.length];
             System.arraycopy(preLoad, 0, products, 0, preLoad.length);
             preLoad = new Product[0];
-            System.out.println("pre load");
         }
         else {
             products = getSelectedProductsMainInfo(extra.toString());
-            System.out.println("already loaded");
         }
 
         assert products != null;
