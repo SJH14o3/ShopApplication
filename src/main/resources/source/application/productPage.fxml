@@ -11,13 +11,67 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFA07A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.ProductPageController">
    <children>
-      <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="620.0" prefWidth="1180.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);">
+      <AnchorPane layoutX="42.0" layoutY="31.0" prefHeight="620.0" prefWidth="1180.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);">
          <children>
+            <AnchorPane fx:id="ratePane" layoutX="208.0" layoutY="492.0" prefHeight="35.0" prefWidth="231.0">
+               <children>
+                  <ImageView fx:id="m5" fitHeight="35.0" fitWidth="35.0" layoutX="196.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/5m.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="m4" fitHeight="35.0" fitWidth="35.0" layoutX="150.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/4m.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="m3" fitHeight="35.0" fitWidth="35.0" layoutX="104.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/3m.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="m2" fitHeight="35.0" fitWidth="35.0" layoutX="58.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/2m.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="m1" fitHeight="35.0" fitWidth="35.0" layoutX="12.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/1m.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="h5" fitHeight="35.0" fitWidth="35.0" layoutX="196.0" layoutY="1.0" onMouseClicked="#rate5" onMouseEntered="#m5Enter" onMouseExited="#m5Exit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/5h.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="h4" fitHeight="35.0" fitWidth="35.0" layoutX="150.0" layoutY="1.0" onMouseClicked="#rate4" onMouseEntered="#m4Enter" onMouseExited="#m4Exit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/4h.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="h3" fitHeight="35.0" fitWidth="35.0" layoutX="104.0" layoutY="1.0" onMouseClicked="#rate3" onMouseEntered="#m3Enter" onMouseExited="#m3Exit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/3h.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="h2" fitHeight="35.0" fitWidth="35.0" layoutX="58.0" layoutY="1.0" onMouseClicked="#rate2" onMouseEntered="#m2Enter" onMouseExited="#m2Exit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/2h.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="h1" fitHeight="35.0" fitWidth="35.0" layoutX="12.0" layoutY="1.0" onMouseClicked="#rate1" onMouseEntered="#m1Enter" onMouseExited="#m1Exit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../rating/1h.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="400.0" layoutX="39.0" layoutY="50.0" stroke="#0000004d" strokeType="INSIDE" width="400.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTSALMON" height="66.0" layoutX="36.0" layoutY="470.0" stroke="#33282800" strokeType="INSIDE" width="315.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="488.0" layoutX="460.0" layoutY="50.0" stroke="#0000004d" strokeType="INSIDE" width="675.0" />
             <ImageView fx:id="displayProductPicture" fitHeight="398.0" fitWidth="398.0" layoutX="40.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="254.0" layoutY="486.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="254.0" layoutY="486.0" onMouseClicked="#addToCart" opacity="0.9" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../cart.png" />
                </image>
@@ -27,52 +81,42 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Spinner fx:id="setQuantitySpinner" layoutX="350.0" layoutY="470.0" prefHeight="66.0" prefWidth="90.0" style="-fx-background-color: #B0C4DE;" />
-            <Label fx:id="displayProductName" layoutX="483.0" layoutY="65.0" prefHeight="56.0" prefWidth="620.0" text="name">
+            <Spinner fx:id="setQuantitySpinner" editable="true" layoutX="350.0" layoutY="470.0" prefHeight="66.0" prefWidth="90.0" style="-fx-background-color: #B0C4DE;" />
+            <Label fx:id="displayProductName" alignment="TOP_LEFT" layoutX="483.0" layoutY="91.0" prefHeight="68.0" prefWidth="647.0" text="Name" wrapText="true">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <ImageView fx:id="displayScoreImage" fitHeight="30.0" fitWidth="192.0" layoutX="477.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="482.0" layoutY="212.0" text="product details :">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="displayProductDescription" layoutX="483.0" layoutY="248.0" prefHeight="178.0" prefWidth="630.0" text="dtails" wrapText="true">
+            <ImageView fx:id="displayScoreImage" fitHeight="30.0" fitWidth="192.0" layoutX="483.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../rating/star0.png" />
+               </image></ImageView>
+            <Label fx:id="displayProductDescription" alignment="TOP_LEFT" layoutX="483.0" layoutY="228.0" prefHeight="202.0" prefWidth="630.0" text="Description" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="displayProductBrand" layoutX="481.0" layoutY="180.0" prefHeight="18.0" prefWidth="147.0" text="brand">
+            <Label fx:id="displayProductBrand" layoutX="483.0" layoutY="71.0" prefHeight="20.0" prefWidth="636.0" text="Brand">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="displayProductPrice" layoutX="500.0" layoutY="475.0" prefHeight="36.0" prefWidth="110.0" text="price">
+            <Label fx:id="displayProductPrice" layoutX="483.0" layoutY="156.0" prefHeight="36.0" prefWidth="144.0" text="price">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="483.0" layoutY="475.0" text="\$">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Label>
-            <Button fx:id="rateToProduct" layoutX="141.0" layoutY="538.0" mnemonicParsing="false" onAction="#rate" style="-fx-background-color: null;" text="rate now!" textFill="#19336e" underline="true">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="CommentsButton" layoutX="27.0" layoutY="535.0" mnemonicParsing="false" onAction="#goToComments" prefHeight="36.0" prefWidth="90.0" style="-fx-background-color: null;" text="comments" textFill="#19336e" underline="true">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
+            <Button fx:id="rateToProduct" layoutX="135.0" layoutY="543.0" mnemonicParsing="false" onAction="#rate" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: FFA07A;" text="Rate Now!" textFill="#19336e" />
+            <Button fx:id="CommentsButton" layoutX="36.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToComments" prefHeight="35.0" prefWidth="83.0" style="-fx-background-color: FFA07A;" text="Comments" textFill="#19336e" />
             <ImageView fitHeight="154.0" fitWidth="232.0" layoutX="901.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../temp2.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="backButton" layoutX="39.0" layoutY="3.0" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: FFA07A; -fx-graphic: back_arrow.png;" />
+            <Button fx:id="backButton" layoutX="39.0" layoutY="9.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: FFA07A;" />
+            <Label fx:id="quantityInStock" layoutX="483.0" layoutY="199.0" prefHeight="17.0" prefWidth="196.0" text="Quantity in Stock:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class InsertAuctionController extends Insert implements Initializable {
@@ -95,7 +96,7 @@ public class InsertAuctionController extends Insert implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No Picture with provided address found");
-            alert.setContentText("Make sure:\nimage is in project file\nimage is .jpg\nyou have not entered \".jpg\" part");
+            alert.setContentText("Make sure:\nimage is in \"Products\" folder\nimage is .jpg\nyou have not entered \".jpg\" part");
             alert.showAndWait();
             return;
         }
@@ -198,7 +199,7 @@ public class InsertAuctionController extends Insert implements Initializable {
             titleTextField.setText(auction.getTitle());
             bidTextField.setText(String.valueOf(auction.getStartingBid()));
             imageAddress.setText(auction.getImageAddress());
-            image.setImage(new Image(imageAddress.getText() + ".jpg"));
+            image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Products/" + auction.getImageAddress() + ".jpg"))));
         }
     }
 }

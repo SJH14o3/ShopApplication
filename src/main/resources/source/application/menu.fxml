@@ -46,16 +46,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score0" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score0" alignment="CENTER" layoutY="216.0" prefHeight="26.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -75,16 +70,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score1" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score1" alignment="CENTER" layoutY="216.0" prefHeight="26.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -104,16 +94,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score2" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score2" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -133,16 +118,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score3" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score3" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -162,16 +142,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score4" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score4" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -191,16 +166,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score5" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score5" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -220,16 +190,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score6" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score6" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -249,16 +214,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score7" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score7" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -278,16 +238,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score8" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score8" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -307,16 +262,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score9" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score9" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -336,16 +286,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score10" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score10" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -365,16 +310,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score11" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score11" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -394,16 +334,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score12" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score12" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -423,16 +358,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score13" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score13" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -452,16 +382,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score14" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score14" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -481,16 +406,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score15" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score15" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -510,16 +430,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score16" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score16" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -539,16 +454,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score17" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score17" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -568,16 +478,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score18" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score18" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -597,16 +502,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score19" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score19" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -626,16 +526,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score20" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score20" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -655,16 +550,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score21" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score21" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -684,16 +574,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score22" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score22" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -713,16 +598,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score23" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score23" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -742,16 +622,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score24" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score24" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -771,16 +646,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score25" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score25" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -800,16 +670,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score26" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score26" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -829,16 +694,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score27" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score27" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -858,16 +718,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score28" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score28" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -887,16 +742,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score29" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score29" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -916,16 +766,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score30" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score30" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -945,16 +790,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score31" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score31" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -974,16 +814,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score32" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score32" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1003,16 +838,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score33" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score33" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1032,16 +862,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score34" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score34" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1061,16 +886,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score35" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score35" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1090,16 +910,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score36" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score36" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1119,16 +934,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score37" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score37" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1148,16 +958,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score38" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score38" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1177,16 +982,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score39" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score39" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1206,16 +1006,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score40" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score40" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1235,16 +1030,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score41" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score41" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1264,16 +1054,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score42" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score42" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1293,16 +1078,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score43" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score43" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1322,16 +1102,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score44" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score44" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1351,16 +1126,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score45" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score45" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1380,16 +1150,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score46" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score46" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1409,16 +1174,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score47" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score47" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1438,16 +1198,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score48" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score48" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -1467,16 +1222,11 @@
                                  <font>
                                     <Font size="10.0" />
                                  </font></Label>
-                              <Label fx:id="score49" layoutX="81.0" layoutY="216.0" text="score">
+                              <Label fx:id="score49" alignment="CENTER" layoutY="216.0" prefWidth="176.0" text="score">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../star.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>

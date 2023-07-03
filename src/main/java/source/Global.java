@@ -4,7 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Global extends User{
-    public static final String PASSWORD = "ftm26383"; //6X0db8y3L&&J
+    public static final String PASSWORD = "12345678"; //6X0db8y3L&&J
     private static Stage stage;
 
     public static void setStage(Stage s, int password) {

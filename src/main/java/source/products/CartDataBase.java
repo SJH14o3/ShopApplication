@@ -1,6 +1,8 @@
 package source.products;
 
 import javafx.scene.control.Alert;
+import source.Global;
+import source.application.ProductPage;
 
 import java.sql.*;
 
@@ -42,6 +44,26 @@ public class CartDataBase extends DatabaseConnection{
             st.execute();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+    public static boolean doesUserHaveThisItemInTheirCart() {
+        String SQL = "SELECT user_id FROM carts WHERE user_id = " + Global.getUser_id() + " AND product_id = " + ProductPage.PRODUCT_ID;
+        try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+    public static void insertCart(int quantity) {
+        String SQL = "INSERT INTO carts (user_id, product_id, quantity) VALUES (" + Global.getUser_id() + ", " + ProductPage.PRODUCT_ID + ", " + quantity + ");";
+        try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
     public static CartItem[] getCartItems(int user_id) {

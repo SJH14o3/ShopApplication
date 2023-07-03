@@ -7,10 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import source.Global;
-import source.products.AuctionsPreLoadCheckThread;
-import source.products.ProductPreLoadThread;
+import source.threads.AuctionsPreLoadCheckThread;
+import source.threads.ProductPreLoadThread;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application{
     public static Thread preLoadProducts = new ProductPreLoadThread();
@@ -36,7 +37,9 @@ public class Main extends Application{
 //        stage.show();
         stage.getIcons().add(new Image("icon.png"));
         stage.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        stage.setX(320);
+        stage.setY(60);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
         stage.setTitle("Login");
         stage.setScene(new Scene(root ,776 , 448 ));
         stage.show();

@@ -15,6 +15,7 @@ import source.products.AuctionDataBase;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AuctionPageController implements Initializable {
@@ -84,7 +85,7 @@ public class AuctionPageController implements Initializable {
         auction = AuctionDataBase.getAuction(AuctionPage.AUCTION_ID);
         AuctionPage.highestBid = auction.getHighestBid();
         backButton.setGraphic(new ImageView(new Image("back_arrow.png")));
-        image.setImage(new Image(auction.getImageAddress() + ".jpg"));
+        image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Products/" + auction.getImageAddress() + ".jpg"))));
         title.setText(auction.getTitle());
         highestBid.setText(auction.getHighestBid() + "$");
         startingBid.setText(auction.getStartingBid() + "$");

@@ -12,6 +12,7 @@ import source.products.CartDataBase;
 import source.products.CartItem;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ShoppingCartController implements Initializable {
@@ -196,12 +197,11 @@ public class ShoppingCartController implements Initializable {
             if(!panes[i].isVisible()){
                 panes[i].setVisible(true);
             }
-            images[i].setImage(new Image(cartItems[i+first].product.getImageAddress()+".jpg"));
+            images[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Products/" + cartItems[i + first].product.getImageAddress() + ".jpg"))));
             productsNames[i].setText(cartItems[i+first].product.getName());
             productsBrands[i].setText(cartItems[i+first].product.getBrand());
             finalPrices[i].setText(String.valueOf(cartItems[i+first].product.getPrice()));
             productsQuantity[i].setText(String.valueOf(cartItems[i+first].quantity));
-
         }
         for(;i<4;i++) {
             if (panes[i].isVisible()) {

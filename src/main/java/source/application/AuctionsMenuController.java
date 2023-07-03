@@ -16,6 +16,7 @@ import static source.application.AuctionsMenu.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static source.Global.getStage;
@@ -107,7 +108,7 @@ public class AuctionsMenuController implements Initializable {
         }
         toggleAnchors(last - first);
         for (int i = 0; i < last - first; i++) {
-            images[i].setImage(new Image(auctions[first + i].getImageAddress() + ".jpg"));
+            images[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Products/" + auctions[first + i].getImageAddress() + ".jpg"))));
             titles[i].setText(auctions[first + i].getTitle());
             topBids[i].setText("Highest Bid: " + auctions[first + i].getHighestBid() + "$");
             timeLeft[i].setText("Time Left: " + auctions[first + i].calculateDeadLine());
