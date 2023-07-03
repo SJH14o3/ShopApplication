@@ -14,7 +14,7 @@
       <AnchorPane fx:id="pane0" layoutX="50.0" layoutY="100.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
-            <Label fx:id="productName0" layoutX="130.0" layoutY="10.0" prefHeight="30.0" prefWidth="424.0" text="product name">
+            <Label fx:id="productName0" layoutX="130.0" layoutY="10.0" onMouseClicked="#goToProductPage0" prefHeight="30.0" prefWidth="424.0" text="product name">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -42,7 +42,7 @@
       <AnchorPane fx:id="pane1" layoutX="50.0" layoutY="235.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
-            <Label fx:id="productName1" layoutX="130.0" layoutY="10.0" prefHeight="30.0" prefWidth="424.0" text="product name">
+            <Label fx:id="productName1" layoutX="130.0" layoutY="10.0" onMouseClicked="#goToProductPage1" prefHeight="30.0" prefWidth="424.0" text="product name">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -70,7 +70,7 @@
       <AnchorPane fx:id="pane2" layoutX="50.0" layoutY="370.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
-            <Label fx:id="productName2" layoutX="130.0" layoutY="10.0" prefHeight="30.0" prefWidth="424.0" text="product name">
+            <Label fx:id="productName2" layoutX="130.0" layoutY="10.0" onMouseClicked="#goToProductPage2" prefHeight="30.0" prefWidth="424.0" text="product name">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -98,7 +98,7 @@
       <AnchorPane fx:id="pane3" layoutX="50.0" layoutY="505.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
-            <Label fx:id="productName3" layoutX="130.0" layoutY="10.0" prefHeight="30.0" prefWidth="424.0" text="product name">
+            <Label fx:id="productName3" layoutX="130.0" layoutY="10.0" onMouseClicked="#goToProductPage3" prefHeight="30.0" prefWidth="424.0" text="product name">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
