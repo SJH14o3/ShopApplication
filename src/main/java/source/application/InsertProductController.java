@@ -89,7 +89,7 @@ public class InsertProductController extends Insert implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No Picture with provided address found");
-            alert.setContentText("Make sure:\nimage is in project file\nimage is .jpg\nyou have not entered \".jpg\" part");
+            alert.setContentText("Make sure:\nimage is in \"Product\" folder\nimage is .jpg\nyou have not entered \".jpg\" part");
             alert.showAndWait();
             return;
         }

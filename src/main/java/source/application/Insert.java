@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import java.util.Objects;
 
 public class Insert {
     @FXML
@@ -14,19 +15,19 @@ public class Insert {
     @FXML
     private void testImage() {
         try {
-            image.setImage(new Image(imageAddress.getText()  + ".jpg"));
+            image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Products/" + imageAddress.getText() + ".jpg"))));
         }
-        catch (IllegalArgumentException e) {
+        catch (IllegalArgumentException | NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No Picture with provided address found");
-            alert.setContentText("Make sure:\nimage is in project file\nimage is .jpg\nyou have not entered \".jpg\" part");
+            alert.setContentText("Make sure:\nimage is in \"Products\" folder\nimage is .jpg\nyou have not entered \".jpg\" part");
             alert.showAndWait();
         }
     }
     protected boolean legitimateImageAddress(String address) {
         try {
-            image.setImage(new Image(address + ".jpg"));
+            image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Products/" + address + ".jpg"))));
             return true;
         }
         catch (IllegalArgumentException e) {

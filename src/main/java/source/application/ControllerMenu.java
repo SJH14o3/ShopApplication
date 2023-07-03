@@ -177,9 +177,20 @@ public class ControllerMenu implements Initializable {
         for (int i = first; i < last; i++) {
             names[i-first].setText(products[i].getName());
             prices[i-first].setText(products[i].getPrice() + "$");
-            scores[i-first].setText(String.valueOf(products[i].getScore()));
+            double score = products[i].getScore();
+            if (score < 0.25) {
+                if (scores[i - first].isVisible()) {
+                    scores[i - first].setVisible(false);
+                }
+            }
+            else {
+                scores[i - first].setText(String.format("%.2f", products[i].getScore()));
+                if (!scores[i].isVisible()) {
+                    scores[i - first].setVisible(true);
+                }
+            }
             //System.out.println(products[i].getImageAddress() + ".jpg");
-            imageViews[i-first].setImage(new Image(products[i].getImageAddress() + ".jpg"));
+            imageViews[i-first].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Products/" + products[i].getImageAddress() + ".jpg"))));
         }
     }
     private void setProductScrollHeight() {
@@ -468,6 +479,7 @@ public class ControllerMenu implements Initializable {
         img0 = null;
         anchorPanes[0] = anchor0;
         anchor0 = null;
+        scores[0].setGraphic(new ImageView(new Image("star.png")));
 
         names[1] = name1;
         name1 = null;
@@ -479,6 +491,7 @@ public class ControllerMenu implements Initializable {
         img1 = null;
         anchorPanes[1] = anchor1;
         anchor1 = null;
+        scores[1].setGraphic(new ImageView(new Image("star.png")));
 
         names[2] = name2;
         name2 = null;
@@ -490,6 +503,7 @@ public class ControllerMenu implements Initializable {
         img2 = null;
         anchorPanes[2] = anchor2;
         anchor2 = null;
+        scores[2].setGraphic(new ImageView(new Image("star.png")));
 
         names[3] = name3;
         name3 = null;
@@ -501,6 +515,7 @@ public class ControllerMenu implements Initializable {
         img3 = null;
         anchorPanes[3] = anchor3;
         anchor3 = null;
+        scores[3].setGraphic(new ImageView(new Image("star.png")));
 
         names[4] = name4;
         name4 = null;
@@ -512,6 +527,7 @@ public class ControllerMenu implements Initializable {
         img4 = null;
         anchorPanes[4] = anchor4;
         anchor4 = null;
+        scores[4].setGraphic(new ImageView(new Image("star.png")));
 
         names[5] = name5;
         name5 = null;
@@ -523,6 +539,7 @@ public class ControllerMenu implements Initializable {
         img5 = null;
         anchorPanes[5] = anchor5;
         anchor5 = null;
+        scores[5].setGraphic(new ImageView(new Image("star.png")));
 
         names[6] = name6;
         name6 = null;
@@ -534,6 +551,7 @@ public class ControllerMenu implements Initializable {
         img6 = null;
         anchorPanes[6] = anchor6;
         anchor6 = null;
+        scores[6].setGraphic(new ImageView(new Image("star.png")));
 
         names[7] = name7;
         name7 = null;
@@ -545,6 +563,7 @@ public class ControllerMenu implements Initializable {
         img7 = null;
         anchorPanes[7] = anchor7;
         anchor7 = null;
+        scores[7].setGraphic(new ImageView(new Image("star.png")));
 
         names[8] = name8;
         name8 = null;
@@ -556,6 +575,7 @@ public class ControllerMenu implements Initializable {
         img8 = null;
         anchorPanes[8] = anchor8;
         anchor8 = null;
+        scores[8].setGraphic(new ImageView(new Image("star.png")));
 
         names[9] = name9;
         name9 = null;
@@ -567,6 +587,7 @@ public class ControllerMenu implements Initializable {
         img9 = null;
         anchorPanes[9] = anchor9;
         anchor9 = null;
+        scores[9].setGraphic(new ImageView(new Image("star.png")));
 
         names[10] = name10;
         name10 = null;
@@ -578,6 +599,7 @@ public class ControllerMenu implements Initializable {
         img10 = null;
         anchorPanes[10] = anchor10;
         anchor10 = null;
+        scores[10].setGraphic(new ImageView(new Image("star.png")));
 
         names[11] = name11;
         name11 = null;
@@ -589,6 +611,7 @@ public class ControllerMenu implements Initializable {
         img11 = null;
         anchorPanes[11] = anchor11;
         anchor11 = null;
+        scores[11].setGraphic(new ImageView(new Image("star.png")));
 
         names[12] = name12;
         name12 = null;
@@ -600,6 +623,7 @@ public class ControllerMenu implements Initializable {
         img12 = null;
         anchorPanes[12] = anchor12;
         anchor12 = null;
+        scores[12].setGraphic(new ImageView(new Image("star.png")));
 
         names[13] = name13;
         name13 = null;
@@ -611,6 +635,7 @@ public class ControllerMenu implements Initializable {
         img13 = null;
         anchorPanes[13] = anchor13;
         anchor13 = null;
+        scores[13].setGraphic(new ImageView(new Image("star.png")));
 
         names[14] = name14;
         name14 = null;
@@ -622,6 +647,7 @@ public class ControllerMenu implements Initializable {
         img14 = null;
         anchorPanes[14] = anchor14;
         anchor14 = null;
+        scores[14].setGraphic(new ImageView(new Image("star.png")));
 
         names[15] = name15;
         name15 = null;
@@ -633,6 +659,7 @@ public class ControllerMenu implements Initializable {
         img15 = null;
         anchorPanes[15] = anchor15;
         anchor15 = null;
+        scores[15].setGraphic(new ImageView(new Image("star.png")));
 
         names[16] = name16;
         name16 = null;
@@ -644,6 +671,7 @@ public class ControllerMenu implements Initializable {
         img16 = null;
         anchorPanes[16] = anchor16;
         anchor16 = null;
+        scores[16].setGraphic(new ImageView(new Image("star.png")));
 
         names[17] = name17;
         name17 = null;
@@ -655,6 +683,7 @@ public class ControllerMenu implements Initializable {
         img17 = null;
         anchorPanes[17] = anchor17;
         anchor17 = null;
+        scores[17].setGraphic(new ImageView(new Image("star.png")));
 
         names[18] = name18;
         name18 = null;
@@ -666,6 +695,7 @@ public class ControllerMenu implements Initializable {
         img18 = null;
         anchorPanes[18] = anchor18;
         anchor18 = null;
+        scores[18].setGraphic(new ImageView(new Image("star.png")));
 
         names[19] = name19;
         name19 = null;
@@ -677,6 +707,7 @@ public class ControllerMenu implements Initializable {
         img19 = null;
         anchorPanes[19] = anchor19;
         anchor19 = null;
+        scores[19].setGraphic(new ImageView(new Image("star.png")));
 
         names[20] = name20;
         name20 = null;
@@ -688,6 +719,7 @@ public class ControllerMenu implements Initializable {
         img20 = null;
         anchorPanes[20] = anchor20;
         anchor20 = null;
+        scores[20].setGraphic(new ImageView(new Image("star.png")));
 
         names[21] = name21;
         name21 = null;
@@ -699,6 +731,7 @@ public class ControllerMenu implements Initializable {
         img21 = null;
         anchorPanes[21] = anchor21;
         anchor21 = null;
+        scores[21].setGraphic(new ImageView(new Image("star.png")));
 
         names[22] = name22;
         name22 = null;
@@ -710,6 +743,7 @@ public class ControllerMenu implements Initializable {
         img22 = null;
         anchorPanes[22] = anchor22;
         anchor22 = null;
+        scores[22].setGraphic(new ImageView(new Image("star.png")));
 
         names[23] = name23;
         name23 = null;
@@ -721,6 +755,7 @@ public class ControllerMenu implements Initializable {
         img23 = null;
         anchorPanes[23] = anchor23;
         anchor23 = null;
+        scores[23].setGraphic(new ImageView(new Image("star.png")));
 
         names[24] = name24;
         name24 = null;
@@ -732,6 +767,7 @@ public class ControllerMenu implements Initializable {
         img24 = null;
         anchorPanes[24] = anchor24;
         anchor24 = null;
+        scores[24].setGraphic(new ImageView(new Image("star.png")));
 
         names[25] = name25;
         name25 = null;
@@ -743,6 +779,7 @@ public class ControllerMenu implements Initializable {
         img25 = null;
         anchorPanes[25] = anchor25;
         anchor25 = null;
+        scores[25].setGraphic(new ImageView(new Image("star.png")));
 
         names[26] = name26;
         name26 = null;
@@ -754,6 +791,7 @@ public class ControllerMenu implements Initializable {
         img26 = null;
         anchorPanes[26] = anchor26;
         anchor26 = null;
+        scores[26].setGraphic(new ImageView(new Image("star.png")));
 
         names[27] = name27;
         name27 = null;
@@ -765,6 +803,7 @@ public class ControllerMenu implements Initializable {
         img27 = null;
         anchorPanes[27] = anchor27;
         anchor27 = null;
+        scores[27].setGraphic(new ImageView(new Image("star.png")));
 
         names[28] = name28;
         name28 = null;
@@ -776,6 +815,7 @@ public class ControllerMenu implements Initializable {
         img28 = null;
         anchorPanes[28] = anchor28;
         anchor28 = null;
+        scores[28].setGraphic(new ImageView(new Image("star.png")));
 
         names[29] = name29;
         name29 = null;
@@ -787,6 +827,7 @@ public class ControllerMenu implements Initializable {
         img29 = null;
         anchorPanes[29] = anchor29;
         anchor29 = null;
+        scores[29].setGraphic(new ImageView(new Image("star.png")));
 
         names[30] = name30;
         name30 = null;
@@ -798,6 +839,7 @@ public class ControllerMenu implements Initializable {
         img30 = null;
         anchorPanes[30] = anchor30;
         anchor30 = null;
+        scores[30].setGraphic(new ImageView(new Image("star.png")));
 
         names[31] = name31;
         name31 = null;
@@ -809,6 +851,7 @@ public class ControllerMenu implements Initializable {
         img31 = null;
         anchorPanes[31] = anchor31;
         anchor31 = null;
+        scores[31].setGraphic(new ImageView(new Image("star.png")));
 
         names[32] = name32;
         name32 = null;
@@ -820,6 +863,7 @@ public class ControllerMenu implements Initializable {
         img32 = null;
         anchorPanes[32] = anchor32;
         anchor32 = null;
+        scores[32].setGraphic(new ImageView(new Image("star.png")));
 
         names[33] = name33;
         name33 = null;
@@ -831,6 +875,7 @@ public class ControllerMenu implements Initializable {
         img33 = null;
         anchorPanes[33] = anchor33;
         anchor33 = null;
+        scores[33].setGraphic(new ImageView(new Image("star.png")));
 
         names[34] = name34;
         name34 = null;
@@ -842,6 +887,7 @@ public class ControllerMenu implements Initializable {
         img34 = null;
         anchorPanes[34] = anchor34;
         anchor34 = null;
+        scores[34].setGraphic(new ImageView(new Image("star.png")));
 
         names[35] = name35;
         name35 = null;
@@ -853,6 +899,7 @@ public class ControllerMenu implements Initializable {
         img35 = null;
         anchorPanes[35] = anchor35;
         anchor35 = null;
+        scores[35].setGraphic(new ImageView(new Image("star.png")));
 
         names[36] = name36;
         name36 = null;
@@ -864,6 +911,7 @@ public class ControllerMenu implements Initializable {
         img36 = null;
         anchorPanes[36] = anchor36;
         anchor36 = null;
+        scores[36].setGraphic(new ImageView(new Image("star.png")));
 
         names[37] = name37;
         name37 = null;
@@ -875,6 +923,7 @@ public class ControllerMenu implements Initializable {
         img37 = null;
         anchorPanes[37] = anchor37;
         anchor37 = null;
+        scores[37].setGraphic(new ImageView(new Image("star.png")));
 
         names[38] = name38;
         name38 = null;
@@ -886,6 +935,7 @@ public class ControllerMenu implements Initializable {
         img38 = null;
         anchorPanes[38] = anchor38;
         anchor38 = null;
+        scores[38].setGraphic(new ImageView(new Image("star.png")));
 
         names[39] = name39;
         name39 = null;
@@ -897,6 +947,7 @@ public class ControllerMenu implements Initializable {
         img39 = null;
         anchorPanes[39] = anchor39;
         anchor39 = null;
+        scores[39].setGraphic(new ImageView(new Image("star.png")));
 
         names[40] = name40;
         name40 = null;
@@ -908,6 +959,7 @@ public class ControllerMenu implements Initializable {
         img40 = null;
         anchorPanes[40] = anchor40;
         anchor40 = null;
+        scores[40].setGraphic(new ImageView(new Image("star.png")));
 
         names[41] = name41;
         name41 = null;
@@ -919,6 +971,7 @@ public class ControllerMenu implements Initializable {
         img41 = null;
         anchorPanes[41] = anchor41;
         anchor41 = null;
+        scores[41].setGraphic(new ImageView(new Image("star.png")));
 
         names[42] = name42;
         name42 = null;
@@ -930,6 +983,7 @@ public class ControllerMenu implements Initializable {
         img42 = null;
         anchorPanes[42] = anchor42;
         anchor42 = null;
+        scores[42].setGraphic(new ImageView(new Image("star.png")));
 
         names[43] = name43;
         name43 = null;
@@ -941,6 +995,7 @@ public class ControllerMenu implements Initializable {
         img43 = null;
         anchorPanes[43] = anchor43;
         anchor43 = null;
+        scores[43].setGraphic(new ImageView(new Image("star.png")));
 
         names[44] = name44;
         name44 = null;
@@ -952,6 +1007,7 @@ public class ControllerMenu implements Initializable {
         img44 = null;
         anchorPanes[44] = anchor44;
         anchor44 = null;
+        scores[44].setGraphic(new ImageView(new Image("star.png")));
 
         names[45] = name45;
         name45 = null;
@@ -963,6 +1019,7 @@ public class ControllerMenu implements Initializable {
         img45 = null;
         anchorPanes[45] = anchor45;
         anchor45 = null;
+        scores[45].setGraphic(new ImageView(new Image("star.png")));
 
         names[46] = name46;
         name46 = null;
@@ -974,6 +1031,7 @@ public class ControllerMenu implements Initializable {
         img46 = null;
         anchorPanes[46] = anchor46;
         anchor46 = null;
+        scores[46].setGraphic(new ImageView(new Image("star.png")));
 
         names[47] = name47;
         name47 = null;
@@ -985,6 +1043,7 @@ public class ControllerMenu implements Initializable {
         img47 = null;
         anchorPanes[47] = anchor47;
         anchor47 = null;
+        scores[47].setGraphic(new ImageView(new Image("star.png")));
 
         names[48] = name48;
         name48 = null;
@@ -996,6 +1055,7 @@ public class ControllerMenu implements Initializable {
         img48 = null;
         anchorPanes[48] = anchor48;
         anchor48 = null;
+        scores[48].setGraphic(new ImageView(new Image("star.png")));
 
         names[49] = name49;
         name49 = null;
@@ -1007,6 +1067,7 @@ public class ControllerMenu implements Initializable {
         img49 = null;
         anchorPanes[49] = anchor49;
         anchor49 = null;
+        scores[49].setGraphic(new ImageView(new Image("star.png")));
 
         brands[0] = brand0;
         brand0 = null;

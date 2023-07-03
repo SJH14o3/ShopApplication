@@ -1,6 +1,7 @@
-package source.products;
+package source.threads;
 
 import source.Global;
+import source.products.AuctionDataBase;
 
 public class placeAuctionThread extends Thread{
     private final int auctionID;

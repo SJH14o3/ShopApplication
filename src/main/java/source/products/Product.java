@@ -1,5 +1,7 @@
 package source.products;
 
+import source.database.ScoresDataBase;
+
 public class Product {
 
     private int id;
@@ -59,7 +61,7 @@ public class Product {
         totalScore += newScore;
         voteCount++;
         score = (double) totalScore / voteCount;
-        //TODO: implement the code to update the score in database
+        ScoresDataBase.insertScore(newScore, score, voteCount);
     }
     //it might not be useful, just in case we needed it
     @Override

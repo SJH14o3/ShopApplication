@@ -1,4 +1,6 @@
-package source.products;
+package source.threads;
+
+import source.products.AuctionDataBase;
 
 public class AuctionsPreLoadCheckThread extends Thread{
     @Override

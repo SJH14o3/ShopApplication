@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import source.Global;
-import source.products.placeAuctionThread;
+import source.threads.placeAuctionThread;
 
 import java.io.IOException;
 import java.net.URL;
@@ -75,7 +75,7 @@ public class PlaceBidController implements Initializable {
                     ButtonType cancel = new ButtonType("Cancel");
                     alert.getButtonTypes().setAll(confirm, cancel);
                     Optional<ButtonType> result = alert.showAndWait();
-                    if (result.get() == confirm) {
+                    if (result.isPresent() && result.get() == confirm) {
                         //System.out.println("After Confirm: " + bid);
                         Thread placeBid = new placeAuctionThread(AuctionPage.AUCTION_ID , bid);
                         placeBid.start();
