@@ -6,4 +6,6 @@ module source.application {
 
     opens source.application to javafx.fxml;
     exports source.application;
+    exports source.test;
+    opens source.test to javafx.fxml;
 }

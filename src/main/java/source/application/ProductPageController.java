@@ -160,7 +160,7 @@ public class ProductPageController implements Initializable {
         }
         else displayProductPrice.setText("Out of stock");
         quantityInStock.setText("Quantity in Stock: " + product.getQuantity());
-        System.out.println(product.getScore());
+        //System.out.println(product.getScore());
         setScoreImage();
         backButton.setGraphic(new ImageView(new Image("prevSmall.png")));
 
@@ -217,7 +217,7 @@ public class ProductPageController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == confirm) {
             product.recalculateScore(in);
-            System.out.println("votes: " + product.getVoteCount());
+            //System.out.println("votes: " + product.getVoteCount());
             setScoreImage();
             ratePanelTransition(-50);
         }
