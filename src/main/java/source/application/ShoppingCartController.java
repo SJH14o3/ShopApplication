@@ -72,12 +72,14 @@ public class ShoppingCartController implements Initializable {
 
         nextButton.setGraphic(new ImageView(new Image("next.png")));
         prevButton.setGraphic(new ImageView(new Image("prev.png")));
+        prevButton.setDisable(true);
 
         cartItems = CartDataBase.getCartItems(Global.getUser_id());
         initiateArrays();
         first = 0;
         if(cartItems.length>0){
             emptyCart.setVisible(false);
+            summaryPane.setVisible(true);
         }
         if(cartItems.length<=4){
             nextButton.setDisable(true);
@@ -190,6 +192,7 @@ public class ShoppingCartController implements Initializable {
 
         if(cartItems.length == 0){
             emptyCart.setVisible(true);
+            summaryPane.setVisible(false);
         }
         int i;
         for(i = 0; i< last-first;i++){
@@ -200,7 +203,7 @@ public class ShoppingCartController implements Initializable {
             images[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Products/" + cartItems[i + first].product.getImageAddress() + ".jpg"))));
             productsNames[i].setText(cartItems[i+first].product.getName());
             productsBrands[i].setText(cartItems[i+first].product.getBrand());
-            finalPrices[i].setText(String.valueOf(cartItems[i+first].product.getPrice()));
+            finalPrices[i].setText(cartItems[i+first].product.getPrice() + "$");
             productsQuantity[i].setText(String.valueOf(cartItems[i+first].quantity));
         }
         for(;i<4;i++) {
@@ -209,7 +212,7 @@ public class ShoppingCartController implements Initializable {
             }
         }
         productCount.setText(String.valueOf(getItemCounts()));
-        totalShoppingCart.setText(String.valueOf(getItemsPrices()));
+        totalShoppingCart.setText(String.format("%.2f", getItemsPrices()) + "$");
         ShoppingCart.ShoppingCartItemsPrices = getItemsPrices();
     }
 
@@ -223,25 +226,23 @@ public class ShoppingCartController implements Initializable {
         if (!(last < cartItems.length)) {
             nextButton.setDisable(true);
         }
-
     }
     @FXML
     private void previous(){
-       if(page==1){
-           prevButton.setDisable(true);
-       }else{
-           page--;
-           update();
-           if (nextButton.isDisable()) {
-               nextButton.setDisable(false);
-           }
+       page--;
+       update();
+       if (nextButton.isDisable()) {
+           nextButton.setDisable(false);
        }
+        if(page==1){
+            prevButton.setDisable(true);
+        }
     }
 
     @FXML
     private void remove0(){
 
-        CartDataBase.removeCartItem(cartItems[0+first].ID);
+        CartDataBase.removeCartItem(cartItems[first].ID);
         cartItems = CartDataBase.getCartItems(Global.getUser_id());
         update();
 
