@@ -5,7 +5,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import source.Global;
 import source.User;
+import source.database.DiscountCodeDataBase;
+import source.products.CartDataBase;
+import source.products.CartItem;
+import source.products.database;
 
 import java.net.URL;
 import java.sql.SQLOutput;
@@ -26,10 +31,8 @@ public class PaymentPageController implements Initializable {
 
             if(isFormCompleted()){
                 saveData();
-                //اعمال کد تخفیف
+                applyDiscountCode();
                 //رفتن به درگاه بانک
-                System.out.println("testing");
-
             }else {
                 showIncompleteAlert();
             }
@@ -61,9 +64,11 @@ public class PaymentPageController implements Initializable {
         User.setUser_address(address);
         User.setUser_postalCode(postalCode);
         User.setUser_phoneNumber(phoneNumber);
+        database.setCompleteUserInfo();
     }
     private void applyDiscountCode(){
 
+        ShoppingCart.totalShoppingCart = ShoppingCart.ShoppingCartItemsPrices * (100-DiscountCodeDataBase.checkCode(discountCodeField.getText()))/100;
     }
 
 }

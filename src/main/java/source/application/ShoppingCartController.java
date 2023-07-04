@@ -63,10 +63,9 @@ public class ShoppingCartController implements Initializable {
     @FXML
     private Label pageCounter;
 
+
     private int first, last, page;
     private CartItem[] cartItems;
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -211,6 +210,7 @@ public class ShoppingCartController implements Initializable {
         }
         productCount.setText(String.valueOf(getItemCounts()));
         totalShoppingCart.setText(String.valueOf(getItemsPrices()));
+        ShoppingCart.ShoppingCartItemsPrices = getItemsPrices();
     }
 
     @FXML
@@ -410,6 +410,16 @@ public class ShoppingCartController implements Initializable {
         }
     }
 
+    @FXML
+    public void goToPayment(){
+
+        try {
+            new PaymentPage(Global.getStage());
+        }catch(IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public double getItemsPrices(){
         double sum = 0;
         for (int i = 0;i<cartItems.length;i++){
@@ -417,6 +427,7 @@ public class ShoppingCartController implements Initializable {
         }
         return sum;
     }
+
     public int getItemCounts(){
         int sum =0;
         for (int i = 0;i<cartItems.length;i++){
