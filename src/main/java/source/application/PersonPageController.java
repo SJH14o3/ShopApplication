@@ -23,6 +23,8 @@ public class PersonPageController implements Initializable {
     @FXML
     private Label P_Password ;
     @FXML
+    private Label P_Password2 ;
+    @FXML
     private Label P_Natinality ;
     @FXML
     private Label P_DiscountCode ;
