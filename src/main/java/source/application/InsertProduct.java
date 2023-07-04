@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class InsertProduct {
+    public static boolean changeStock = false;
     public InsertProduct(Stage stage) {
         Parent root;
         try {

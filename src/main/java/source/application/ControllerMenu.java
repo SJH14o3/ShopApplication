@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import source.Global;
@@ -19,6 +20,7 @@ import source.notifications.Notification;
 import source.notifications.NotificationDataBase;
 import source.products.AuctionDataBase;
 import source.products.Product;
+import source.products.ProductDataBase;
 
 import static source.products.ProductDataBase.*;
 import static source.Global.*;
@@ -29,7 +31,8 @@ import java.util.*;
 
 public class ControllerMenu implements Initializable {
     public static Product[] preLoad;
-    private static boolean firstLoad = true;
+    public static boolean firstLoad = true;
+    private boolean sortVendorProducts = false;
     Product[] products;
     private int first;
     private int last;
@@ -68,7 +71,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private Label pageCounter, minPrice, maxPrice;
     @FXML
-    private Button nextButton, previousButton, auctionButton, vendor, bell;
+    private Button nextButton, previousButton, auctionButton, vendor, bell, vendorProducts;
     @FXML
     private Slider minSlider, maxSlider;
     @FXML
@@ -149,7 +152,7 @@ public class ControllerMenu implements Initializable {
                 alert.showAndWait();
                 return;
             }
-            price = "(price BETWEEN " + String.format("%.2f", minSlider.getValue()) + " AND " + String.format("%.2f", maxSlider.getValue()) + ") ";
+            price = "(price BETWEEN " + String.format("%.2f", minSlider.getValue()) + " AND " + String.format("%.2f", maxSlider.getValue()) + " AND " + "quantity > 0)";
         }
         else if (!price.isEmpty()) {
             price = "";
@@ -176,7 +179,16 @@ public class ControllerMenu implements Initializable {
     private void showProducts() {
         for (int i = first; i < last; i++) {
             names[i-first].setText(products[i].getName());
-            prices[i-first].setText(products[i].getPrice() + "$");
+            if (products[i].getQuantity() > 0) {
+                prices[i-first].setText(products[i].getPrice() + "$");
+                prices[i-first].setTextFill(Color.BLACK);
+                prices[i-first].setStyle("-fx-font-size: 25");
+            }
+            else {
+                prices[i-first].setText("out of stock");
+                prices[i-first].setTextFill(Color.GREY);
+                prices[i-first].setStyle("-fx-font-size: 20");
+            }
             double score = products[i].getScore();
             if (score < 0.25) {
                 if (scores[i - first].isVisible()) {
@@ -236,6 +248,15 @@ public class ControllerMenu implements Initializable {
         checkBoxesSetup();
         sort(actionEvent);
     }
+    @FXML
+    private void sortForVendor() {
+        sortVendorProducts = true;
+        price = "";
+        brandsStr = "";
+        sortBox.setValue("Newest");
+        sort(null);
+        sortVendorProducts = false;
+    }
     private void sort(ActionEvent actionEvent) {
         StringBuilder extra = new StringBuilder();
         if (!categoryStr.isEmpty() || !price.isEmpty() || !brandsStr.isEmpty()) {
@@ -270,6 +291,9 @@ public class ControllerMenu implements Initializable {
             products = new Product[preLoad.length];
             System.arraycopy(preLoad, 0, products, 0, preLoad.length);
             preLoad = new Product[0];
+        }
+        else if (sortVendorProducts) {
+            products = ProductDataBase.getVendorProducts();
         }
         else {
             products = getSelectedProductsMainInfo(extra.toString());
@@ -373,6 +397,8 @@ public class ControllerMenu implements Initializable {
         if (Global.getUser_type() != 2) {
             vendor.setDisable(true);
             vendor.setVisible(false);
+            vendorProducts.setDisable(true);
+            vendorProducts.setVisible(false);
         }
         mainAnchorPane.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 0.75), null, Insets.EMPTY)));
         productScroll.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 1.0), null, Insets.EMPTY)));

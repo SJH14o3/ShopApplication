@@ -28,7 +28,7 @@ public class ProductPageController implements Initializable {
     @FXML
     private AnchorPane ratePane;
     @FXML
-    private ImageView displayProductPicture, h1, h2, h3, h4, h5, m1, m2, m3 ,m4, m5;
+    private ImageView displayProductPicture, h1, h2, h3, h4, h5;
     @FXML
     private Label displayProductName, quantityInStock;
     @FXML
@@ -46,7 +46,7 @@ public class ProductPageController implements Initializable {
     private Label displayProductPrice;
 
     @FXML
-    private Button addToCartButton, goToComments, rateToProduct, backButton;
+    private Button addToCartButton, goToComments, rateToProduct, backButton, vendor;
 
     private boolean isRatePanelVisible = false;
     private boolean isAlertUp = false;
@@ -155,23 +155,43 @@ public class ProductPageController implements Initializable {
         displayProductName.setText(product.getName());
         displayProductBrand.setText(product.getBrand());
         displayProductDescription.setText(product.getDescription());
-        displayProductPrice.setText(product.getPrice() + "$");
+        if (product.getQuantity() > 0) {
+            displayProductPrice.setText(product.getPrice() + "$");
+        }
+        else displayProductPrice.setText("Out of stock");
         quantityInStock.setText("Quantity in Stock: " + product.getQuantity());
         System.out.println(product.getScore());
         setScoreImage();
         backButton.setGraphic(new ImageView(new Image("prevSmall.png")));
 
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, product.getQuantity());
-        valueFactory.setValue(1);
-        setQuantitySpinner.setValueFactory(valueFactory);
+        if (product.getQuantity() > 0) {
+            SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, product.getQuantity());
+            valueFactory.setValue(1);
+            setQuantitySpinner.setValueFactory(valueFactory);
+        }
+        if (Global.getUser_type() != 2) {
+            vendor.setVisible(false);
+        }
     }
-
+    @FXML
+    private void updateStocks() {
+        InsertProduct.changeStock = true;
+        new InsertProduct(Global.getStage());
+    }
     @FXML
     private void addToCart(){
         if (CartDataBase.doesUserHaveThisItemInTheirCart()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("You already have this item in your cart");
+            alert.showAndWait();
+            return;
+        }
+        if (product.getQuantity() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("This product is out of stock");
+            alert.setContentText("Comeback later");
             alert.showAndWait();
             return;
         }
