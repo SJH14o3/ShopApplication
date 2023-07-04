@@ -11,6 +11,7 @@ import source.Global;
 import source.products.CartDataBase;
 import source.products.CartItem;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -275,6 +276,7 @@ public class ShoppingCartController implements Initializable {
 
             cartItems[first].quantity++;
             productsQuantity[0].setText(String.valueOf(cartItems[first].quantity));
+            update();
 
         }
     }
@@ -285,6 +287,7 @@ public class ShoppingCartController implements Initializable {
 
             cartItems[first+1].quantity++;
             productsQuantity[0].setText(String.valueOf(cartItems[first+1].quantity));
+            update();
 
         }
     }
@@ -295,6 +298,7 @@ public class ShoppingCartController implements Initializable {
 
             cartItems[first+2].quantity++;
             productsQuantity[0].setText(String.valueOf(cartItems[first+2].quantity));
+            update();
 
         }
     }
@@ -305,6 +309,7 @@ public class ShoppingCartController implements Initializable {
 
             cartItems[first+3].quantity++;
             productsQuantity[0].setText(String.valueOf(cartItems[first+3].quantity));
+            update();
 
         }
     }
@@ -315,6 +320,7 @@ public class ShoppingCartController implements Initializable {
 
             cartItems[first].quantity--;
             productsQuantity[0].setText(String.valueOf(cartItems[first].quantity));
+            update();
 
         }else{
             remove0();
@@ -327,6 +333,7 @@ public class ShoppingCartController implements Initializable {
 
             cartItems[first+1].quantity--;
             productsQuantity[1].setText(String.valueOf(cartItems[first+1].quantity));
+            update();
         }else{
             remove1();
         }
@@ -338,6 +345,7 @@ public class ShoppingCartController implements Initializable {
 
             cartItems[first+2].quantity--;
             productsQuantity[2].setText(String.valueOf(cartItems[first+2].quantity));
+            update();
 
         }else{
             remove2();
@@ -350,6 +358,7 @@ public class ShoppingCartController implements Initializable {
 
             cartItems[first+3].quantity--;
             productsQuantity[3].setText(String.valueOf(cartItems[first+3].quantity));
+            update();
 
         }else{
             remove3();
@@ -358,6 +367,47 @@ public class ShoppingCartController implements Initializable {
     @FXML
     private void checkout(){
 
+    }
+
+    @FXML
+    private void goToProductPage0(){
+
+        ProductPage.PRODUCT_ID = cartItems[first].product.getId();
+        try {
+            new ProductPage(Global.getStage(),cartItems[first].product.getId());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    private void goToProductPage1(){
+
+        ProductPage.PRODUCT_ID = cartItems[first+1].product.getId();
+        try {
+            new ProductPage(Global.getStage(),cartItems[first+1].product.getId());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    private void goToProductPage2(){
+
+        ProductPage.PRODUCT_ID = cartItems[first+2].product.getId();
+        try {
+            new ProductPage(Global.getStage(),cartItems[first+2].product.getId());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    private void goToProductPage3(){
+
+        ProductPage.PRODUCT_ID = cartItems[first+3].product.getId();
+        try {
+            new ProductPage(Global.getStage(),cartItems[first+3].product.getId());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public double getItemsPrices(){
