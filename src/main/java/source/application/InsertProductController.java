@@ -3,6 +3,7 @@ package source.application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import source.Global;
 import source.products.Product;
@@ -10,6 +11,7 @@ import source.products.ProductDataBase;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class InsertProductController extends Insert implements Initializable {
@@ -21,9 +23,24 @@ public class InsertProductController extends Insert implements Initializable {
     private TextField nameTextField, brandTextField, priceTextField;
     @FXML
     private TextArea descriptionTextArea;
+    @FXML
+    private Button testButton;
     private final String[] categories = {"Vegetables", "Fruits", "Dried Fruits", "Proteins", "Sweets", "Pantry", "Dairy", "Beverages", "Snacks", "Breakfast"};
     @FXML
     private void parseInformation() {
+        if (InsertProduct.changeStock) {
+            ProductDataBase.updateQuantity(spinner.getValue());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText("Successfully updated the product!");
+            alert.showAndWait();
+            try {
+                new ProductPage(Global.getStage(), ProductPage.PRODUCT_ID);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return;
+        }
         String name = nameTextField.getText();
         if (name.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -118,6 +135,7 @@ public class InsertProductController extends Insert implements Initializable {
             alert.showAndWait();
             return;
         }
+        InsertProduct.changeStock = false;
         int typeInt = Product.stringToType(type);
         Product product = new Product(name, brand, price, spinner.getValue(), pictureAddress, typeInt, description);
         ProductDataBase.insertProduct(product);
@@ -137,8 +155,26 @@ public class InsertProductController extends Insert implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,1000);
         valueFactory.setValue(1);
-        spinner.setValueFactory(valueFactory);
         category.getItems().setAll(categories);
+        if (InsertProduct.changeStock) {
+            Product product = ProductDataBase.getProduct(ProductPage.PRODUCT_ID);
+            nameTextField.setText(product.getName());
+            nameTextField.setDisable(true);
+            brandTextField.setText(product.getBrand());
+            brandTextField.setDisable(true);
+            priceTextField.setText(String.valueOf(product.getPrice()));
+            priceTextField.setDisable(true);
+            imageAddress.setText(product.getImageAddress());
+            imageAddress.setDisable(true);
+            image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Products/" + product.getImageAddress() + ".jpg"))));
+            testButton.setDisable(true);
+            category.setValue(product.typeToString());
+            category.setDisable(true);
+            descriptionTextArea.setText(product.getDescription());
+            descriptionTextArea.setDisable(true);
+            valueFactory.setValue(product.getQuantity());
+        }
+        spinner.setValueFactory(valueFactory);
     }
     @FXML
     private void back() {

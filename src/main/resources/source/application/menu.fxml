@@ -37,7 +37,7 @@
                         <AnchorPane onMouseClicked="#select0" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img0" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="3.0" />
-                              <Label fx:id="price0" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price0" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -61,7 +61,7 @@
                         <AnchorPane onMouseClicked="#select1" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img1" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price1" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price1" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -85,7 +85,7 @@
                         <AnchorPane fx:id="anker2" onMouseClicked="#select2" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img2" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price2" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price2" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -109,7 +109,7 @@
                         <AnchorPane onMouseClicked="#select3" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img3" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price3" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price3" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -133,7 +133,7 @@
                         <AnchorPane onMouseClicked="#select4" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img4" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price4" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price4" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -157,7 +157,7 @@
                         <AnchorPane onMouseClicked="#select5" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img5" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price5" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price5" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -181,7 +181,7 @@
                         <AnchorPane onMouseClicked="#select6" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img6" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price6" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price6" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -205,7 +205,7 @@
                         <AnchorPane onMouseClicked="#select7" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img7" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price7" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price7" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -229,7 +229,7 @@
                         <AnchorPane onMouseClicked="#select8" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img8" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price8" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price8" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -253,7 +253,7 @@
                         <AnchorPane onMouseClicked="#select9" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img9" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price9" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price9" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -277,7 +277,7 @@
                         <AnchorPane onMouseClicked="#select10" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img10" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price10" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price10" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -301,7 +301,7 @@
                         <AnchorPane onMouseClicked="#select11" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img11" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price11" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price11" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -325,7 +325,7 @@
                         <AnchorPane onMouseClicked="#select12" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img12" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price12" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price12" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -349,7 +349,7 @@
                         <AnchorPane onMouseClicked="#select13" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img13" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price13" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price13" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -373,7 +373,7 @@
                         <AnchorPane onMouseClicked="#select14" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img14" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price14" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price14" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -397,7 +397,7 @@
                         <AnchorPane onMouseClicked="#select15" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img15" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price15" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price15" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -421,7 +421,7 @@
                         <AnchorPane onMouseClicked="#select16" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img16" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price16" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price16" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -445,7 +445,7 @@
                         <AnchorPane onMouseClicked="#select17" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img17" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price17" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price17" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -469,7 +469,7 @@
                         <AnchorPane onMouseClicked="#select18" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img18" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price18" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price18" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -493,7 +493,7 @@
                         <AnchorPane onMouseClicked="#select19" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img19" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price19" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price19" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -517,7 +517,7 @@
                         <AnchorPane onMouseClicked="#select20" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img20" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price20" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price20" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -541,7 +541,7 @@
                         <AnchorPane onMouseClicked="#select21" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img21" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price21" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price21" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -565,7 +565,7 @@
                         <AnchorPane onMouseClicked="#select22" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img22" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price22" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price22" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -589,7 +589,7 @@
                         <AnchorPane onMouseClicked="#select23" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img23" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price23" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price23" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -613,7 +613,7 @@
                         <AnchorPane onMouseClicked="#select24" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img24" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price24" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price24" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -637,7 +637,7 @@
                         <AnchorPane onMouseClicked="#select25" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img25" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price25" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price25" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -661,7 +661,7 @@
                         <AnchorPane onMouseClicked="#select26" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img26" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price26" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price26" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -685,7 +685,7 @@
                         <AnchorPane onMouseClicked="#select27" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img27" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price27" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price27" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -709,7 +709,7 @@
                         <AnchorPane onMouseClicked="#select28" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img28" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price28" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price28" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -733,7 +733,7 @@
                         <AnchorPane onMouseClicked="#select29" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img29" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price29" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price29" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -757,7 +757,7 @@
                         <AnchorPane onMouseClicked="#select30" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img30" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price30" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price30" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -781,7 +781,7 @@
                         <AnchorPane onMouseClicked="#select31" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img31" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price31" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price31" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -805,7 +805,7 @@
                         <AnchorPane onMouseClicked="#select32" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img32" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price32" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price32" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -829,7 +829,7 @@
                         <AnchorPane onMouseClicked="#select33" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img33" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price33" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price33" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -853,7 +853,7 @@
                         <AnchorPane onMouseClicked="#select34" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img34" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price34" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price34" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -877,7 +877,7 @@
                         <AnchorPane onMouseClicked="#select35" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img35" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price35" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price35" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -901,7 +901,7 @@
                         <AnchorPane onMouseClicked="#select36" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img36" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price36" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price36" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -925,7 +925,7 @@
                         <AnchorPane onMouseClicked="#select37" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img37" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price37" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price37" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -949,7 +949,7 @@
                         <AnchorPane onMouseClicked="#select38" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img38" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price38" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price38" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -973,7 +973,7 @@
                         <AnchorPane onMouseClicked="#select39" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img39" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price39" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price39" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -997,7 +997,7 @@
                         <AnchorPane onMouseClicked="#select40" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img40" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price40" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price40" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1021,7 +1021,7 @@
                         <AnchorPane onMouseClicked="#select41" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img41" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price41" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price41" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1045,7 +1045,7 @@
                         <AnchorPane onMouseClicked="#select42" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img42" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price42" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price42" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1069,7 +1069,7 @@
                         <AnchorPane onMouseClicked="#select43" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img43" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price43" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price43" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1093,7 +1093,7 @@
                         <AnchorPane onMouseClicked="#select44" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img44" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price44" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price44" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1117,7 +1117,7 @@
                         <AnchorPane onMouseClicked="#select45" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img45" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price45" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price45" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1141,7 +1141,7 @@
                         <AnchorPane onMouseClicked="#select46" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img46" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price46" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price46" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1165,7 +1165,7 @@
                         <AnchorPane onMouseClicked="#select47" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img47" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price47" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price47" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1189,7 +1189,7 @@
                         <AnchorPane onMouseClicked="#select48" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img48" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price48" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price48" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1213,7 +1213,7 @@
                         <AnchorPane onMouseClicked="#select49" prefHeight="230.0" prefWidth="176.0" style="-fx-background-color: &quot;white&quot;;">
                            <children>
                               <ImageView fx:id="img49" fitHeight="150.0" fitWidth="150.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="price49" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="34.0" prefWidth="76.0" text="Price">
+                              <Label fx:id="price49" alignment="CENTER" layoutY="150.0" prefHeight="34.0" prefWidth="176.0" text="Price">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
@@ -1798,8 +1798,9 @@
             <Button fx:id="PersonPageButton" layoutY="-2.0" mnemonicParsing="false" onAction="#switchToPersonPage" prefHeight="63.0" prefWidth="82.0" text="Button" />
          </children>
       </AnchorPane>
-      <Button fx:id="vendor" layoutX="1131.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToInsert" prefHeight="25.0" prefWidth="117.0" text="Insert Product" />
+      <Button fx:id="vendor" layoutX="1131.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToInsert" prefHeight="25.0" prefWidth="117.0" text="New Product" />
       <Button fx:id="bell" layoutX="468.0" layoutY="79.0" mnemonicParsing="false" onAction="#notification" prefHeight="25.0" prefWidth="25.0" />
       <Circle fx:id="circle" fill="RED" layoutX="500.0" layoutY="80.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Button fx:id="vendorProducts" layoutX="1010.0" layoutY="18.0" mnemonicParsing="false" onAction="#sortForVendor" prefHeight="25.0" prefWidth="117.0" text="Your Products" />
    </children>
 </AnchorPane>
