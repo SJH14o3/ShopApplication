@@ -359,6 +359,7 @@ public class ControllerMenu implements Initializable {
         showProducts();
         scrollPane.setVvalue(0);
     }
+
     public void next() {
         page++;
         if (products.length < page * 50) {

@@ -49,6 +49,7 @@ public class Login {
 //    }
     @FXML
     private void signUp() {
+
         Stage stage = Global.getStage();
         Parent root;
         try {

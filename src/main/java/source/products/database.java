@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import source.Global;
+import source.User;
 import source.application.Menu;
 
 import java.io.IOException;
@@ -133,9 +134,10 @@ public class database {
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , Global.PASSWORD);
-            preparedStatement = connection.prepareStatement("SELECT Password , UserType, User_id, balance FROM users WHERE Username = ?");
+            preparedStatement = connection.prepareStatement("SELECT Password , UserType,User_id, balance FROM users WHERE Username = ?");
             preparedStatement.setString(1 , Username);
             resultSet = preparedStatement.executeQuery();
+
             if(!resultSet.isBeforeFirst()){
                 System.out.println("User Not Found");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -143,18 +145,25 @@ public class database {
                 alert.show();
             }else {
                 while (resultSet.next()){
-                    String retrivedPassword = resultSet.getString("Password");
+                        String retrivedPassword = resultSet.getString("Password");
                     String retrivedUserType = resultSet.getString("UserType");
+
+                    System.out.println("56 :" + retrivedPassword);
+
                     if(retrivedPassword.equals(Password)){
                         Stage stage = Global.getStage();
                         if (retrivedUserType.equals("Consumer")) {
-                            Global.setUser_type(1);
+                            User.setUser_type(1);
                         }
-                        else {
-                            Global.setUser_type(2);
+                        else if(retrivedUserType.equals("Vendor")){
+                            User.setUser_type(2);
+                        }
+                        else if(retrivedUserType.equals("Admin")){
+                            User.setUser_type(3);
                         }
                         Global.setUser_id(resultSet.getInt(3));
                         Global.setBalance(resultSet.getDouble(4));
+                        System.out.println("57 :" + User.getUser_type());
                         System.out.println(Global.getBalance());
                         try {
                             new Menu(stage);
