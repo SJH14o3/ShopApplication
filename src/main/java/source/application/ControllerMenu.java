@@ -197,7 +197,7 @@ public class ControllerMenu implements Initializable {
             }
             else {
                 scores[i - first].setText(String.format("%.2f", products[i].getScore()));
-                if (!scores[i].isVisible()) {
+                if (!scores[i - first].isVisible()) {
                     scores[i - first].setVisible(true);
                 }
             }
@@ -391,10 +391,10 @@ public class ControllerMenu implements Initializable {
         else {
             circle.setVisible(false);
         }
-        System.out.println(temp.length);
+        //System.out.println(temp.length);
         notifications = new ArrayList<>(temp.length);
         notifications.addAll(Arrays.asList(temp));
-        System.out.println(notifications.size());
+        //System.out.println(notifications.size());
         if (Global.getUser_type() != 2) {
             vendor.setDisable(true);
             vendor.setVisible(false);

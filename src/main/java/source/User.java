@@ -2,17 +2,15 @@ package source;
 
 public class User {
     private static int user_id;
-
-    public static String User_Email;
-
-    public static String User_Password;
-
     private static int user_type; //1: consumer, 2:vendor.
     private static double balance;
     private static String username;
     private static String user_address;
     private static String user_postalCode;
     private static String user_phoneNumber;
+    private static String firstName;
+    private static String lastName;
+    private static String vendorCompany;
     public static void setUser_type(int user_type) {
         User.user_type = user_type;
     }
@@ -59,5 +57,23 @@ public class User {
     }
     public static String getUser_phoneNumber() {
         return user_phoneNumber;
+    }
+    public static void setFirstName(String firstName) {
+        User.firstName = firstName;
+    }
+    public static String getFirstName() {
+        return firstName;
+    }
+    public static void setLastName(String lastName) {
+        User.lastName = lastName;
+    }
+    public static String getLastName() {
+        return lastName;
+    }
+    public static void setVendorCompany(String vendorCompany) {
+        User.vendorCompany = vendorCompany;
+    }
+    public static String getVendorCompany() {
+        return vendorCompany;
     }
 }

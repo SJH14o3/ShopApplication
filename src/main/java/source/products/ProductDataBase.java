@@ -30,11 +30,11 @@ public class ProductDataBase extends DatabaseConnection{
                         product.setId(id - 1);
                     }
                 } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
+                    ex.printStackTrace();
                 }
             }
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
         insertStock(product.getId(), product.getQuantity());
     }
@@ -107,7 +107,7 @@ public class ProductDataBase extends DatabaseConnection{
                 result = new Product[count];
                 //System.out.println(count);
                 SQL = "SELECT product_id ,name, price, score, image_address, quantity FROM products" + " " + extra;
-                System.out.println(SQL);
+                //System.out.println(SQL);
                 resultSet = statement.executeQuery(SQL);
                 for (int i = 0; i < count; i++) {
                     resultSet.next();
@@ -130,10 +130,10 @@ public class ProductDataBase extends DatabaseConnection{
         try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
             ResultSet resultSet;
             resultSet = statement.executeQuery(SQL);
-            System.out.println(SQL);
+            //System.out.println(SQL);
             if (resultSet.next()) {
                 int count = resultSet.getInt(1);
-                System.out.println("count: " + count);
+                //System.out.println("count: " + count);
                 result = new Product[count];
                 SQL = "SELECT p.product_id ,name, price, score, image_address, p.quantity FROM products p JOIN products_in_stock s ON s.product_id = p.product_id WHERE s.vendor_id = " + Global.getUser_id() + " ORDER BY p.product_id DESC;";
                 resultSet = statement.executeQuery(SQL);

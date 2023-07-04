@@ -20,25 +20,25 @@ public class NotificationDataBase extends DatabaseConnection {
                 SQL = "SELECT type ,sub_id FROM notifications WHERE user_id = " + user_id;
                 //System.out.println(SQL);
                 ResultSet resultSet2 = statement.executeQuery(SQL);
-                System.out.println(count);
+                //System.out.println(count);
                 Statement statement1 = connection.createStatement();
                 ResultSet resultSet1 = null;
                 for (int i = 0; i < count; i++) {
-                    System.out.println("i: " + i);
+                    //System.out.println("i: " + i);
                     resultSet2.next();
                     int subID = resultSet2.getInt(2);
                     String SQL2;
                     switch (resultSet2.getInt(1)) {
                         case 1 -> {
                             SQL2 = "SELECT a.title, a.id, n.id FROM auctions a JOIN nobid_notification n ON n.auction_id = a.id WHERE n.id = " + subID;
-                            System.out.println(SQL2);
+                            //System.out.println(SQL2);
                             resultSet1 = statement1.executeQuery(SQL2);
                             resultSet1.next();
                             result[i] = new NoBidNotification(resultSet1.getString(1).trim(), resultSet1.getInt(2), resultSet1.getInt(3));
                         }
                         case 2 -> {
                             SQL2 = "SELECT a.title, a.id, n.id FROM auctions a JOIN winner_notification n ON n.auction_id = a.id WHERE n.id = " + subID;
-                            System.out.println(SQL2);
+                            //System.out.println(SQL2);
                             resultSet1 = statement1.executeQuery(SQL2);
                             resultSet1.next();
                             result[i] = new AuctionWinnerNotification(resultSet1.getString(1).trim(), resultSet1.getInt(3));
@@ -61,7 +61,7 @@ public class NotificationDataBase extends DatabaseConnection {
     }
     public static void insertNotification(int type, int sub_id, int user_id) {
         String SQL = "INSERT INTO notifications (type, sub_id, user_id) VALUES ("+ type + ", " + sub_id + ", " + user_id + ");";
-        System.out.println(SQL);
+        //System.out.println(SQL);
         try (Connection connection = establishConnection("shop"); PreparedStatement st = connection.prepareStatement(SQL)) {
             st.executeUpdate();
         } catch (SQLException ex) {
@@ -92,7 +92,7 @@ public class NotificationDataBase extends DatabaseConnection {
         duplicate(SQL, user_id, 1);
     }
     public static void deleteNotification(String SQL) {
-        System.out.println("3: " + SQL);
+        //System.out.println("3: " + SQL);
         try (Connection connection = establishConnection("shop"); PreparedStatement st = connection.prepareStatement(SQL)) {
             st.execute();
         } catch (SQLException e) {
@@ -118,7 +118,7 @@ public class NotificationDataBase extends DatabaseConnection {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("2:" + id);
+        //System.out.println("2:" + id);
         SQL = "DELETE FROM winner_notification WHERE id = " + id + " LIMIT 1;";
         try (Connection connection = establishConnection("shop"); PreparedStatement st = connection.prepareStatement(SQL)) {
             st.execute();

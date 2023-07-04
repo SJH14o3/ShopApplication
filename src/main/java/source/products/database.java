@@ -84,6 +84,8 @@ public class database {
                 }
 
                 Stage stage = Global.getStage();
+                stage.setX(327);
+                stage.setY(100);
                 try {
                     new Menu(stage);
                 } catch (IOException e) {
@@ -165,6 +167,8 @@ public class database {
                         Global.setBalance(resultSet.getDouble(4));
                         System.out.println("57 :" + User.getUser_type());
                         System.out.println(Global.getBalance());
+                        stage.setX(327);
+                        stage.setY(100);
                         try {
                             new Menu(stage);
                         } catch (IOException e) {
@@ -251,4 +255,21 @@ public class database {
             }
         }
     }
+    private static String checkVendorCompany() {
+        if (Global.getUser_type() == 2 && Global.getVendorCompany() != null) {
+            return "\", vendor_company = \"" + Global.getVendorCompany();
+        }
+        return "";
+    }
+    public static void setCompleteUserInfo() {
+        String SQL = "UPDATE users SET address = \"" + Global.getUser_address() + "\", first_name = \"" + Global.getFirstName() + "\", last_name = \"" +
+            Global.getLastName() + "\", postal_code = \"" + Global.getUser_postalCode() + "\", phone_number = \"" + Global.getUser_phoneNumber() + checkVendorCompany() +
+            "\" WHERE user_id = " + Global.getUser_id();
+        try (Connection connection = DatabaseConnection.establishConnection("login_db2"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

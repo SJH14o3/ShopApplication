@@ -34,6 +34,8 @@ public class Main extends Application{
 //        stage.show();
         stage.getIcons().add(new Image("icon.png"));
         stage.setResizable(false);
+        stage.setX(571);
+        stage.setY(200);
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         stage.setTitle("Login");
         stage.setScene(new Scene(root ,776 , 448 ));
