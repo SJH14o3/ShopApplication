@@ -423,7 +423,7 @@ public class ShoppingCartController implements Initializable {
     public void goToPayment(){
 
         try {
-            new PaymentPage(Global.getStage());
+            new PrePaymentPage(Global.getStage());
         }catch(IOException e){
             throw new RuntimeException(e);
         }

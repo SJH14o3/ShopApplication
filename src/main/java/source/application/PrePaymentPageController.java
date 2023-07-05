@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class PaymentPageController implements Initializable {
+public class PrePaymentPageController implements Initializable {
 
     @FXML
     private TextField addressField, postalCodeField, phoneNumberField, discountCodeField;
