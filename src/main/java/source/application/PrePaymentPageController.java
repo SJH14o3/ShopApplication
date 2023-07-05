@@ -11,6 +11,7 @@ import source.User;
 import source.database.DiscountCodeDataBase;
 import source.products.database;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -57,8 +58,12 @@ public class PrePaymentPageController implements Initializable {
                 alert.getButtonTypes().setAll(confirm, cancel);
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == confirm) {
-                    System.out.println("BANK!");
-                    //TODO go to bank page here
+                    try {
+                        PaymentMenu.beforePaymentPage = 1;
+                        new PaymentMenu(Global.getStage());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }else {
                 showIncompleteAlert();

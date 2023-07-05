@@ -5,10 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+import source.Global;
+
+import java.io.IOException;
+import java.util.Optional;
 import java.util.regex.*;
 
 import java.net.URL;
@@ -39,8 +41,6 @@ public class PaymentPageController implements Initializable {
     private TextField EmailField;
     @FXML
     private Button PayButton;
-    @FXML
-    private Button CancelButton;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -67,8 +67,10 @@ public class PaymentPageController implements Initializable {
 //                Matcher Email = EmailPattern.matcher(EmailField.getText());
                 if(cardfield1.find() && cardfield2.find() && cardfield3.find() && cardfield4.find() && Cvv2.find()
                         && Expirey1.find() && Expirey2.find() && pass2.find() && emailValidate(EmailField.getText())){
+                    if (PaymentMenu.beforePaymentPage == 1) {
 
-                    System.out.println("lool");
+                    }
+                    //TODO: first split into charging account and buying a cart.
                 }
                  System.out.println("test");
             }
@@ -78,6 +80,33 @@ public class PaymentPageController implements Initializable {
 
 
 
+    }
+    @FXML
+    private void cancel() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning!");
+        alert.setHeaderText("Are you want to abort the transaction?");
+        alert.setContentText("Select action");
+        ButtonType abort = new ButtonType("abort");
+        ButtonType continueButton = new ButtonType("continue");
+        alert.getButtonTypes().setAll(abort, continueButton);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == abort) {
+            Stage stage = Global.getStage();
+            stage.setX(327);
+            stage.setY(100);
+            stage.setHeight(720);
+            stage.setWidth(1280);
+            try {
+                if (PaymentMenu.beforePaymentPage == 1) {
+                    new ShoppingCart(stage);
+                } else {
+                    new PersonMenu(stage);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
     public static boolean emailValidate(String email) {
         Matcher matcher = Pattern.compile("^([\\w-\\.]+){1,64}@([\\w&&[^_]]+){2,255}(.[a-z]{2,3})+$|^$", Pattern.CASE_INSENSITIVE).matcher(email);

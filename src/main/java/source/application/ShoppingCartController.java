@@ -421,7 +421,6 @@ public class ShoppingCartController implements Initializable {
 
     @FXML
     public void goToPayment(){
-
         try {
             new PrePaymentPage(Global.getStage());
         }catch(IOException e){

@@ -13,7 +13,7 @@ public class PrePaymentPage {
     public PrePaymentPage(Stage stage) throws IOException {
         Parent root;
         try {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("paymentPage.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("prePaymentPage.fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

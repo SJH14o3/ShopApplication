@@ -164,8 +164,8 @@ public class PersonPageController implements Initializable {
                 alert.showAndWait();
                 return;
             }
-            System.out.println("BANK!");
-            //TODO: go to bank page.
+            PaymentMenu.beforePaymentPage = 2;
+            new PaymentMenu(Global.getStage());
         }
         catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -173,6 +173,8 @@ public class PersonPageController implements Initializable {
             alert.setHeaderText("Input is not a double");
             alert.setContentText("Please Enter only digits and maximum one dot");
             alert.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
     @FXML

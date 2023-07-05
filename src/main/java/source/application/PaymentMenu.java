@@ -11,24 +11,12 @@ package source.application;
         import java.util.Objects;
 
 public class PaymentMenu {
-    private static int page = 1;
-
-    public static void setPage(int page) {
-        PaymentMenu.page = page;
-    }
-    public static void incrementPage() {
-        page++;
-    }
-    public static void decrementPage() {
-        page--;
-    }
-    public static int getPage() {
-        return page;
-    }
-    public PaymentMenu(Stage stage, boolean rememberPage) throws IOException {
-        if (!rememberPage) {
-            setPage(1);
-        }
+    public static int beforePaymentPage = 1; //1:cart, 2:person page.
+    public PaymentMenu(Stage stage) throws IOException {
+        stage.setWidth(958);
+        stage.setHeight(589);
+        stage.setX(481);
+        stage.setY(245);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PaymentPage.fxml")));
         Scene scene = new Scene(root, Color.WHITE);
         stage.setScene(scene);

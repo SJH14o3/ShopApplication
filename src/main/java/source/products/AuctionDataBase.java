@@ -180,7 +180,6 @@ public class AuctionDataBase extends DatabaseConnection{
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-        database.changeBalance(value * - 1, user_id);
     }
     public static void insertAuction(Auction auction, int vendor) {
         String title = "\"" + auction.getTitle() + "\"";
