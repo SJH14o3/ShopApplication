@@ -153,6 +153,12 @@ public class AuctionsMenuController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    private void switchToPersonPage() throws IOException {
+        PersonMenu.lastLocation = 3;
+        Stage stage = getStage();
+        new PersonMenu(stage);
+    }
     private void initiateArrays() {
         images[0] = image0;
         image0 = null;

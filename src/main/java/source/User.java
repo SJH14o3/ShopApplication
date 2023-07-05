@@ -11,6 +11,8 @@ public class User {
     private static String firstName;
     private static String lastName;
     private static String vendorCompany;
+    private static String email;
+    private static String password;
     public static void setUser_type(int user_type) {
         User.user_type = user_type;
     }
@@ -75,5 +77,17 @@ public class User {
     }
     public static String getVendorCompany() {
         return vendorCompany;
+    }
+    public static void setEmail(String email) {
+        User.email = email;
+    }
+    public static String getEmail() {
+        return email;
+    }
+    public static void setPassword(String password) {
+        User.password = password;
+    }
+    public static String getPassword() {
+        return password;
     }
 }

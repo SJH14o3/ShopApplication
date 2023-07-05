@@ -12,6 +12,8 @@ import java.util.Objects;
 public class ProductPage {
 
     public static int PRODUCT_ID;
+    public static int previousScene = 1; //2:person page, 1: product page
+
     public ProductPage(Stage stage , int productID) throws IOException {
 
         PRODUCT_ID = productID;

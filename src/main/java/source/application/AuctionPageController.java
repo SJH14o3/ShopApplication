@@ -25,7 +25,7 @@ public class AuctionPageController implements Initializable {
     @FXML
     private ImageView image;
     @FXML
-    private Button backButton, bid;
+    private Button backButton, bid, PersonPageButton;
     @FXML
     private void back() {
         Stage stage = Global.getStage();
@@ -48,6 +48,14 @@ public class AuctionPageController implements Initializable {
         bid.setStyle("-fx-background-color: #FFFF8C; -fx-border-color: #969600; -fx-border-width: 2");
     }
     @FXML
+    private void deHighLightAccount() {
+        PersonPageButton.setStyle("-fx-background-color: #FFFF33; -fx-border-color: #A0A000; -fx-border-width: 2");
+    }
+    @FXML
+    private void highLightAccount() {
+        PersonPageButton.setStyle("-fx-background-color: #FFFF8C; -fx-border-color: #969600; -fx-border-width: 2");
+    }
+    @FXML
     private void deHighlightBid() {
         bid.setStyle("-fx-background-color: #FFFF33; -fx-border-color: #A0A000; -fx-border-width: 2");
     }
@@ -56,6 +64,12 @@ public class AuctionPageController implements Initializable {
         Stage stage = Global.getStage();
         new PlaceBid(stage);
         //AuctionDataBase.placeBid(auction.getId(), 99.99, Global.getUser_id());
+    }
+    @FXML
+    private void switchToPersonPage() throws IOException {
+        Stage stage = Global.getStage();
+        PersonMenu.lastLocation = 4;
+        new PersonMenu(stage);
     }
     private void setDeadlineText() {
         StringBuilder stringBuilder = new StringBuilder();

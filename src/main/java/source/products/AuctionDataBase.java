@@ -64,6 +64,7 @@ public class AuctionDataBase extends DatabaseConnection{
                 //System.out.println("exist");
                 return true;
             }
+            resultSet.close();
         }
         catch (SQLException ex) {
             ex.printStackTrace();
@@ -82,6 +83,7 @@ public class AuctionDataBase extends DatabaseConnection{
                     createAuctionNotifications(resultSet);
                 }
             }
+            resultSet.close();
         }
         catch (SQLException ex) {
             ex.printStackTrace();

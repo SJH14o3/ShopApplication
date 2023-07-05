@@ -10,24 +10,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class PersonMenu {
-    private static int page = 1;
-
-    public static void setPage(int page) {
-        PersonMenu.page = page;
-    }
-    public static void incrementPage() {
-        page++;
-    }
-    public static void decrementPage() {
-        page--;
-    }
-    public static int getPage() {
-        return page;
-    }
-    public PersonMenu(Stage stage, boolean rememberPage) throws IOException {
-        if (!rememberPage) {
-            setPage(1);
-        }
+    public static int lastLocation = 1; //1: menu, 2: auction menu, 3: product page, 4: auction page.
+    public PersonMenu(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PersonPage.fxml")));
         Scene scene = new Scene(root, Color.WHITE);
         stage.setScene(scene);

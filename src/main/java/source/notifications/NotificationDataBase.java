@@ -115,6 +115,7 @@ public class NotificationDataBase extends DatabaseConnection {
             ResultSet resultSet = statement.executeQuery(SQL);
             resultSet.next();
             auction_id = resultSet.getInt(1);
+            resultSet.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

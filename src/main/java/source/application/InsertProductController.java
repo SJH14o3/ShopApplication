@@ -35,6 +35,7 @@ public class InsertProductController extends Insert implements Initializable {
             alert.setHeaderText("Successfully updated the product!");
             alert.showAndWait();
             try {
+                ProductPage.previousScene = 1;
                 new ProductPage(Global.getStage(), ProductPage.PRODUCT_ID);
             } catch (IOException e) {
                 throw new RuntimeException(e);

@@ -81,6 +81,7 @@
             </AnchorPane>
             <AnchorPane fx:id="pane2" layoutX="43.0" layoutY="348.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
                <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
                   <Label fx:id="productName2" layoutX="130.0" layoutY="10.0" onMouseClicked="#goToProductPage2" prefHeight="30.0" prefWidth="424.0" text="product name">
                      <font>
                         <Font name="System Bold" size="13.0" />
@@ -105,7 +106,6 @@
                   </Label>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="14.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                   <ImageView fx:id="image2" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="120.0" stroke="BLACK" strokeType="INSIDE" width="871.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="pane3" layoutX="43.0" layoutY="483.0" prefHeight="120.0" prefWidth="871.0" style="-fx-background-color: #e0e0e0;">
@@ -185,6 +185,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <Button fx:id="backButton" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="31.0" />
          </children>
       </AnchorPane>
    </children>

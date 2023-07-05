@@ -55,7 +55,7 @@ public class ShoppingCartController implements Initializable {
     private final Button[] decreaseButtons = new Button[4];
 
     @FXML
-    private Button nextButton, prevButton, checkoutButton;
+    private Button nextButton, prevButton, checkoutButton, backButton;
 
     @FXML
     private Label productCount, totalShoppingCart;
@@ -69,7 +69,7 @@ public class ShoppingCartController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        backButton.setGraphic(new ImageView(new Image("prevSmall.png")));
         nextButton.setGraphic(new ImageView(new Image("next.png")));
         prevButton.setGraphic(new ImageView(new Image("prev.png")));
         prevButton.setDisable(true);
@@ -214,6 +214,14 @@ public class ShoppingCartController implements Initializable {
         productCount.setText(String.valueOf(getItemCounts()));
         totalShoppingCart.setText(String.format("%.2f", getItemsPrices()) + "$");
         ShoppingCart.ShoppingCartItemsPrices = getItemsPrices();
+    }
+    @FXML
+    private void back() {
+        try {
+            new PersonMenu(Global.getStage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -372,7 +380,7 @@ public class ShoppingCartController implements Initializable {
 
     @FXML
     private void goToProductPage0(){
-
+        ProductPage.previousScene = 2;
         ProductPage.PRODUCT_ID = cartItems[first].product.getId();
         try {
             new ProductPage(Global.getStage(),cartItems[first].product.getId());
@@ -382,7 +390,7 @@ public class ShoppingCartController implements Initializable {
     }
     @FXML
     private void goToProductPage1(){
-
+        ProductPage.previousScene = 2;
         ProductPage.PRODUCT_ID = cartItems[first+1].product.getId();
         try {
             new ProductPage(Global.getStage(),cartItems[first+1].product.getId());
@@ -392,7 +400,7 @@ public class ShoppingCartController implements Initializable {
     }
     @FXML
     private void goToProductPage2(){
-
+        ProductPage.previousScene = 2;
         ProductPage.PRODUCT_ID = cartItems[first+2].product.getId();
         try {
             new ProductPage(Global.getStage(),cartItems[first+2].product.getId());
@@ -402,7 +410,7 @@ public class ShoppingCartController implements Initializable {
     }
     @FXML
     private void goToProductPage3(){
-
+        ProductPage.previousScene = 2;
         ProductPage.PRODUCT_ID = cartItems[first+3].product.getId();
         try {
             new ProductPage(Global.getStage(),cartItems[first+3].product.getId());

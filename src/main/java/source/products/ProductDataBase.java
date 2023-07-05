@@ -52,6 +52,7 @@ public class ProductDataBase extends DatabaseConnection{
             String now = dtf.format(LocalDateTime.now());
             SQL = "INSERT INTO products_in_stock (product_id, quantity, vendor_id, warehouse_id, date) VALUES (" + product_id + ", " + quantity + ", " + Global.getUser_id() + ", " + warehouse + ", " + now + ");";
             statement.execute(SQL);
+            resultSet.close();
         }
         catch (SQLException e) {
             throw new RuntimeException(e);

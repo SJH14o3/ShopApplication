@@ -167,6 +167,7 @@ public class database {
                         Global.setBalance(resultSet.getDouble(4));
                         System.out.println("57 :" + User.getUser_type());
                         System.out.println(Global.getBalance());
+                        getUserInfo();
                         stage.setX(327);
                         stage.setY(100);
                         try {
@@ -271,5 +272,67 @@ public class database {
             throw new RuntimeException(e);
         }
     }
-
+    public static void setExactUserInfo() {
+        String SQL = "UPDATE users SET first_name = \"" + Global.getFirstName() + "\", last_name = \"" +
+                Global.getLastName() + "\", phone_number = \"" + Global.getUser_phoneNumber() + checkVendorCompany() +
+                "\" WHERE user_id = " + Global.getUser_id();
+        try (Connection connection = DatabaseConnection.establishConnection("login_db2"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void changePassword() {
+        String SQL = "UPDATE users SET Password = \"" + Global.getPassword() + "\" WHERE user_id = " + Global.getUser_id();
+        try (Connection connection = DatabaseConnection.establishConnection("login_db2"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void changeEmail() {
+        String SQL = "UPDATE users SET Email = \"" + Global.getEmail() + "\" WHERE user_id = " + Global.getUser_id();
+        try (Connection connection = DatabaseConnection.establishConnection("login_db2"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void getUserInfo() {
+        String SQL = "SELECT Username, Email, Password, address, first_name, last_name, postal_code, phone_number, vendor_company FROM users WHERE User_id = " + Global.getUser_id();
+        try (Connection connection = DatabaseConnection.establishConnection("login_db2"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            Global.setUsername(resultSet.getString(1).trim());
+            Global.setEmail(resultSet.getString(2).trim());
+            Global.setPassword(resultSet.getString(3).trim());
+            String address = resultSet.getString(4);
+            if (address != null && !address.trim().equals("null")) {
+                Global.setUser_address(address);
+            }
+            String first = resultSet.getString(5);
+            if (first != null && !first.trim().equals("null")) {
+                Global.setFirstName(first);
+            }
+            String last = resultSet.getString(6);
+            if (last != null && !last.trim().equals("null")) {
+                Global.setLastName(last);
+            }
+            String pc = resultSet.getString(7);
+            if (pc != null && !pc.trim().equals("null")) {
+                Global.setUser_postalCode(pc);
+            }
+            String phone = resultSet.getString(8);
+            if (phone != null && !phone.trim().equals("null")) {
+                Global.setUser_phoneNumber(phone);
+            }
+            String company =resultSet.getString(9);
+            if (company != null && !company.trim().equals("null")) {
+                Global.setVendorCompany(company);
+            }
+            resultSet.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -431,8 +431,9 @@ public class ControllerMenu implements Initializable {
     }
     @FXML
     private void switchToPersonPage() throws IOException {
+        PersonMenu.lastLocation = 1;
         Stage stage = getStage();
-        new PersonMenu(stage, false);
+        new PersonMenu(stage);
     }
     @FXML
     private void switchToInsert() {
@@ -490,6 +491,7 @@ public class ControllerMenu implements Initializable {
     }
     private void productSelected(int in) throws IOException {
         Stage stage = getStage();
+        ProductPage.previousScene = 1;
         new ProductPage(stage, in);
     }
     /*since I did not find a way to inject nodes in an array I had to give all of needed node a unique fx:id and inject all of them individually.
