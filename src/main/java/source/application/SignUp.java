@@ -55,15 +55,15 @@ public class SignUp implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 //**************************
-                Pattern pattern = Pattern.compile("^\\w*\\d$");
-                Matcher cardfield1 = pattern.matcher(su_UsernameField.getText());
-                Matcher cardfield2 = pattern.matcher(su_EmailField.getText());
+                Pattern pattern = Pattern.compile("^(?:(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*)[^\\s]{8,}$");
+                Pattern EmailPattern = Pattern.compile(" ^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$");
                 Matcher cardfield3 = pattern.matcher(su_PasswordField.getText());
+
                 if(su_PasswordField.getText() == su_ConfirmField.getText()){
                     confirm=0;
                 }
 
-                if(cardfield1.find() && cardfield2.find() && cardfield3.find() && confirm == 0){
+                if(emailValidate(su_EmailField.getText()) && confirm == 0 ){
 
                     String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
                     if (!su_UsernameField.getText().trim().isEmpty() && !su_EmailField.getText().trim().isEmpty() && !su_PasswordField.getText().trim().isEmpty() &&
@@ -75,12 +75,13 @@ public class SignUp implements Initializable {
                         alert.show();
                     }
                     
-                } else if (!cardfield1.find()) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Wrong Username");
-                    alert.show();
                 }
-                else if (!cardfield2.find()) {
+//                else if (!cardfield1.find()) {
+//                    Alert alert = new Alert(Alert.AlertType.ERROR);
+//                    alert.setContentText("Wrong Username");
+//                    alert.show();
+//                }
+                else if (!emailValidate(su_EmailField.getText())) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setContentText("Wrong Email");
                     alert.show();
@@ -98,6 +99,7 @@ public class SignUp implements Initializable {
 
             }
         });
+
         su_LoginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -113,6 +115,12 @@ public class SignUp implements Initializable {
             }
         });
     }
+    public static boolean emailValidate(String email) {
+        Matcher matcher = Pattern.compile("^([\\w-\\.]+){1,64}@([\\w&&[^_]]+){2,255}(.[a-z]{2,3})+$|^$", Pattern.CASE_INSENSITIVE).matcher(email);
+
+        return matcher.find();
+    }
+
 
 }
 
