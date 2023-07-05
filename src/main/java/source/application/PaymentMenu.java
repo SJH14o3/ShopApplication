@@ -18,7 +18,7 @@ public class PaymentMenu {
         stage.setHeight(589);
         stage.setX(481);
         stage.setY(245);
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PaymentPage.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("BankPage.fxml")));
         Scene scene = new Scene(root, Color.WHITE);
         stage.setScene(scene);
     }
