@@ -8,12 +8,13 @@ import java.sql.*;
 
 public class DiscountCodeDataBase extends DatabaseConnection {
     public static double checkCode(String code) {
-        String SQL = "SELECT discount_percentage FROM discount_codes WHERE user_id = " + Global.getUser_id() + " AND code = " + code;
+        String SQL = "SELECT discount_percentage FROM discount_codes WHERE user_id = " + Global.getUser_id() + " AND code = \"" + code + "\"";
         try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
+                double ans = resultSet.getDouble(1);
                 resultSet.close();
-                return resultSet.getDouble(1);
+                return ans;
             }
             resultSet.close();
         } catch (SQLException e) {

@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import source.Global;
+import source.products.CartDataBase;
+import source.products.database;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -65,14 +67,44 @@ public class PaymentPageController implements Initializable {
                 //********************
 //                Pattern EmailPattern = Pattern.compile("^\\w+@\\w$");
 //                Matcher Email = EmailPattern.matcher(EmailField.getText());
-                if(cardfield1.find() && cardfield2.find() && cardfield3.find() && cardfield4.find() && Cvv2.find()
-                        && Expirey1.find() && Expirey2.find() && pass2.find() && emailValidate(EmailField.getText())){
+                /*System.out.println(cardfield1.find());
+                System.out.println(cardfield2.find());
+                System.out.println(cardfield3.find());
+                System.out.println(cardfield4.find());
+                System.out.println(Cvv2.find());
+                System.out.println(Expirey2.find());
+                System.out.println(Expirey1.find());
+                System.out.println(pass2.find());
+                System.out.println(emailValidate(EmailField.getText()));
+                System.out.println();*/
+                if (cardfield1.find() && cardfield2.find() && cardfield3.find() && cardfield4.find() && Cvv2.find() && Expirey1.find() && Expirey2.find() && pass2.find() && emailValidate(EmailField.getText())){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Success!");
+                    alert.setHeaderText("Your payment is done!");
                     if (PaymentMenu.beforePaymentPage == 1) {
-
+                        alert.setContentText("Your order will be shipped to you soon!");
+                        alert.showAndWait();
+                        CartDataBase.archiveCart();
                     }
-                    //TODO: first split into charging account and buying a cart.
+                    else {
+                        alert.setContentText("Your account has been charged successfully");
+                        database.changeBalance(PaymentMenu.changedBalance , Global.getUser_id());
+                        alert.showAndWait();
+                    }
+                    try {
+                        new Menu(Global.getStage());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-                 System.out.println("test");
+                else {
+                    System.out.println("failed");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Something went wrong");
+                    alert.setContentText("Make sure you have entered details correctly");
+                    alert.showAndWait();
+                }
             }
         });
 

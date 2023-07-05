@@ -24,7 +24,7 @@ public class CommentDataBase extends DatabaseConnection{
                 //System.out.println(count);
                 result = new Comment[count];
                 //System.out.println(count);
-                SQL = "SELECT user_id, product_id, comment, buyer FROM comments WHERE product_id = " + productID;
+                SQL = "SELECT user_id, product_id, comment, buyer FROM comments WHERE product_id = " + productID + " ORDER BY comment_id DESC";
                 //System.out.println(SQL);
                 resultSet = statement.executeQuery(SQL);
                 for (int i = 0; i < count; i++) {

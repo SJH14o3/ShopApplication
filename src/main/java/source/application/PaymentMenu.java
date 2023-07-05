@@ -12,6 +12,7 @@ package source.application;
 
 public class PaymentMenu {
     public static int beforePaymentPage = 1; //1:cart, 2:person page.
+    public static double changedBalance;
     public PaymentMenu(Stage stage) throws IOException {
         stage.setWidth(958);
         stage.setHeight(589);

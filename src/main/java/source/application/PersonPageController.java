@@ -165,6 +165,7 @@ public class PersonPageController implements Initializable {
                 return;
             }
             PaymentMenu.beforePaymentPage = 2;
+            PaymentMenu.changedBalance = Double.parseDouble(String.format("%.2f", value));
             new PaymentMenu(Global.getStage());
         }
         catch (NumberFormatException e) {
@@ -179,7 +180,7 @@ public class PersonPageController implements Initializable {
     }
     @FXML
     private void openHistory() {
-        //TODO implement shopping history
+        new PurchaseArchive(Global.getStage());
     }
     @FXML
     private void showCodes() {
