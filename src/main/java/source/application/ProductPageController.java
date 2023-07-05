@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import source.Global;
 import source.database.ScoresDataBase;
@@ -174,6 +175,12 @@ public class ProductPageController implements Initializable {
         }
     }
     @FXML
+    private void switchToPersonPage() throws IOException {
+        PersonMenu.lastLocation = 2;
+        Stage stage = Global.getStage();
+        new PersonMenu(stage);
+    }
+    @FXML
     private void updateStocks() {
         InsertProduct.changeStock = true;
         new InsertProduct(Global.getStage());
@@ -289,10 +296,20 @@ public class ProductPageController implements Initializable {
     }
     @FXML
     private void back() {
-        try {
-            new Menu(Global.getStage());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (ProductPage.previousScene == 1) {
+            try {
+                new Menu(Global.getStage());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
+        else {
+            try {
+                new ShoppingCart(Global.getStage());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 }

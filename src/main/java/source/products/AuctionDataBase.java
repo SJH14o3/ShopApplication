@@ -51,7 +51,7 @@ public class AuctionDataBase extends DatabaseConnection{
         if (checkForNotification(SQL)) return false;
         SQL = "SELECT count(id) FROM nobid_notification WHERE auction_id = " + id + ";";
         if (checkForNotification(SQL)) return false;
-        System.out.println("new");
+        //System.out.println("new");
         return true;
     }
 
@@ -61,9 +61,10 @@ public class AuctionDataBase extends DatabaseConnection{
             resultSet = statement.executeQuery(SQL);
             resultSet.next();
             if (resultSet.getInt(1) > 0) {
-                System.out.println("exist");
+                //System.out.println("exist");
                 return true;
             }
+            resultSet.close();
         }
         catch (SQLException ex) {
             ex.printStackTrace();
@@ -82,6 +83,7 @@ public class AuctionDataBase extends DatabaseConnection{
                     createAuctionNotifications(resultSet);
                 }
             }
+            resultSet.close();
         }
         catch (SQLException ex) {
             ex.printStackTrace();
@@ -185,7 +187,7 @@ public class AuctionDataBase extends DatabaseConnection{
         String address = "\"" + auction.getImageAddress() + "\"";
         String SQL = "INSERT INTO shop.auctions (title, starting_bid, current_bid, dead_line, image_address, vendor_id) values (" + title + ", " +
                 auction.getStartingBid() + ", " + auction.getHighestBid() + ", " + auction.getDeadline() + ", " + "" + address + ", " + vendor + ");";
-        System.out.println(SQL);
+        //System.out.println(SQL);
         int id;
         try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
             int affectedRows = preparedStatement.executeUpdate();
@@ -195,11 +197,11 @@ public class AuctionDataBase extends DatabaseConnection{
                     id = rs.getInt(1);
                     auction.setId(id - 1);
                 } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
+                    ex.printStackTrace();
                 }
             }
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 }

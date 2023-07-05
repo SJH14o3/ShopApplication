@@ -117,7 +117,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="vendor" layoutX="1042.0" layoutY="12.0" mnemonicParsing="false" onAction="#updateStocks" style="-fx-background-color: FFA07A;" text="Update Stocks" />
+            <Button fx:id="vendor" layoutX="971.0" layoutY="12.0" mnemonicParsing="false" onAction="#updateStocks" style="-fx-background-color: FFA07A;" text="Update Stocks" />
+            <AnchorPane layoutX="1072.0" layoutY="12.0" prefHeight="25.0" prefWidth="61.0">
+               <children>
+                  <Button fx:id="PersonPageButton" mnemonicParsing="false" onAction="#switchToPersonPage" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: FFA07A;" text="Account" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

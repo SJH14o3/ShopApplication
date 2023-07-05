@@ -70,5 +70,7 @@
             <Font size="35.0" />
          </font>
       </Button>
+      <AnchorPane layoutX="1168.0" layoutY="24.0" prefHeight="34.0" prefWidth="61.0" />
+      <Button fx:id="PersonPageButton" layoutX="1149.0" layoutY="24.0" mnemonicParsing="false" onAction="#switchToPersonPage" onMouseEntered="#highLightAccount" onMouseExited="#deHighLightAccount" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: FFFF33; -fx-border-color: A0A000; -fx-border-width: 2;" text="Account" />
    </children>
 </AnchorPane>

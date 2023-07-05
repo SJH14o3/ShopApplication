@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class ShoppingCart {
+    public static double ShoppingCartItemsPrices ;
+    public static double totalShoppingCart;
+
     public ShoppingCart(Stage stage) throws IOException{
         Parent root;
         try {

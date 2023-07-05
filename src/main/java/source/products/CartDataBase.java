@@ -51,8 +51,10 @@ public class CartDataBase extends DatabaseConnection{
         try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
+                resultSet.close();
                 return true;
             }
+            resultSet.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
