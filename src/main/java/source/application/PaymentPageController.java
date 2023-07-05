@@ -66,7 +66,7 @@ public class PaymentPageController implements Initializable {
 //                Pattern EmailPattern = Pattern.compile("^\\w+@\\w$");
 //                Matcher Email = EmailPattern.matcher(EmailField.getText());
                 if(cardfield1.find() && cardfield2.find() && cardfield3.find() && cardfield4.find() && Cvv2.find()
-                        && Expirey1.find() && Expirey2.find() && pass2.find()){
+                        && Expirey1.find() && Expirey2.find() && pass2.find() && emailValidate(EmailField.getText())){
 
                     System.out.println("lool");
                 }
@@ -78,5 +78,10 @@ public class PaymentPageController implements Initializable {
 
 
 
+    }
+    public static boolean emailValidate(String email) {
+        Matcher matcher = Pattern.compile("^([\\w-\\.]+){1,64}@([\\w&&[^_]]+){2,255}(.[a-z]{2,3})+$|^$", Pattern.CASE_INSENSITIVE).matcher(email);
+
+        return matcher.find();
     }
 }
