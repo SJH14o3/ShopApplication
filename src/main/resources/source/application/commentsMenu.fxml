@@ -3,154 +3,131 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.CommentsMenuController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFA07A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.CommentsMenuController">
    <children>
-      <Button fx:id="backButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#back" onMouseEntered="#highlightBack" onMouseExited="#deHighlightBack" prefHeight="80.0" prefWidth="160.0" style="-fx-background-color: FFFF33; -fx-border-width: 2; -fx-border-color: A0A000;">
-         <font>
-            <Font size="35.0" />
-         </font>
-      </Button>
-      <AnchorPane layoutX="10.0" layoutY="132.0" prefHeight="531.0" prefWidth="1244.0" style="-fx-background-color: E0E0E0;">
+      <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="620.0" prefWidth="1180.0" style="-fx-background-color: ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);">
          <children>
-            <AnchorPane fx:id="noComment" layoutX="218.0" layoutY="119.0" prefHeight="208.0" prefWidth="808.0">
+            <AnchorPane fx:id="pane0" layoutX="20.0" layoutY="30.0" prefHeight="150.0" prefWidth="560.0">
                <children>
-                  <Label alignment="CENTER" layoutY="20.0" prefHeight="129.0" prefWidth="808.0" text="No comment :/" textFill="#707070">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e54d" height="150.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e5" height="40.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Label fx:id="comment0" alignment="TOP_LEFT" layoutX="8.0" layoutY="42.0" prefHeight="106.0" prefWidth="544.0" text="comment" />
+                  <Label fx:id="username0" layoutX="8.0" prefHeight="40.0" prefWidth="300.0" text="username">
                      <font>
-                        <Font name="Calibri" size="129.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="-1.0" layoutY="89.0" prefHeight="208.0" prefWidth="808.0" text="Insert first comment!" textFill="#707070">
+                  <Label fx:id="buyer0" layoutX="495.0" prefHeight="40.0" prefWidth="58.0" text="buyer">
                      <font>
-                        <Font name="Calibri" size="86.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane0" layoutX="20.0" layoutY="20.0" prefHeight="144.0" prefWidth="593.0" style="-fx-background-color: D0D0D0;">
+            <AnchorPane fx:id="pane1" layoutX="600.0" layoutY="30.0" prefHeight="150.0" prefWidth="560.0">
                <children>
-                  <Label fx:id="comment0" alignment="TOP_LEFT" layoutX="3.0" layoutY="40.0" prefHeight="106.0" prefWidth="587.0" text="comment" wrapText="true" />
-                  <AnchorPane prefHeight="37.0" prefWidth="593.0" style="-fx-background-color: FAFAFA;">
-                     <children>
-                        <Label fx:id="username0" layoutX="2.0" layoutY="1.0" prefHeight="34.0" prefWidth="530.0" text="Username">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="buyer0" alignment="CENTER" contentDisplay="CENTER" layoutX="531.0" layoutY="1.0" prefHeight="34.0" prefWidth="61.0" text="Buyer" textFill="#48c41b">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e54d" height="150.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e5" height="40.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Label fx:id="comment1" alignment="TOP_LEFT" layoutX="8.0" layoutY="42.0" prefHeight="106.0" prefWidth="544.0" text="comment" />
+                  <Label fx:id="username1" layoutX="8.0" prefHeight="40.0" prefWidth="300.0" text="username">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="buyer1" layoutX="495.0" prefHeight="40.0" prefWidth="58.0" text="buyer">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane1" layoutX="633.0" layoutY="20.0" prefHeight="144.0" prefWidth="593.0" style="-fx-background-color: D0D0D0;">
+            <AnchorPane fx:id="pane2" layoutX="20.0" layoutY="200.0" prefHeight="150.0" prefWidth="560.0">
                <children>
-                  <Label fx:id="comment1" alignment="TOP_LEFT" layoutX="3.0" layoutY="40.0" prefHeight="106.0" prefWidth="587.0" text="comment" wrapText="true" />
-                  <AnchorPane prefHeight="37.0" prefWidth="593.0" style="-fx-background-color: FAFAFA;">
-                     <children>
-                        <Label fx:id="username1" layoutX="2.0" layoutY="1.0" prefHeight="34.0" prefWidth="530.0" text="Username">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="buyer1" alignment="CENTER" contentDisplay="CENTER" layoutX="531.0" layoutY="1.0" prefHeight="34.0" prefWidth="61.0" text="Buyer" textFill="#48c41b">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e54d" height="150.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e5" height="40.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Label fx:id="comment2" alignment="TOP_LEFT" layoutX="8.0" layoutY="42.0" prefHeight="106.0" prefWidth="544.0" text="comment" />
+                  <Label fx:id="username2" layoutX="8.0" prefHeight="40.0" prefWidth="300.0" text="username">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="buyer2" layoutX="495.0" prefHeight="40.0" prefWidth="58.0" text="buyer">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane2" layoutX="20.0" layoutY="194.0" prefHeight="144.0" prefWidth="593.0" style="-fx-background-color: D0D0D0;">
+            <AnchorPane fx:id="pane3" layoutX="600.0" layoutY="200.0" prefHeight="150.0" prefWidth="560.0">
                <children>
-                  <Label fx:id="comment2" alignment="TOP_LEFT" layoutX="3.0" layoutY="40.0" prefHeight="106.0" prefWidth="587.0" text="comment" wrapText="true" />
-                  <AnchorPane prefHeight="37.0" prefWidth="593.0" style="-fx-background-color: FAFAFA;">
-                     <children>
-                        <Label fx:id="username2" layoutX="2.0" layoutY="1.0" prefHeight="34.0" prefWidth="530.0" text="Username">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="buyer2" alignment="CENTER" contentDisplay="CENTER" layoutX="531.0" layoutY="1.0" prefHeight="34.0" prefWidth="61.0" text="Buyer" textFill="#48c41b">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e54d" height="150.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e5" height="40.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Label fx:id="comment3" alignment="TOP_LEFT" layoutX="8.0" layoutY="42.0" prefHeight="106.0" prefWidth="544.0" text="comment" />
+                  <Label fx:id="username3" layoutX="8.0" prefHeight="40.0" prefWidth="300.0" text="username">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="buyer3" layoutX="495.0" prefHeight="40.0" prefWidth="58.0" text="buyer">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane3" layoutX="633.0" layoutY="194.0" prefHeight="144.0" prefWidth="593.0" style="-fx-background-color: D0D0D0;">
+            <AnchorPane fx:id="pane4" layoutX="20.0" layoutY="370.0" prefHeight="150.0" prefWidth="560.0">
                <children>
-                  <Label fx:id="comment3" alignment="TOP_LEFT" layoutX="3.0" layoutY="40.0" prefHeight="106.0" prefWidth="587.0" text="comment" wrapText="true" />
-                  <AnchorPane prefHeight="37.0" prefWidth="593.0" style="-fx-background-color: FAFAFA;">
-                     <children>
-                        <Label fx:id="username3" layoutX="2.0" layoutY="1.0" prefHeight="34.0" prefWidth="530.0" text="Username">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="buyer3" alignment="CENTER" contentDisplay="CENTER" layoutX="531.0" layoutY="1.0" prefHeight="34.0" prefWidth="61.0" text="Buyer" textFill="#48c41b">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e54d" height="150.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e5" height="40.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Label fx:id="comment4" alignment="TOP_LEFT" layoutX="8.0" layoutY="42.0" prefHeight="106.0" prefWidth="544.0" text="comment" />
+                  <Label fx:id="username4" layoutX="8.0" prefHeight="40.0" prefWidth="300.0" text="username">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="buyer4" layoutX="495.0" prefHeight="40.0" prefWidth="58.0" text="buyer">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane4" layoutX="20.0" layoutY="368.0" prefHeight="144.0" prefWidth="593.0" style="-fx-background-color: D0D0D0;">
+            <AnchorPane fx:id="pane5" layoutX="600.0" layoutY="370.0" prefHeight="150.0" prefWidth="560.0">
                <children>
-                  <Label fx:id="comment4" alignment="TOP_LEFT" layoutX="3.0" layoutY="40.0" prefHeight="106.0" prefWidth="587.0" text="comment" wrapText="true" />
-                  <AnchorPane prefHeight="37.0" prefWidth="593.0" style="-fx-background-color: FAFAFA;">
-                     <children>
-                        <Label fx:id="username4" layoutX="2.0" layoutY="1.0" prefHeight="34.0" prefWidth="530.0" text="Username">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="buyer4" alignment="CENTER" contentDisplay="CENTER" layoutX="531.0" layoutY="1.0" prefHeight="34.0" prefWidth="61.0" text="Buyer" textFill="#48c41b">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e54d" height="150.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed9e5" height="40.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <Label fx:id="comment5" alignment="TOP_LEFT" layoutX="8.0" layoutY="42.0" prefHeight="106.0" prefWidth="544.0" text="comment" />
+                  <Label fx:id="username5" layoutX="8.0" prefHeight="40.0" prefWidth="300.0" text="username">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="buyer5" layoutX="495.0" prefHeight="40.0" prefWidth="58.0" text="buyer">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane5" layoutX="633.0" layoutY="368.0" prefHeight="144.0" prefWidth="593.0" style="-fx-background-color: D0D0D0;">
-               <children>
-                  <Label fx:id="comment5" alignment="TOP_LEFT" layoutX="3.0" layoutY="40.0" prefHeight="106.0" prefWidth="587.0" text="comment" wrapText="true" />
-                  <AnchorPane prefHeight="37.0" prefWidth="593.0" style="-fx-background-color: FAFAFA;">
-                     <children>
-                        <Label fx:id="username5" layoutX="2.0" layoutY="1.0" prefHeight="34.0" prefWidth="530.0" text="Username">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="buyer5" alignment="CENTER" contentDisplay="CENTER" layoutX="531.0" layoutY="1.0" prefHeight="34.0" prefWidth="61.0" text="Buyer" textFill="#48c41b">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
+            <Button fx:id="submitButton" layoutX="500.0" layoutY="550.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #FFA07A;" text="submit comment">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="previousButton" disable="true" layoutX="20.0" layoutY="552.0" mnemonicParsing="false" onAction="#previous" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 10;" />
+            <Button fx:id="nextButton" layoutX="90.0" layoutY="552.0" mnemonicParsing="false" onAction="#next" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 10;" />
+            <AnchorPane fx:id="noComment" layoutX="190.0" layoutY="110.0" prefHeight="400.0" prefWidth="800.0" visible="false" />
+            <Button fx:id="nextButton1" layoutX="55.0" layoutY="552.0" mnemonicParsing="false" onAction="#next" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 10;" />
+            <Label fx:id="pageCounter" alignment="CENTER" layoutX="55.0" layoutY="552.0" prefHeight="35.0" prefWidth="35.0" text="1">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="previousButton" disable="true" layoutX="10.0" layoutY="99.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#previous" onMouseEntered="#highlightPrevious" onMouseExited="#deHighlightPrevious" style="-fx-background-color: FFFF33; -fx-border-color: A0A000; -fx-border-width: 1;" text="Previous" />
-      <Button fx:id="nextButton" layoutX="109.0" layoutY="99.0" mnemonicParsing="false" onAction="#next" onMouseEntered="#highlightNext" onMouseExited="#deHighlightNext" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: FFFF33; -fx-border-color: A0A000; -fx-border-width: 1;" text="Next" />
-      <Label fx:id="pageCounter" alignment="CENTER" layoutX="76.0" layoutY="94.0" prefHeight="25.0" prefWidth="28.0" text="1">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <Button fx:id="submitButton" layoutX="1146.0" layoutY="99.0" mnemonicParsing="false" onAction="#submit" onMouseEntered="#highlightSubmit" onMouseExited="#deHighlightSubmit" style="-fx-background-color: FFFF33; -fx-border-color: A0A000; -fx-border-width: 1;" text="Submit comment" />
+      <Button fx:id="backButton" layoutX="50.0" layoutY="7.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 10;" />
    </children>
 </AnchorPane>
