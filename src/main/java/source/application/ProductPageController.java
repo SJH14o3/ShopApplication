@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import source.Global;
+import source.database.PurchaseArchiveDataBase;
 import source.database.ScoresDataBase;
 import source.products.CartDataBase;
 import source.products.Product;
@@ -213,7 +214,6 @@ public class ProductPageController implements Initializable {
             return;
         }
         isAlertUp = true;
-        //TODO: First check if user has bought this product.
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Rate");
         alert.setHeaderText("You are about to rate this product with score " + in + "\nAction cannot be reverted");
@@ -267,6 +267,14 @@ public class ProductPageController implements Initializable {
     @FXML
     private void rate(){
         if (ratePaneIsMoving) {
+            return;
+        }
+        if (!PurchaseArchiveDataBase.checkIfBuyer()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("You can't rate this product");
+            alert.setContentText("Only those who bought the product can rate it");
+            alert.showAndWait();
             return;
         }
         if (ScoresDataBase.checkUserHasRatedAlready()) {

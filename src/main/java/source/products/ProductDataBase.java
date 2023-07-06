@@ -27,7 +27,7 @@ public class ProductDataBase extends DatabaseConnection{
                 try (ResultSet rs = preparedStatement.getGeneratedKeys()) {
                     if (rs.next()) {
                         id = rs.getInt(1);
-                        product.setId(id - 1);
+                        product.setId(id);
                     }
                 } catch (SQLException ex) {
                     ex.printStackTrace();
@@ -36,41 +36,54 @@ public class ProductDataBase extends DatabaseConnection{
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        insertStock(product.getId(), product.getQuantity());
+        insertStock(product.getId(), product.getQuantity(), false, 0);
     }
-    private static void insertStock(int product_id, int quantity) {
+    private static void insertStock(int product_id, int quantity, boolean mandatoryWarehouse, int warehouseIn) {
         String SQL = "SELECT count(id) FROM warehouses";
         int count;
+        int warehouse;
         try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
-            ResultSet resultSet;
-            resultSet = statement.executeQuery(SQL);
-            resultSet.next();
-            count = resultSet.getInt(1);
-            Random random = new Random();
-            int warehouse = random.nextInt(count) + 1;
+            if (!mandatoryWarehouse) {
+                ResultSet resultSet;
+                resultSet = statement.executeQuery(SQL);
+                resultSet.next();
+                count = resultSet.getInt(1);
+                resultSet.close();
+                int[] IDs = new int[count];
+                SQL = "SELECT id FROM warehouses";
+                resultSet = statement.executeQuery(SQL);
+                for (int i = 0; i < IDs.length; i++) {
+                    resultSet.next();
+                    IDs[i] = resultSet.getInt(1);
+                    System.out.println(IDs[i]);
+                }
+                Random random = new Random();
+                warehouse = IDs[random.nextInt(count)];
+                resultSet.close();
+            }
+            else {
+                warehouse = warehouseIn;
+            }
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
             String now = dtf.format(LocalDateTime.now());
             SQL = "INSERT INTO products_in_stock (product_id, quantity, vendor_id, warehouse_id, date) VALUES (" + product_id + ", " + quantity + ", " + Global.getUser_id() + ", " + warehouse + ", " + now + ");";
             statement.execute(SQL);
-            resultSet.close();
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public static void updateStock(int in) {
-        String SQL = "UPDATE products_in_stock SET quantity = " + in + " WHERE product_id = " + ProductPage.PRODUCT_ID + ";";
-        try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
-            statement.execute(SQL);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
     public static void updateQuantity(int in) {
-        String SQL = "UPDATE products SET quantity = " + in + " WHERE product_id = " + ProductPage.PRODUCT_ID + ";";
+        Product product = getProduct(ProductPage.PRODUCT_ID);
+        String SQL = "UPDATE products SET quantity = " + in + " WHERE product_id = " + product.getId() + ";";
         try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
             statement.execute(SQL);
-            updateStock(in);
+            SQL = "SELECT warehouse_id FROM products_in_stock WHERE product_id = " + product.getId() + " LIMIT 1";
+            ResultSet resultSet = statement.executeQuery(SQL);
+            resultSet.next();
+            int warehouse = resultSet.getInt(1);
+            int addedQuantity = in - product.getQuantity();
+            insertStock(product.getId(), addedQuantity, true, warehouse);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -182,5 +195,19 @@ public class ProductDataBase extends DatabaseConnection{
             throw new RuntimeException(ex);
         }
         return null;
+    }
+    public static void decreaseQuantity(int product_id, int amount) {
+        String SQL = "SELECT quantity FROM products WHERE product_id = " + product_id;
+        try (Connection connection = establishConnection("shop"); Statement statement = connection.createStatement()) {
+                ResultSet resultSet = statement.executeQuery(SQL);
+                resultSet.next();
+                int quantity = resultSet.getInt(1);
+                resultSet.close();
+                quantity -= amount;
+                SQL = "UPDATE products SET quantity = " + quantity +  " WHERE (`product_id` = " + product_id + ");";
+                statement.execute(SQL);
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }
