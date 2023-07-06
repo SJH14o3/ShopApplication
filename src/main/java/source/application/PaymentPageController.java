@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import source.Global;
 import source.products.CartDataBase;
 import source.products.database;
+import source.threads.SendEmail;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -83,12 +84,16 @@ public class PaymentPageController implements Initializable {
                     alert.setHeaderText("Your payment is done!");
                     if (PaymentMenu.beforePaymentPage == 1) {
                         alert.setContentText("Your order will be shipped to you soon!");
-                        alert.showAndWait();
                         CartDataBase.archiveCart();
+                        Thread sendEmail = new SendEmail(EmailField.getText(), "Your purchase was successful!", "Make sure to rate your purchases!\nAnd also comment!");
+                        sendEmail.start();
+                        alert.showAndWait();
                     }
                     else {
                         alert.setContentText("Your account has been charged successfully");
                         database.changeBalance(PaymentMenu.changedBalance , Global.getUser_id());
+                        Thread sendEmail = new SendEmail(EmailField.getText(), "Your purchase was successful!", "Your account has been charged up!");
+                        sendEmail.start();
                         alert.showAndWait();
                     }
                     try {
