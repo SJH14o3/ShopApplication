@@ -142,7 +142,7 @@ public class CommentsMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         backButton.setGraphic(new ImageView(new Image("smallBackArrow.png")));
-        nextButton.setGraphic(new ImageView(new Image("next.png")));
+        nextButton.setGraphic(new ImageView(new Image("nextSmall.png")));
         previousButton.setGraphic(new ImageView(new Image("prevSmall.png")));
         comments = CommentDataBase.getProductComments(ProductPage.PRODUCT_ID);
         initiateArrays();

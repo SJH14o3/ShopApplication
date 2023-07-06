@@ -46,7 +46,7 @@ public class SignUp implements Initializable {
         ToggleGroup toggleGroup = new ToggleGroup();
         su_ConsumerButton.setToggleGroup(toggleGroup);
         su_VendorButton.setToggleGroup(toggleGroup);
-        su_VendorButton.setSelected(true);
+        su_ConsumerButton.setSelected(true);
 
         su_SignupButton.setOnAction(new EventHandler<ActionEvent>() {
             //************************
@@ -58,11 +58,11 @@ public class SignUp implements Initializable {
                 Pattern pattern = Pattern.compile("^(?:(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*)[^\\s]{8,}$");
                 Pattern EmailPattern = Pattern.compile(" ^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$");
                 Matcher cardfield3 = pattern.matcher(su_PasswordField.getText());
-
-                if(su_PasswordField.getText() == su_ConfirmField.getText()){
+                System.out.println(su_PasswordField.getText());
+                System.out.println(su_ConfirmField.getText());
+                if(su_PasswordField.getText().equals(su_ConfirmField.getText())){
                     confirm=0;
                 }
-
                 if(emailValidate(su_EmailField.getText()) && confirm == 0 ){
 
                     String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
