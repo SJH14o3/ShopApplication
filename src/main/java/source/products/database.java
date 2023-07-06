@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import source.Global;
 import source.User;
 import source.application.Menu;
+import source.threads.SendEmail;
 
 import java.io.IOException;
 import java.sql.*;
@@ -69,20 +70,23 @@ public class database {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet1 = statement.executeQuery("SELECT user_id, UserType, balance FROM users WHERE Username = \"" + username +"\"");
                 if (resultSet1.next()) {
+                    Thread sendEmail = new SendEmail(Email, "Sign up was successful!", "Welcome to Shop Application, " + username + "!");
+                    sendEmail.start();
                     Global.setUser_id(resultSet1.getInt(1));
                     String userType = resultSet1.getString(2).trim();
                     Global.setBalance(resultSet1.getDouble(3));
                     //System.out.println("initial Balance: " + Global.getBalance());
                     if (userType.equals("Consumer")) {
-                        Global.setUser_type(1);
+                        User.setUser_type(1);
                     }
-                    else {
-                        Global.setUser_type(2);
+                    else if(userType.equals("Vendor")){
+                        User.setUser_type(2);
                     }
-                    //System.out.println("USER ID: " + Global.getUser_id());
-                    //System.out.println("Type: " + Global.getUser_type());
+                    else if(userType.equals("Admin")){
+                        User.setUser_type(3);
+                    }
                 }
-
+                getUserInfo();
                 Stage stage = Global.getStage();
                 stage.setX(327);
                 stage.setY(100);
@@ -150,7 +154,7 @@ public class database {
                         String retrivedPassword = resultSet.getString("Password");
                     String retrivedUserType = resultSet.getString("UserType");
 
-                    System.out.println("56 :" + retrivedPassword);
+                    //System.out.println("56 :" + retrivedPassword);
 
                     if(retrivedPassword.equals(Password)){
                         Stage stage = Global.getStage();
@@ -165,8 +169,8 @@ public class database {
                         }
                         Global.setUser_id(resultSet.getInt(3));
                         Global.setBalance(resultSet.getDouble(4));
-                        System.out.println("57 :" + User.getUser_type());
-                        System.out.println(Global.getBalance());
+                        //System.out.println("57 :" + User.getUser_type());
+                        //System.out.println(Global.getBalance());
                         getUserInfo();
                         stage.setX(327);
                         stage.setY(100);
