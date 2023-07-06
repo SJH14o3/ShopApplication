@@ -1802,5 +1802,6 @@
       <Button fx:id="bell" layoutX="468.0" layoutY="79.0" mnemonicParsing="false" onAction="#notification" prefHeight="25.0" prefWidth="25.0" />
       <Circle fx:id="circle" fill="RED" layoutX="500.0" layoutY="80.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Button fx:id="vendorProducts" layoutX="1010.0" layoutY="18.0" mnemonicParsing="false" onAction="#sortForVendor" prefHeight="25.0" prefWidth="117.0" text="Your Products" />
+      <Button fx:id="warehouses" layoutX="569.0" layoutY="18.0" mnemonicParsing="false" onAction="#openWarehouses" text="warehouses" />
    </children>
 </AnchorPane>
