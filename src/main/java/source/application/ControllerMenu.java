@@ -71,7 +71,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private Label pageCounter, minPrice, maxPrice;
     @FXML
-    private Button nextButton, previousButton, auctionButton, vendor, bell, vendorProducts;
+    private Button nextButton, previousButton, auctionButton, vendor, bell, vendorProducts, warehouses;
     @FXML
     private Slider minSlider, maxSlider;
     @FXML
@@ -401,6 +401,9 @@ public class ControllerMenu implements Initializable {
             vendorProducts.setDisable(true);
             vendorProducts.setVisible(false);
         }
+        if (Global.getUser_type() != 3) {
+            warehouses.setVisible(false);
+        }
         mainAnchorPane.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 0.75), null, Insets.EMPTY)));
         productScroll.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 1.0), null, Insets.EMPTY)));
         //String[] a = getUniqueBrands("");
@@ -424,6 +427,11 @@ public class ControllerMenu implements Initializable {
         sort(null);
         //getUniqueBrands("");
     }
+    @FXML
+    private void openWarehouses() {
+        new Warehouses();
+    }
+
     @FXML
     private void switchToAuctions() throws IOException {
         Stage stage = getStage();

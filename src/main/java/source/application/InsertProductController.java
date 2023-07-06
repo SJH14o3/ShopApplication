@@ -29,6 +29,7 @@ public class InsertProductController extends Insert implements Initializable {
     @FXML
     private void parseInformation() {
         if (InsertProduct.changeStock) {
+            InsertProduct.changeStock = false;
             ProductDataBase.updateQuantity(spinner.getValue());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");

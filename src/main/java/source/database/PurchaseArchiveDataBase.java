@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class PurchaseArchiveDataBase extends DatabaseConnection {
     public static boolean checkIfBuyer() {
-        String SQL = "SELECT comment_id FROM comments WHERE user_id = " + Global.getUser_id() + " AND product_id = " + ProductPage.PRODUCT_ID + " LIMIT 1";
+        String SQL = "SELECT archive_id FROM purchases_archive WHERE user_id = " + Global.getUser_id() + " AND product_id = " + ProductPage.PRODUCT_ID + " LIMIT 1";
         try (Connection connection = establishConnection("shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
