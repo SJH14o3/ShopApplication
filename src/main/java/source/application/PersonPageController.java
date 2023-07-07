@@ -47,7 +47,7 @@ public class PersonPageController implements Initializable {
     @FXML
     private TextField increaseBalanceText;
     @FXML
-    private Button backButton;
+    private Button backButton, ShoppingCartButton, shoppingHistoryButton, discountCodeButton;
 
     @FXML
     private void apply() {
@@ -205,6 +205,9 @@ public class PersonPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        discountCodeButton.setGraphic(new ImageView(new Image("discount.png")));
+        shoppingHistoryButton.setGraphic(new ImageView(new Image("history.png")));
+        ShoppingCartButton.setGraphic(new ImageView(new Image("shoppingCart.png")));
         backButton.setGraphic(new ImageView(new Image("prevSmall.png")));
         P_PocketMoney.setText(User.getBalance() + "$");
         if (User.getUser_type() == 1) {
