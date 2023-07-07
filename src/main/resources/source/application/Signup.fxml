@@ -42,12 +42,12 @@
                         </Label>
                         <TextField fx:id="su_UsernameField" layoutX="146.0" layoutY="61.0" prefWidth="150.0" promptText="Username" style="-fx-background-radius: 50; -fx-background-color: FFFF33;" />
                         <PasswordField fx:id="su_PasswordField" layoutX="147.0" layoutY="164.0" prefWidth="150.0" promptText="Password" style="-fx-background-radius: 50; -fx-background-color: FFFF33;" />
-                        <Button fx:id="su_LoginButton" layoutX="62.0" layoutY="352.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="Login">
+                        <Button fx:id="su_LoginButton" layoutX="63.0" layoutY="368.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="Login">
                             <font>
                                 <Font name="System Bold Italic" size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="su_SignupButton" layoutX="175.0" layoutY="352.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="SignUp">
+                        <Button fx:id="su_SignupButton" layoutX="176.0" layoutY="368.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0" style="-fx-background-radius: 50; -fx-background-color: e0e0e0;" text="SignUp">
                             <font>
                                 <Font name="System Bold Italic" size="14.0" />
                             </font>
@@ -70,8 +70,9 @@
                                 <Font name="Arial Bold Italic" size="16.0" />
                             </font>
                         </Label>
-                        <RadioButton fx:id="su_ConsumerButton" layoutX="55.0" layoutY="304.0" mnemonicParsing="false" text="Consumer" />
-                        <RadioButton fx:id="su_VendorButton" layoutX="185.0" layoutY="304.0" mnemonicParsing="false" text="Vendor" />
+                        <RadioButton fx:id="su_ConsumerButton" layoutX="62.0" layoutY="294.0" mnemonicParsing="false" text="Consumer" />
+                        <RadioButton fx:id="su_VendorButton" layoutX="186.0" layoutY="294.0" mnemonicParsing="false" text="Vendor" />
+                  <TextField fx:id="CompanyField" layoutX="75.0" layoutY="325.0" promptText="company name" style="-fx-background-radius: 25;" />
                     </children>
                 </AnchorPane>
             </right>

@@ -31,6 +31,8 @@ public class SignUp implements Initializable {
     @FXML
     private RadioButton su_VendorButton;
     @FXML
+    private TextField CompanyField;
+    @FXML
     private TextField su_UsernameField;
     @FXML
     private TextField su_EmailField;
@@ -43,14 +45,19 @@ public class SignUp implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         ToggleGroup toggleGroup = new ToggleGroup();
         su_ConsumerButton.setToggleGroup(toggleGroup);
         su_VendorButton.setToggleGroup(toggleGroup);
         su_VendorButton.setSelected(true);
-
+        String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
+        if (toggleName.equals("Vendor")){
+            System.out.println("544666");
+        }
         su_SignupButton.setOnAction(new EventHandler<ActionEvent>() {
             //************************
-            
+
+
             //*************************
             @Override
             public void handle(ActionEvent event) {
@@ -59,16 +66,22 @@ public class SignUp implements Initializable {
                 Pattern EmailPattern = Pattern.compile(" ^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$");
                 Matcher cardfield3 = pattern.matcher(su_PasswordField.getText());
 
-                if(su_PasswordField.getText() == su_ConfirmField.getText()){
+                if(su_PasswordField.getText().equals(su_ConfirmField.getText())){
                     confirm=0;
                 }
 
+
+
+
                 if(emailValidate(su_EmailField.getText()) && confirm == 0 ){
 
-                    String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
+
+
                     if (!su_UsernameField.getText().trim().isEmpty() && !su_EmailField.getText().trim().isEmpty() && !su_PasswordField.getText().trim().isEmpty() &&
-                            !su_ConfirmField.getText().trim().isEmpty()) {
-                        database.SignUpUser(event, su_UsernameField.getText(), su_EmailField.getText(), su_PasswordField.getText(), toggleName);
+                            !su_ConfirmField.getText().trim().isEmpty() && !CompanyField.getText().isEmpty()) {
+
+
+                        database.SignUpUser(event, su_UsernameField.getText(), su_EmailField.getText(), su_PasswordField.getText(), toggleName , CompanyField.getText());
                     } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setContentText("Fill all information");

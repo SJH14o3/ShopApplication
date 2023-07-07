@@ -9,6 +9,7 @@ public class User {
 
     private static int user_type; //1: consumer, 2:vendor.
     private static double balance;
+    private static String vendor_compacy;
     private static String username;
     public static void setUser_type(int user_type) {
         User.user_type = user_type;
@@ -19,6 +20,9 @@ public class User {
     public static void setUser_id(int user_id) {
         User.user_id = user_id;
     }
+    public static void setVendor_compacy(String vendor_compacy) {
+        User.vendor_compacy = vendor_compacy;
+    }
     public static int getUser_id() {
         return user_id;
     }
@@ -28,6 +32,9 @@ public class User {
 
     public static String getUsername() {
         return username;
+    }
+    public static String getVendor_compacy(){
+        return vendor_compacy;
     }
     public static double getBalance() {
         return balance;
