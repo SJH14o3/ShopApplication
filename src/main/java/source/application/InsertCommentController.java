@@ -6,11 +6,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import source.Global;
 import source.database.PurchaseArchiveDataBase;
 import source.products.Comment;
 import source.products.CommentDataBase;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,19 +27,19 @@ public class InsertCommentController implements Initializable {
     private Button submitButton, backButton;
     @FXML
     private void highlightBack() {
-        backButton.setStyle("-fx-background-color: #FFFF8C; -fx-border-color: #969600; -fx-border-width: 2");
+        backButton.setStyle("-fx-background-color: #E9967A");
     }
     @FXML
     private void deHighlightBack() {
-        backButton.setStyle("-fx-background-color: #FFFF33; -fx-border-color: #A0A000; -fx-border-width: 2");
+        backButton.setStyle("-fx-background-color:  #FFA07A");
     }
     @FXML
     private void highlightSubmit() {
-        submitButton.setStyle("-fx-background-color: #FFFF8C; -fx-border-color: #969600; -fx-border-width: 2");
+        submitButton.setStyle("-fx-background-color: #E9967A");
     }
     @FXML
     private void deHighlightSubmit() {
-        submitButton.setStyle("-fx-background-color: #FFFF33; -fx-border-color: #A0A000; -fx-border-width: 2");
+        submitButton.setStyle("-fx-background-color:#FFA07A");
     }
     @FXML
     private void back() {
