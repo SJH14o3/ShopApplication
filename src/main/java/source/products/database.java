@@ -45,7 +45,7 @@ public class database {
         stage.setScene(new Scene(root , 776 , 448));
         stage.show();
     }
-    public static void SignUpUser(ActionEvent event, String username, String Email, String password, String usertype){
+    public static void SignUpUser(ActionEvent event, String username, String Email, String password, String usertype , String CompanyName){
         Connection connection = null ;
         PreparedStatement PsInsert = null ;
         PreparedStatement PsCheckUserExists = null;
@@ -61,21 +61,22 @@ public class database {
                 alert.setContentText("This Username Is Already Exist!");
                 alert.show();
             }else {
-                PsInsert = connection.prepareStatement("INSERT INTO users (Username , Email , Password , UserType, balance) VALUES (?,?,?,?, 0.00)");
+                PsInsert = connection.prepareStatement("INSERT INTO users (Username , Email , Password , UserType, balance, vendor_compacy) VALUES (?,?,?,?, 0.00 ,?)");
                 PsInsert.setString(1,username);
                 PsInsert.setString(2,Email);
                 PsInsert.setString(3,password);
-                PsInsert.setString(4,usertype);
+                PsInsert.setString(5,CompanyName);
                 PsInsert.executeUpdate();
                 Statement statement = connection.createStatement();
-                ResultSet resultSet1 = statement.executeQuery("SELECT user_id, UserType, balance FROM users WHERE Username = \"" + username +"\"");
+                ResultSet resultSet1 = statement.executeQuery("SELECT user_id, UserType, balance , vendor_compacy FROM users WHERE Username = \"" + username +"\"");
                 if (resultSet1.next()) {
                     Thread sendEmail = new SendEmail(Email, "Sign up was successful!", "Welcome to Shop Application, " + username + "!");
                     sendEmail.start();
                     Global.setUser_id(resultSet1.getInt(1));
                     String userType = resultSet1.getString(2).trim();
                     Global.setBalance(resultSet1.getDouble(3));
-                    //System.out.println("initial Balance: " + Global.getBalance());
+                    Global.setVendor_compacy(resultSet1.getString(4));
+                    System.out.println("initial Compony: " + Global.getVendor_compacy());
                     if (userType.equals("Consumer")) {
                         User.setUser_type(1);
                     }
@@ -137,10 +138,11 @@ public class database {
     public static void LoginUser(ActionEvent event, String Username, String Password){
         Connection connection = null;
         PreparedStatement preparedStatement =null ;
+        PreparedStatement preparedStatement2 =null ;
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , Global.PASSWORD);
-            preparedStatement = connection.prepareStatement("SELECT Password , UserType,User_id, balance FROM users WHERE Username = ?");
+            preparedStatement = connection.prepareStatement("SELECT Password , UserType,User_id, balance ,vendor_compacy FROM users WHERE Username = ?");
             preparedStatement.setString(1 , Username);
             resultSet = preparedStatement.executeQuery();
 
@@ -153,9 +155,7 @@ public class database {
                 while (resultSet.next()){
                         String retrivedPassword = resultSet.getString("Password");
                     String retrivedUserType = resultSet.getString("UserType");
-
-                    //System.out.println("56 :" + retrivedPassword);
-
+                    String retrivedvendor_compacy = resultSet.getString("vendor_compacy");
                     if(retrivedPassword.equals(Password)){
                         Stage stage = Global.getStage();
                         if (retrivedUserType.equals("Consumer")) {
