@@ -4,7 +4,7 @@ public class User {
     private static int user_id;
     private static int user_type; //1: consumer, 2:vendor.
     private static double balance;
-    private static String vendor_compacy;
+    private static String vendor_company;
     private static String username;
     private static String user_address;
     private static String user_postalCode;
@@ -23,8 +23,8 @@ public class User {
     public static void setUser_id(int user_id) {
         User.user_id = user_id;
     }
-    public static void setVendor_compacy(String vendor_compacy) {
-        User.vendor_compacy = vendor_compacy;
+    public static void setVendor_company(String vendor_company) {
+        User.vendor_company = vendor_company;
     }
     public static int getUser_id() {
         return user_id;
@@ -36,8 +36,8 @@ public class User {
     public static String getUsername() {
         return username;
     }
-    public static String getVendor_compacy(){
-        return vendor_compacy;
+    public static String getVendor_company(){
+        return vendor_company;
     }
     public static double getBalance() {
         return balance;

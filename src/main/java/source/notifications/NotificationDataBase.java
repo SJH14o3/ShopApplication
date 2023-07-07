@@ -43,6 +43,21 @@ public class NotificationDataBase extends DatabaseConnection {
                             resultSet1.next();
                             result[i] = new AuctionWinnerNotification(resultSet1.getString(1).trim(), resultSet1.getInt(3));
                         }
+                        case 3 -> {
+                            SQL2 = "SELECT user_id FROM authorize_notification WHERE id = " + subID;
+                            resultSet1 = statement1.executeQuery(SQL2);
+                            resultSet1.next();
+                            int vendor_id = resultSet1.getInt(1);
+                            SQL2 = "SELECT Username, vendor_company FROM users WHERE User_id = " + vendor_id;
+                            Connection connection1 = establishConnection("login_db2");
+                            PreparedStatement preparedStatement = connection1.prepareStatement(SQL2);
+                            ResultSet resultSet3 = preparedStatement.executeQuery();
+                            resultSet3.next();
+                            result[i] = new AuthorizeVendor("Vendor named: " + resultSet3.getString(1).trim() + " Who works for:\n" + resultSet3.getString(2).trim() + " company has sign up\naccept or decline?", vendor_id);
+                            resultSet3.close();
+                            preparedStatement.close();
+                            connection1.close();
+                        }
                     }
                 }
                 resultSet2.close();
@@ -91,6 +106,11 @@ public class NotificationDataBase extends DatabaseConnection {
         String SQL = "INSERT INTO nobid_notification (auction_id) VALUES ("+ auction_id +");";
         duplicate(SQL, user_id, 1);
     }
+    public static void insertAuthorizeNotification(int user_id) {
+        String SQL = "INSERT INTO authorize_notification (user_id) VALUES ("+ user_id +");";
+        System.out.println(SQL);
+        duplicate(SQL, 12, 3);
+    }
     public static void deleteNotification(String SQL) {
         //System.out.println("3: " + SQL);
         try (Connection connection = establishConnection("shop"); PreparedStatement st = connection.prepareStatement(SQL)) {
@@ -104,6 +124,15 @@ public class NotificationDataBase extends DatabaseConnection {
         try (Connection connection = establishConnection("shop"); PreparedStatement st = connection.prepareStatement(SQL)) {
             st.execute();
             deleteNotification("DELETE FROM notifications WHERE sub_id = " + id + " AND type = 1");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void deleteAuthorizationNotification(int id) {
+        String SQL = "DELETE FROM authorize_notification WHERE id = " + id + " LIMIT 1;";
+        try (Connection connection = establishConnection("shop"); PreparedStatement st = connection.prepareStatement(SQL)) {
+            st.execute();
+            deleteNotification("DELETE FROM notifications WHERE sub_id = " + id + " AND type = 3");
         } catch (SQLException e) {
             e.printStackTrace();
         }

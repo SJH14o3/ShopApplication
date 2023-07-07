@@ -15,6 +15,7 @@ public abstract class Notification {
         switch (type) {
             case 1 -> this.text = "No bid was inserted to your \"" + text + "\" auction and the auction's deadline has been passed";
             case 2 -> this.text = "You have won the \"" + text + "\" auction!";
+            case 3 -> this.text = text;
             default -> this.text = "ERROR";
         }
         this.type = type;

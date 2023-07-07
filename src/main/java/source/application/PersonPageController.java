@@ -94,7 +94,7 @@ public class PersonPageController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Illegal word has been used");
-            alert.setContentText("You can't use letter \"null\"");
+            alert.setContentText("You can't use word \"null\"");
             alert.showAndWait();
             return;
         }
