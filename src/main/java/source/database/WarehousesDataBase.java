@@ -2,10 +2,7 @@ package source.database;
 
 import source.products.DatabaseConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class WarehousesDataBase extends DatabaseConnection {
     public static Warehouse[] getAll() {
@@ -42,7 +39,6 @@ public class WarehousesDataBase extends DatabaseConnection {
         String SQL = "DELETE FROM warehouses WHERE id = " + id;
         try (Connection connection = establishConnection("Shop"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
             preparedStatement.execute();
-            //TODO: delete every stock of it as well.
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -62,5 +58,23 @@ public class WarehousesDataBase extends DatabaseConnection {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static int[] getCategoriesCount(int warehouse_id) {
+        int[] counts = {0,0,0,0,0,0,0,0,0,0};
+        ResultSet resultSet = null;
+        try (Connection connection = establishConnection("Shop"); Statement statement = connection.createStatement()) {
+            for (int i = 1; i < 11; i++) {
+                String SQL = "SELECT DISTINCT(a.product_id), a.quantity FROM products a JOIN products_in_stock b ON a.product_id = b.product_id WHERE b.warehouse_id = " + warehouse_id + " AND a.product_type = " + i;
+                resultSet = statement.executeQuery(SQL);
+                while (resultSet.next()) {
+                    counts[i-1] += resultSet.getInt(2);
+                }
+            }
+            resultSet.close();
+            return counts;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
