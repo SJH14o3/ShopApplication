@@ -7,10 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import source.Global;
 import source.products.CartDataBase;
 import source.products.CartItem;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -217,6 +220,13 @@ public class ShoppingCartController implements Initializable {
     }
     @FXML
     private void back() {
+
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         try {
             new PersonMenu(Global.getStage());
         } catch (IOException e) {
@@ -226,6 +236,13 @@ public class ShoppingCartController implements Initializable {
 
     @FXML
     private void next(){
+
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         page++;
         update();
         if (prevButton.isDisable()) {
@@ -237,6 +254,13 @@ public class ShoppingCartController implements Initializable {
     }
     @FXML
     private void previous(){
+
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
        page--;
        update();
        if (nextButton.isDisable()) {
@@ -250,6 +274,12 @@ public class ShoppingCartController implements Initializable {
     @FXML
     private void remove0(){
 
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         CartDataBase.removeCartItem(cartItems[first].ID);
         cartItems = CartDataBase.getCartItems(Global.getUser_id());
         update();
@@ -258,12 +288,24 @@ public class ShoppingCartController implements Initializable {
     @FXML
     private void remove1(){
 
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         CartDataBase.removeCartItem(cartItems[1+first].ID);
         cartItems = CartDataBase.getCartItems(Global.getUser_id());
         update();
     }
     @FXML
     private void remove2(){
+
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
 
         CartDataBase.removeCartItem(cartItems[2+first].ID);
         cartItems = CartDataBase.getCartItems(Global.getUser_id());
@@ -273,6 +315,12 @@ public class ShoppingCartController implements Initializable {
     @FXML
     private void remove3(){
 
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         CartDataBase.removeCartItem(cartItems[3+first].ID);
         cartItems = CartDataBase.getCartItems(Global.getUser_id());
         update();
@@ -280,6 +328,12 @@ public class ShoppingCartController implements Initializable {
     }
     @FXML
     private void increaseItem0(){
+
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
 
         if(CartDataBase.increaseQuantity(cartItems[first].ID,cartItems[first].quantity,cartItems[first].product.getQuantity())) {
 
@@ -292,6 +346,12 @@ public class ShoppingCartController implements Initializable {
     @FXML
     private void increaseItem1(){
 
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         if(CartDataBase.increaseQuantity(cartItems[first+1].ID,cartItems[first+1].quantity,cartItems[first+1].product.getQuantity())) {
 
             cartItems[first+1].quantity++;
@@ -302,6 +362,12 @@ public class ShoppingCartController implements Initializable {
     }
     @FXML
     private void increaseItem2(){
+
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
 
         if(CartDataBase.increaseQuantity(cartItems[first+2].ID,cartItems[first+2].quantity,cartItems[first+2].product.getQuantity())) {
 
@@ -314,6 +380,12 @@ public class ShoppingCartController implements Initializable {
     @FXML
     private void increaseItem3(){
 
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         if(CartDataBase.increaseQuantity(cartItems[first+3].ID,cartItems[first+3].quantity,cartItems[first+3].product.getQuantity())) {
 
             cartItems[first+3].quantity++;
@@ -324,6 +396,12 @@ public class ShoppingCartController implements Initializable {
     }
     @FXML
     private void decreaseItem0(){
+
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
 
         if(CartDataBase.decreaseQuantity(cartItems[first].ID,cartItems[first].quantity)){
 
@@ -338,6 +416,12 @@ public class ShoppingCartController implements Initializable {
     @FXML
     private void decreaseItem1(){
 
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         if(CartDataBase.decreaseQuantity(cartItems[first+1].ID,cartItems[first+1].quantity)){
 
             cartItems[first+1].quantity--;
@@ -349,6 +433,12 @@ public class ShoppingCartController implements Initializable {
     }
     @FXML
     private void decreaseItem2(){
+
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
 
         if(CartDataBase.decreaseQuantity(cartItems[first+2].ID,cartItems[first+2].quantity)){
 
@@ -363,6 +453,12 @@ public class ShoppingCartController implements Initializable {
     @FXML
     private void decreaseItem3(){
 
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         if(CartDataBase.decreaseQuantity(cartItems[first+3].ID,cartItems[first+3].quantity)){
 
             cartItems[first+3].quantity--;
@@ -372,10 +468,6 @@ public class ShoppingCartController implements Initializable {
         }else{
             remove3();
         }
-    }
-    @FXML
-    private void checkout(){
-
     }
 
     @FXML
@@ -421,6 +513,13 @@ public class ShoppingCartController implements Initializable {
 
     @FXML
     public void goToPayment(){
+
+        String mediaPath = "clickButton.mp3";
+        Media media = new Media(new File(mediaPath).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+
         try {
             new PrePaymentPage(Global.getStage());
         }catch(IOException e){
