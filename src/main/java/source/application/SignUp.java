@@ -70,9 +70,6 @@ public class SignUp implements Initializable {
                     confirm=0;
                 }
 
-
-
-
                 if(emailValidate(su_EmailField.getText()) && confirm == 0 ){
 
 
@@ -117,6 +114,8 @@ public class SignUp implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Stage stage = Global.getStage();
+                stage.setX(571);
+                stage.setY(200);
                 Parent root = null;
                 try {
                     root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));

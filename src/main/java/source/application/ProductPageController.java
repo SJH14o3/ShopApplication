@@ -9,8 +9,10 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import source.Global;
+import source.database.PurchaseArchiveDataBase;
 import source.database.ScoresDataBase;
 import source.products.CartDataBase;
 import source.products.Product;
@@ -174,6 +176,12 @@ public class ProductPageController implements Initializable {
         }
     }
     @FXML
+    private void switchToPersonPage() throws IOException {
+        PersonMenu.lastLocation = 2;
+        Stage stage = Global.getStage();
+        new PersonMenu(stage);
+    }
+    @FXML
     private void updateStocks() {
         InsertProduct.changeStock = true;
         new InsertProduct(Global.getStage());
@@ -206,7 +214,6 @@ public class ProductPageController implements Initializable {
             return;
         }
         isAlertUp = true;
-        //TODO: First check if user has bought this product.
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Rate");
         alert.setHeaderText("You are about to rate this product with score " + in + "\nAction cannot be reverted");
@@ -262,6 +269,14 @@ public class ProductPageController implements Initializable {
         if (ratePaneIsMoving) {
             return;
         }
+        if (!PurchaseArchiveDataBase.checkIfBuyer()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("You can't rate this product");
+            alert.setContentText("Only those who bought the product can rate it");
+            alert.showAndWait();
+            return;
+        }
         if (ScoresDataBase.checkUserHasRatedAlready()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -289,10 +304,20 @@ public class ProductPageController implements Initializable {
     }
     @FXML
     private void back() {
-        try {
-            new Menu(Global.getStage());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (ProductPage.previousScene == 1) {
+            try {
+                new Menu(Global.getStage());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
+        else {
+            try {
+                new ShoppingCart(Global.getStage());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 }

@@ -1793,14 +1793,15 @@
          </font>
       </Label>
       <Button fx:id="auctionButton" layoutX="1131.0" layoutY="49.0" mnemonicParsing="false" onAction="#switchToAuctions" prefHeight="25.0" prefWidth="117.0" />
-      <AnchorPane layoutX="21.0" layoutY="14.0" prefHeight="56.0" prefWidth="54.0">
+      <AnchorPane layoutX="20.0" layoutY="10.0" prefHeight="34.0" prefWidth="61.0">
          <children>
-            <Button fx:id="PersonPageButton" layoutY="-2.0" mnemonicParsing="false" onAction="#switchToPersonPage" prefHeight="63.0" prefWidth="82.0" text="Button" />
+            <Button fx:id="PersonPageButton" mnemonicParsing="false" onAction="#switchToPersonPage" prefHeight="34.0" prefWidth="61.0" text="Account" />
          </children>
       </AnchorPane>
       <Button fx:id="vendor" layoutX="1131.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToInsert" prefHeight="25.0" prefWidth="117.0" text="New Product" />
       <Button fx:id="bell" layoutX="468.0" layoutY="79.0" mnemonicParsing="false" onAction="#notification" prefHeight="25.0" prefWidth="25.0" />
       <Circle fx:id="circle" fill="RED" layoutX="500.0" layoutY="80.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Button fx:id="vendorProducts" layoutX="1010.0" layoutY="18.0" mnemonicParsing="false" onAction="#sortForVendor" prefHeight="25.0" prefWidth="117.0" text="Your Products" />
+      <Button fx:id="warehouses" layoutX="569.0" layoutY="18.0" mnemonicParsing="false" onAction="#openWarehouses" text="warehouses" />
    </children>
 </AnchorPane>

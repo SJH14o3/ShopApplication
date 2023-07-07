@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import source.Global;
+import source.database.PurchaseArchiveDataBase;
 import source.products.Comment;
 import source.products.CommentDataBase;
 
@@ -14,6 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class InsertCommentController implements Initializable {
+    private boolean isBuyer;
     @FXML
     private Label username, buyer;
     @FXML
@@ -58,7 +60,7 @@ public class InsertCommentController implements Initializable {
             alert.showAndWait();
             return;
         }
-        Comment comment = new Comment(Global.getUser_id(), ProductPage.PRODUCT_ID, Global.getUsername(), commentText, true);
+        Comment comment = new Comment(Global.getUser_id(), ProductPage.PRODUCT_ID, Global.getUsername(), commentText, isBuyer);
         CommentDataBase.InsertComment(comment);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");
@@ -68,7 +70,10 @@ public class InsertCommentController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TODO: implement the part where for submitting comment it show if they are buyer or not.
+        isBuyer = PurchaseArchiveDataBase.checkIfBuyer();
+        if (!isBuyer) {
+            buyer.setVisible(false);
+        }
         username.setText(Global.getUsername());
     }
 }

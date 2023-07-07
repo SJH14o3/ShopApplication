@@ -1,80 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.PersonPageController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFA07A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.PersonPageController">
    <children>
-      <ImageView fitHeight="727.0" fitWidth="1288.0" layoutX="-2.0" layoutY="-2.0">
-         <image>
-            <Image url="@../../PersonPage.jpg" />
-         </image>
-      </ImageView>
-      <AnchorPane layoutX="642.0" layoutY="57.0" prefHeight="518.0" prefWidth="621.0">
+      <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="620.0" prefWidth="1180.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);">
          <children>
-            <Label fx:id="P_Username" layoutX="8.0" layoutY="62.0" text="Username">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Label layoutX="149.0" layoutY="69.0" prefHeight="21.0" prefWidth="119.0" style="-fx-background-color: #FFFF33;" />
-            <Label fx:id="P_Name" layoutX="29.0" layoutY="106.0" text="Name">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Label fx:id="P_Email" layoutX="32.0" layoutY="159.0" text="Email">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Label layoutX="149.0" layoutY="113.0" prefHeight="21.0" prefWidth="119.0" style="-fx-background-color: #FFFF33;" />
-            <Label layoutX="149.0" layoutY="166.0" prefHeight="21.0" prefWidth="119.0" style="-fx-background-color: #FFFF33;" />
-            <Label layoutX="333.0" layoutY="63.0" text="Phone">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Label fx:id="P_Password" layoutX="311.0" layoutY="106.0" text="Passwoard">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Label fx:id="P_Password2" layoutX="312.0" layoutY="160.0" text="Passwoard">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Label layoutX="446.0" layoutY="70.0" prefHeight="21.0" prefWidth="119.0" style="-fx-background-color: #FFFF33;" />
-            <Label layoutX="446.0" layoutY="113.0" prefHeight="21.0" prefWidth="119.0" style="-fx-background-color: #FFFF33;" />
-            <Label layoutX="446.0" layoutY="166.0" prefHeight="21.0" prefWidth="119.0" style="-fx-background-color: #FFFF33;" />
-            <Label fx:id="P_PocketMoney" layoutX="173.0" layoutY="282.0" text="PocketMoney">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Label layoutX="333.0" layoutY="289.0" prefHeight="21.0" prefWidth="119.0" style="-fx-background-color: #FFFF33;" />
-            <Label fx:id="P_UserType" layoutX="12.0" layoutY="204.0" text="UserType">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Label layoutX="149.0" layoutY="211.0" prefHeight="21.0" prefWidth="119.0" style="-fx-background-color: #FFFF33;" />
-            <Label fx:id="P_DiscountCode" layoutX="277.0" layoutY="204.0" text="DiscountCode">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Label layoutX="446.0" layoutY="211.0" prefHeight="21.0" prefWidth="119.0" style="-fx-background-color: #FFFF33;" />
-            <Button layoutX="149.0" layoutY="370.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="268.0" layoutY="370.0" mnemonicParsing="false" text="Button" />
-            <Button fx:id="goTo_PaymentPage" layoutX="473.0" layoutY="284.0" mnemonicParsing="false" text="Increase" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="517.0" layoutX="43.0" layoutY="62.0" stroke="BLACK" strokeType="INSIDE" width="297.0" />
+            <AnchorPane layoutX="350.0" layoutY="40.0" prefHeight="559.0" prefWidth="794.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="517.0" layoutX="15.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" width="781.0" />
+                  <Label layoutX="43.0" layoutY="52.0" prefHeight="34.0" prefWidth="110.0" text="Username :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="45.0" layoutY="116.0" text="First Name :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="47.0" layoutY="174.0" prefHeight="34.0" prefWidth="102.0" text="Email :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="435.0" layoutY="52.0" prefHeight="34.0" prefWidth="102.0" text="Phone :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="435.0" layoutY="117.0" text="Last Name :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="436.0" layoutY="177.0" prefHeight="27.0" prefWidth="99.0" text="Password :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="50.0" layoutY="240.0" text="User type :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="P_Username" disable="true" layoutX="167.0" layoutY="48.0" prefHeight="42.0" prefWidth="223.0" style="-fx-background-color: #ADD8E6;" />
+                  <TextField fx:id="P_First_Name" layoutX="167.0" layoutY="110.0" prefHeight="42.0" prefWidth="223.0" promptText="50 characters max" style="-fx-background-color: #ADD8E6;" />
+                  <TextField fx:id="P_Email" layoutX="167.0" layoutY="172.0" prefHeight="42.0" prefWidth="223.0" promptText="45 characters max" style="-fx-background-color: #ADD8E6;" />
+                  <TextField fx:id="P_User_Type" disable="true" layoutX="167.0" layoutY="234.0" prefHeight="42.0" prefWidth="223.0" style="-fx-background-color: #ADD8E6;" />
+                  <TextField fx:id="P_Phone" layoutX="550.0" layoutY="45.0" prefHeight="42.0" prefWidth="223.0" promptText="20 characters max" style="-fx-background-color: #ADD8E6;" />
+                  <TextField fx:id="P_Last_Name" layoutX="550.0" layoutY="110.0" prefHeight="42.0" prefWidth="223.0" promptText="50 characters max" style="-fx-background-color: #ADD8E6;" />
+                  <TextField fx:id="P_Password" layoutX="550.0" layoutY="172.0" prefHeight="42.0" prefWidth="223.0" promptText="45 characters max" style="-fx-background-color: #ADD8E6;" />
+                  <Label fx:id="companyText" layoutX="436.0" layoutY="238.0" prefHeight="34.0" prefWidth="99.0" text="Company :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="P_Company" layoutX="550.0" layoutY="234.0" prefHeight="42.0" prefWidth="223.0" promptText="50 characters max" style="-fx-background-color: #ADD8E6;" />
+                  <Button layoutX="352.0" layoutY="334.0" mnemonicParsing="false" onAction="#apply" prefHeight="42.0" prefWidth="223.0" style="-fx-background-color: #FFA07A;" text="Apply Changes">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="60.0" layoutY="423.0" text="Balance :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="436.0" layoutY="424.0" prefHeight="27.0" prefWidth="110.0" text="Increse :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="363.0" layoutY="488.0" mnemonicParsing="false" onAction="#changeBalance" prefHeight="42.0" prefWidth="223.0" style="-fx-background-color: #FFA07A;" text="Increase">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="increaseBalanceText" alignment="CENTER" layoutX="550.0" layoutY="417.0" prefHeight="42.0" prefWidth="223.0" promptText="value" style="-fx-background-color: #ADD8E6;" />
+                  <TextField fx:id="P_PocketMoney" disable="true" layoutX="167.0" layoutY="416.0" prefHeight="42.0" prefWidth="223.0" style="-fx-background-color: #ADD8E6;" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="ShoppingCartButton" layoutX="122.0" layoutY="380.0" mnemonicParsing="false" onAction="#openCart" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #FFA07A;" />
+            <Button fx:id="shoppingHistoryButton" layoutX="122.0" layoutY="445.0" mnemonicParsing="false" onAction="#openHistory" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #FFA07A;" />
+            <ImageView fitHeight="202.0" fitWidth="204.0" layoutX="91.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../woman.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="discountCodeButton" layoutX="122.0" layoutY="507.0" mnemonicParsing="false" onAction="#showCodes" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #FFA07A;" />
          </children>
       </AnchorPane>
+      <Button fx:id="backButton" layoutX="50.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" prefHeight="31.0" prefWidth="47.0" style="-fx-background-radius: 7;" />
    </children>
 </AnchorPane>

@@ -71,7 +71,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private Label pageCounter, minPrice, maxPrice;
     @FXML
-    private Button nextButton, previousButton, auctionButton, vendor, bell, vendorProducts;
+    private Button nextButton, previousButton, auctionButton, vendor, bell, vendorProducts, warehouses;
     @FXML
     private Slider minSlider, maxSlider;
     @FXML
@@ -197,7 +197,7 @@ public class ControllerMenu implements Initializable {
             }
             else {
                 scores[i - first].setText(String.format("%.2f", products[i].getScore()));
-                if (!scores[i].isVisible()) {
+                if (!scores[i - first].isVisible()) {
                     scores[i - first].setVisible(true);
                 }
             }
@@ -391,15 +391,18 @@ public class ControllerMenu implements Initializable {
         else {
             circle.setVisible(false);
         }
-        System.out.println(temp.length);
+        //System.out.println(temp.length);
         notifications = new ArrayList<>(temp.length);
         notifications.addAll(Arrays.asList(temp));
-        System.out.println(notifications.size());
+        //System.out.println(notifications.size());
         if (Global.getUser_type() != 2) {
             vendor.setDisable(true);
             vendor.setVisible(false);
             vendorProducts.setDisable(true);
             vendorProducts.setVisible(false);
+        }
+        if (Global.getUser_type() != 3) {
+            warehouses.setVisible(false);
         }
         mainAnchorPane.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 0.75), null, Insets.EMPTY)));
         productScroll.setBackground(new Background(new BackgroundFill(hexToColor(COLOR1, 1.0), null, Insets.EMPTY)));
@@ -425,14 +428,20 @@ public class ControllerMenu implements Initializable {
         //getUniqueBrands("");
     }
     @FXML
+    private void openWarehouses() {
+        new Warehouses();
+    }
+
+    @FXML
     private void switchToAuctions() throws IOException {
         Stage stage = getStage();
         new AuctionsMenu(stage, false);
     }
     @FXML
     private void switchToPersonPage() throws IOException {
+        PersonMenu.lastLocation = 1;
         Stage stage = getStage();
-        new PersonMenu(stage, false);
+        new PersonMenu(stage);
     }
     @FXML
     private void switchToInsert() {
@@ -490,6 +499,7 @@ public class ControllerMenu implements Initializable {
     }
     private void productSelected(int in) throws IOException {
         Stage stage = getStage();
+        ProductPage.previousScene = 1;
         new ProductPage(stage, in);
     }
     /*since I did not find a way to inject nodes in an array I had to give all of needed node a unique fx:id and inject all of them individually.

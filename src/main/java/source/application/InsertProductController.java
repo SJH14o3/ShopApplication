@@ -29,12 +29,14 @@ public class InsertProductController extends Insert implements Initializable {
     @FXML
     private void parseInformation() {
         if (InsertProduct.changeStock) {
+            InsertProduct.changeStock = false;
             ProductDataBase.updateQuantity(spinner.getValue());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText("Successfully updated the product!");
             alert.showAndWait();
             try {
+                ProductPage.previousScene = 1;
                 new ProductPage(Global.getStage(), ProductPage.PRODUCT_ID);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -153,8 +155,6 @@ public class InsertProductController extends Insert implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,1000);
-        valueFactory.setValue(1);
         category.getItems().setAll(categories);
         if (InsertProduct.changeStock) {
             Product product = ProductDataBase.getProduct(ProductPage.PRODUCT_ID);
@@ -172,9 +172,15 @@ public class InsertProductController extends Insert implements Initializable {
             category.setDisable(true);
             descriptionTextArea.setText(product.getDescription());
             descriptionTextArea.setDisable(true);
-            valueFactory.setValue(product.getQuantity());
+            SpinnerValueFactory<Integer> valueFactory1 = new SpinnerValueFactory.IntegerSpinnerValueFactory(product.getQuantity(),1000);
+            valueFactory1.setValue(product.getQuantity());
+            spinner.setValueFactory(valueFactory1);
         }
-        spinner.setValueFactory(valueFactory);
+        else {
+            SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,1000);
+            valueFactory.setValue(1);
+            spinner.setValueFactory(valueFactory);
+        }
     }
     @FXML
     private void back() {

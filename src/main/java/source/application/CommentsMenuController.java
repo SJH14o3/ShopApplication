@@ -78,12 +78,12 @@ public class CommentsMenuController implements Initializable {
     private void update() {
         pageCounter.setText(String.valueOf(page));
         first = (page - 1) * 6;
-        System.out.println("First: " + first);
+        //System.out.println("First: " + first);
         last = first + 6;
         if (last > comments.length) {
             last = comments.length;
         }
-        System.out.println("Last: " + last);
+        //System.out.println("Last: " + last);
         int i;
         for (i = 0; i < last - first; i++) {
             if (!panes[i].isVisible()) {
@@ -111,7 +111,7 @@ public class CommentsMenuController implements Initializable {
         if (previousButton.isDisable()) {
             previousButton.setDisable(false);
         }
-        if (!(last < comments.length)) {
+        if (last == comments.length) {
             nextButton.setDisable(true);
         }
     }
@@ -141,14 +141,16 @@ public class CommentsMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        backButton.setGraphic(new ImageView(new Image("back_arrow.png")));
+        backButton.setGraphic(new ImageView(new Image("smallBackArrow.png")));
+        nextButton.setGraphic(new ImageView(new Image("nextSmall.png")));
+        previousButton.setGraphic(new ImageView(new Image("prevSmall.png")));
         comments = CommentDataBase.getProductComments(ProductPage.PRODUCT_ID);
         initiateArrays();
         first = 0;
         if (comments.length > 0) {
             noComment.setVisible(false);
         }
-        if (comments.length < 6) {
+        if (comments.length <= 6) {
             nextButton.setDisable(true);
             last = comments.length;
         }
