@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class SendEmail extends Thread{
     private static final String senderEmail = "approjectshopapplication@zohomail.com";
-    private static final String senderPassword = "fQ&5i?bY5R";
+    private static final String senderPassword = ""; //password has been changed after repository went public
     private final String recipientEmail;
     private final String subject;
     private final String text;
