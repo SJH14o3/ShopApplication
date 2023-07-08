@@ -71,6 +71,7 @@ public class WarehousesDataBase extends DatabaseConnection {
                 }
             }
             resultSet.close();
+            System.out.println(counts[2]);
             return counts;
         } catch (SQLException e) {
             throw new RuntimeException(e);

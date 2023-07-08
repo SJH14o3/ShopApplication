@@ -71,7 +71,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private Label pageCounter, minPrice, maxPrice;
     @FXML
-    private Button nextButton, previousButton, auctionButton, vendor, bell, vendorProducts, warehouses;
+    private Button nextButton, previousButton, auctionButton, vendor, bell, vendorProducts, warehouses , ChatAdmin;
     @FXML
     private Slider minSlider, maxSlider;
     @FXML
@@ -382,6 +382,8 @@ public class ControllerMenu implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
         fade = new RedCircleThread(circle);
         bell.setGraphic(new ImageView(new Image("bell.png")));
         Notification[] temp = NotificationDataBase.getAll(Global.getUser_id());

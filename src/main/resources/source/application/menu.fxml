@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -13,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.ControllerMenu">
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.ControllerMenu">
    <children>
       <ChoiceBox fx:id="sortBox" layoutX="1131.0" layoutY="79.0" prefHeight="25.0" prefWidth="117.0" />
       <Label layoutX="1073.0" layoutY="79.0" prefHeight="24.0" prefWidth="54.0" text="Sort By:">
@@ -27,7 +33,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="scrollPane" layoutX="301.0" layoutY="110.0" prefHeight="570.0" prefWidth="961.0">
+      <ScrollPane fx:id="scrollPane" layoutX="301.0" layoutY="136.0" prefHeight="570.0" prefWidth="961.0">
         <content>
           <AnchorPane fx:id="productScroll" minHeight="0.0" minWidth="0.0" prefHeight="2541.0" prefWidth="946.0">
                <children>
@@ -1803,5 +1809,6 @@
       <Circle fx:id="circle" fill="RED" layoutX="500.0" layoutY="80.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Button fx:id="vendorProducts" layoutX="1010.0" layoutY="18.0" mnemonicParsing="false" onAction="#sortForVendor" prefHeight="25.0" prefWidth="117.0" text="Your Products" />
       <Button fx:id="warehouses" layoutX="569.0" layoutY="18.0" mnemonicParsing="false" onAction="#openWarehouses" text="warehouses" />
+      <Button fx:id="ChatAdmin" layoutX="210.0" layoutY="12.0" mnemonicParsing="false" text="chat" />
    </children>
 </AnchorPane>

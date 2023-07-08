@@ -142,7 +142,7 @@ public class database {
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , Global.PASSWORD);
-            preparedStatement = connection.prepareStatement("SELECT Password , UserType,User_id, balance ,vendor_compacy FROM users WHERE Username = ?");
+            preparedStatement = connection.prepareStatement("SELECT Password , UserType,User_id, balance ,vendor_company FROM users WHERE Username = ?");
             preparedStatement.setString(1 , Username);
             resultSet = preparedStatement.executeQuery();
 
@@ -155,7 +155,7 @@ public class database {
                 while (resultSet.next()){
                         String retrivedPassword = resultSet.getString("Password");
                     String retrivedUserType = resultSet.getString("UserType");
-                    String retrivedvendor_compacy = resultSet.getString("vendor_compacy");
+                    String retrivedvendor_compacy = resultSet.getString("vendor_company");
                     if(retrivedPassword.equals(Password)){
                         Stage stage = Global.getStage();
                         if (retrivedUserType.equals("Consumer")) {
