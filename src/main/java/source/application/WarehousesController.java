@@ -1,7 +1,11 @@
 package source.application;
 
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -18,6 +22,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class WarehousesController implements Initializable {
+
+    @FXML
+    private PieChart pieChart ;
     private Warehouse[] warehouses;
     public static int page = 0;
     public static int count;
@@ -74,6 +81,7 @@ public class WarehousesController implements Initializable {
         }
         update();
     }
+    public int[] counts = {10,20,30,40,50,60,50,40,20,10};
     private void update() {
         name.setText("Name: " + warehouses[page].name);
         manager.setText("Manager: " + warehouses[page].manager);
@@ -82,6 +90,30 @@ public class WarehousesController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+         counts =WarehousesDataBase.getCategoriesCount(1);
+
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+                        new PieChart.Data("Vegetables" ,counts[0]),
+                        new PieChart.Data("Fruits" ,counts[1]),
+                        new PieChart.Data("Dried Fruits" ,counts[2]),
+                        new PieChart.Data("Proteins" ,counts[3]),
+                        new PieChart.Data("Sweets" ,counts[4]),
+                        new PieChart.Data("Groceries" ,counts[5]),
+                        new PieChart.Data("Dairy" ,counts[6]),
+                        new PieChart.Data("Beverages" ,counts[7]),
+                        new PieChart.Data("Snacks" ,counts[8]),new PieChart.Data("Breakfast" ,counts[9]));
+
+                        pieChartData.forEach(data ->
+                                data.nameProperty().bind(
+                                        Bindings.concat(
+                                                data.getName()," amount: " , data.pieValueProperty()
+                                        )
+                                ));
+
+                pieChart.getData().addAll(pieChartData);
+
         prevButton.setGraphic(new ImageView(new Image("prevSmall.png")));
         nextButton.setGraphic(new ImageView(new Image("nextSmall.png")));
         backButton.setGraphic(new ImageView(new Image("back_arrow.png")));

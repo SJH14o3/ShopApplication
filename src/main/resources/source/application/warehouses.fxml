@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -7,8 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="681.0" prefWidth="1264.0" style="-fx-background-color: C4C4C4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.WarehousesController">
+<AnchorPane prefHeight="681.0" prefWidth="1264.0" style="-fx-background-color: C4C4C4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.application.WarehousesController">
    <children>
       <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="65.0" prefWidth="79.0" />
       <AnchorPane layoutX="14.0" layoutY="93.0" prefHeight="560.0" prefWidth="1236.0" style="-fx-background-color: DDDDDD;">
@@ -42,6 +47,7 @@
             </Label>
             <Button layoutX="489.0" layoutY="424.0" mnemonicParsing="false" onAction="#edit" prefHeight="65.0" prefWidth="145.0" text="Edit" />
             <Button layoutX="650.0" layoutY="424.0" mnemonicParsing="false" onAction="#delete" prefHeight="65.0" prefWidth="145.0" text="Delete" />
+            <PieChart fx:id="pieChart" layoutX="829.0" layoutY="233.0" prefHeight="317.0" prefWidth="369.0" />
          </children>
       </AnchorPane>
       <Button layoutX="1171.0" layoutY="14.0" mnemonicParsing="false" onAction="#add" prefHeight="65.0" prefWidth="79.0" text="Add" />
