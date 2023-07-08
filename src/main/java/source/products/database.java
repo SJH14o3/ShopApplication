@@ -4,14 +4,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import source.Global;
 import source.User;
 import source.application.Menu;
+import source.notifications.NotificationDataBase;
 import source.threads.SendEmail;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.Optional;
 
 public class database {
 
@@ -46,6 +49,7 @@ public class database {
         stage.show();
     }
     public static void SignUpUser(ActionEvent event, String username, String Email, String password, String usertype , String CompanyName){
+        System.out.println(usertype);
         Connection connection = null ;
         PreparedStatement PsInsert = null ;
         PreparedStatement PsCheckUserExists = null;
@@ -61,22 +65,40 @@ public class database {
                 alert.setContentText("This Username Is Already Exist!");
                 alert.show();
             }else {
-                PsInsert = connection.prepareStatement("INSERT INTO users (Username , Email , Password , UserType, balance, vendor_compacy) VALUES (?,?,?,?, 0.00 ,?)");
+                int authorized = 1;
+                if (usertype.equals("Vendor")) {
+                    authorized = 0;
+                }
+                PsInsert = connection.prepareStatement("INSERT INTO users (Username , Email , Password , UserType, balance, vendor_company, authorized) VALUES (?,?,?,?, 0.00 ,?, " + authorized + ")");
                 PsInsert.setString(1,username);
                 PsInsert.setString(2,Email);
                 PsInsert.setString(3,password);
                 PsInsert.setString(5,CompanyName);
+                PsInsert.setString(4, usertype);
                 PsInsert.executeUpdate();
+                if (authorized == 0) {
+                    Statement statement = connection.createStatement();
+                    ResultSet resultSet2 = statement.executeQuery("SELECT user_id FROM users WHERE Username = \"" + username +"\"");
+                    resultSet2.next();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    NotificationDataBase.insertAuthorizeNotification(resultSet2.getInt(1));
+                    resultSet2.close();
+                    alert.setTitle("Success");
+                    alert.setHeaderText("Your sign up was successful");
+                    alert.setContentText("When admin accept your authorization, you will receive an email");
+                    alert.showAndWait();
+                    System.exit(0);
+                }
                 Statement statement = connection.createStatement();
-                ResultSet resultSet1 = statement.executeQuery("SELECT user_id, UserType, balance , vendor_compacy FROM users WHERE Username = \"" + username +"\"");
+                ResultSet resultSet1 = statement.executeQuery("SELECT user_id, UserType, balance , vendor_company FROM users WHERE Username = \"" + username +"\"");
                 if (resultSet1.next()) {
                     Thread sendEmail = new SendEmail(Email, "Sign up was successful!", "Welcome to Shop Application, " + username + "!");
                     sendEmail.start();
                     Global.setUser_id(resultSet1.getInt(1));
                     String userType = resultSet1.getString(2).trim();
                     Global.setBalance(resultSet1.getDouble(3));
-                    Global.setVendor_compacy(resultSet1.getString(4));
-                    System.out.println("initial Compony: " + Global.getVendor_compacy());
+                    Global.setVendor_company(resultSet1.getString(4));
+                    System.out.println("initial Company: " + Global.getVendor_company());
                     if (userType.equals("Consumer")) {
                         User.setUser_type(1);
                     }
@@ -142,7 +164,7 @@ public class database {
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , Global.PASSWORD);
-            preparedStatement = connection.prepareStatement("SELECT Password , UserType,User_id, balance ,vendor_company FROM users WHERE Username = ?");
+            preparedStatement = connection.prepareStatement("SELECT Password , UserType,User_id, balance ,vendor_company, authorized  FROM users WHERE Username = ?");
             preparedStatement.setString(1 , Username);
             resultSet = preparedStatement.executeQuery();
 
@@ -153,6 +175,13 @@ public class database {
                 alert.show();
             }else {
                 while (resultSet.next()){
+                    if (resultSet.getInt("authorized") != 1) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("You are not authorized");
+                        alert.showAndWait();
+                        return;
+                    }
                         String retrivedPassword = resultSet.getString("Password");
                     String retrivedUserType = resultSet.getString("UserType");
                     String retrivedvendor_compacy = resultSet.getString("vendor_company");
@@ -181,8 +210,40 @@ public class database {
                         }
                     }else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Password is incorect");
-                        alert.show();
+                        alert.setTitle("Error");
+                        alert.setTitle("Wrong password!");
+                        String[] temp = getEmailAndPass(Username);
+                        String[] emailParts = temp[0].split("@");
+                        System.out.println(emailParts[0]);
+                        System.out.println(emailParts[1]);
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(emailParts[0], 0, 2);
+                        sb.append("*".repeat(Math.max(0, emailParts[0].length() - 2)));
+                        sb.append('@');
+                        alert.setContentText("Try again or forgot password? If you forgot then we will send " + Username + "'account password through an email to  email which is: " + sb + emailParts[1]);
+                        ButtonType tryAgain = new ButtonType("Try Again");
+                        ButtonType forgot = new ButtonType("Forgot Password");
+                        alert.getButtonTypes().setAll(tryAgain, forgot);
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if (result.isPresent() && result.get() == forgot) {
+                            try {
+                                Alert alert3 = new Alert(Alert.AlertType.INFORMATION);
+                                alert3.setTitle("Please wait");
+                                alert3.setHeaderText("Please wait while we are sending you email");
+                                alert3.show();
+                                SendEmail wait = new SendEmail(temp[0], "Forgot password", "Dear " + Username +", This is your password: " + temp[1] +"\nIf this is not you request simply ignore this message");
+                                wait.setPriority(1);
+                                wait.start();
+                                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                                alert2.setTitle("Success");
+                                alert2.setHeaderText("Email was sent successfully!");
+                                wait.join();
+                                alert3.hide();
+                                alert2.showAndWait();
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
                     }
                 }
             }
@@ -210,6 +271,19 @@ public class database {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+    private static String[] getEmailAndPass(String username) {
+        String SQL = "SELECT Email, Password FROM users WHERE Username = \"" + username + "\" LIMIT 1";
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_db2" , "root" , Global.PASSWORD); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            String[] result = new String[2];
+            result[0] = resultSet.getString(1).trim();
+            result[1] = resultSet.getString(2).trim();
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
     public static String getUsername(int user_id) {
@@ -298,6 +372,34 @@ public class database {
         String SQL = "UPDATE users SET Email = \"" + Global.getEmail() + "\" WHERE user_id = " + Global.getUser_id();
         try (Connection connection = DatabaseConnection.establishConnection("login_db2"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
             preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void authorizeVendorAccepted(int user_id) {
+        String SQL = "UPDATE users SET authorized = 1 WHERE (User_id = " + user_id +");\n";
+        System.out.println(SQL);
+        try (Connection connection = DatabaseConnection.establishConnection("login_db2"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+            preparedStatement.execute();
+            SQL = "SELECT Username, Email FROM users WHERE User_id = " + user_id;
+            ResultSet resultSet = preparedStatement.executeQuery(SQL);
+            resultSet.next();
+            SendEmail send = new SendEmail(resultSet.getString(2).trim(), "Accepted!", "Dear " + resultSet.getString(1).trim() + ", You have been accepted as a vendor to our shop!");
+            send.start();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void authorizeVendorDeclined(int user_id) {
+        String SQL = "UPDATE users SET authorized = -1 WHERE (User_id = " + user_id +");\n";
+        System.out.println(SQL);
+        try (Connection connection = DatabaseConnection.establishConnection("login_db2"); PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+            preparedStatement.execute();
+            SQL = "SELECT Username, Email FROM users WHERE User_id = " + user_id;
+            ResultSet resultSet = preparedStatement.executeQuery(SQL);
+            resultSet.next();
+            SendEmail send = new SendEmail(resultSet.getString(2).trim(), "Declined!", "Dear " + resultSet.getString(1).trim() + ", You have not been accepted as a vendor to our shop");
+            send.start();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

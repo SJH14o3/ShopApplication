@@ -14,13 +14,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import source.Global;
-import source.notifications.AuctionWinnerNotification;
-import source.notifications.NoBidNotification;
-import source.notifications.Notification;
-import source.notifications.NotificationDataBase;
+import source.notifications.*;
 import source.products.AuctionDataBase;
 import source.products.Product;
 import source.products.ProductDataBase;
+import source.products.database;
 
 import static source.products.ProductDataBase.*;
 import static source.Global.*;
@@ -486,6 +484,23 @@ public class ControllerMenu implements Initializable {
                 alert.setContentText("Product will be shipped to you soon!");
                 alert.showAndWait();
                 NotificationDataBase.deleteAuctionWinnerNotification(n.id);
+            }
+            else if (notification instanceof AuthorizeVendor n) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Notification");
+                alert.setHeaderText(n.getText());
+                alert.setContentText("Select Action");
+                ButtonType accept = new ButtonType("Accept");
+                ButtonType decline = new ButtonType("Decline");
+                alert.getButtonTypes().setAll(accept, decline);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == accept) {
+                    database.authorizeVendorAccepted(n.user_id);
+                }
+                else if (result.isPresent() && result.get() == decline) {
+                    database.authorizeVendorDeclined(n.user_id);
+                }
+                NotificationDataBase.deleteAuthorizationNotification(n.id);
             }
             notifications.remove(0);
             if (notifications.size() == 0) {
