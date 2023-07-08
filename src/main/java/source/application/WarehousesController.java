@@ -87,11 +87,7 @@ public class WarehousesController implements Initializable {
         manager.setText("Manager: " + warehouses[page].manager);
         address.setText("Address: " + warehouses[page].address);
         id.setText("ID: " + warehouses[page].id);
-    }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-         counts =WarehousesDataBase.getCategoriesCount(1);
+        counts =WarehousesDataBase.getCategoriesCount(warehouses[page].id);
 
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
@@ -105,15 +101,17 @@ public class WarehousesController implements Initializable {
                         new PieChart.Data("Beverages" ,counts[7]),
                         new PieChart.Data("Snacks" ,counts[8]),new PieChart.Data("Breakfast" ,counts[9]));
 
-                        pieChartData.forEach(data ->
-                                data.nameProperty().bind(
-                                        Bindings.concat(
-                                                data.getName()," amount: " , data.pieValueProperty()
-                                        )
-                                ));
+        pieChartData.forEach(data ->
+                data.nameProperty().bind(
+                        Bindings.concat(
+                                data.getName()," amount: " , data.pieValueProperty()
+                        )
+                ));
 
-                pieChart.getData().addAll(pieChartData);
-
+        pieChart.getData().addAll(pieChartData);
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         prevButton.setGraphic(new ImageView(new Image("prevSmall.png")));
         nextButton.setGraphic(new ImageView(new Image("nextSmall.png")));
         backButton.setGraphic(new ImageView(new Image("back_arrow.png")));
